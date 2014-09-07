@@ -1,4 +1,5 @@
 if [ `uname` == 'Darwin' ]
+then
     alias google-chrome='open -a Google\ Chrome'
 fi
 

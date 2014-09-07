@@ -1,1 +1,0 @@
-Bundle 'digitaltoad/vim-jade'
