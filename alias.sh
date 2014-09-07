@@ -1,4 +1,6 @@
-alias google-chrome='open -a Google\ Chrome'
+if [ `uname` == 'Darwin' ]
+    alias google-chrome='open -a Google\ Chrome'
+fi
 
 extract () {
     if [ -f $1 ] ; then
