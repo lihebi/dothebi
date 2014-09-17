@@ -1,6 +1,7 @@
 if [ `uname` == 'Darwin' ]
 then
     alias google-chrome='open -a Google\ Chrome'
+    alias sublime='open -a Sublime\ Text'
 fi
 
 extract () {
