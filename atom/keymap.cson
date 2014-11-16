@@ -1,20 +1,11 @@
-# Your keymap
-#
-# Atom keymaps work similarly to stylesheets. Just as stylesheets use selectors
-# to apply styles to elements, Atom keymaps use selectors to associate
-# keystrokes with events in specific contexts.
-#
-# You can create a new keybinding in this file by typing "key" and then hitting
-# tab.
-#
-# Here's an example taken from Atom's built-in keymap:
-#
-# '.editor':
-#   'enter': 'editor:newline'
-#
-# '.workspace':
-#   'ctrl-P': 'core:move-up'
-#   'ctrl-p': 'core:move-down'
-#
-'.editor':
-  'ctrl-=': 'editor:auto-indent'
+'.platform-linux .editor':
+  'ctrl-n': 'core:move-down'
+  'ctrl-p': 'core:move-up'
+  'ctrl-b': 'core:move-left'
+  'ctrl-f': 'core:move-right'
+  'ctrl-d': 'core:delete'
+  'ctrl-h': 'core:backspace'
+  'cmd-f': 'find-and-replace:toggle'
+  'cmd-=': 'editor:auto-indent'
+  'ctrl-e': 'editor:move-to-end-of-line'
+  'ctrl-a': 'editor:move-to-first-character-of-line'
