@@ -1,14 +1,22 @@
-#Configure file for Unix
+# Configure for Mac/Linux
 
-**Caution**
-This script will overwrite `$HOME/.vimrc` and `$HOME/.vim`
+## Steps
 
-Add following into $HOME/.zshrc
-```
-source $HOME/.hebi/alias.sh
-```
+### Install software
 
-run installer
-```
-sh install.sh
-```
+* `vim`
+* `atom`
+* `zsh`
+* `autojump`
+
+### configure files
+
+* `vim/install.sh`
+* `atom/install.sh`
+* `linux/install.sh`
+
+### Install 辅助程序
+
+* `oh-my-zsh`
+* `rvm`
+* `nvm`
