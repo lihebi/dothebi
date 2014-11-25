@@ -25,3 +25,9 @@ set tabstop=2
 set shiftwidth=2
 " insert space whenever tab key is pressed
 set expandtab
+
+" jump to last position when reopen a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g'\"" | endif
+endif
