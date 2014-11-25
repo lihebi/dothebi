@@ -9,6 +9,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'Townk/vim-autoclose'
 call vundle#end()
 filetype plugin indent on
 syntax on
