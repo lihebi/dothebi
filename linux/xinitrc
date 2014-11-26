@@ -1,3 +1,4 @@
+#!/bin/sh
 xrdb ~/.Xresources
 xcompmgr -c &
 
@@ -8,4 +9,7 @@ export XMODIFIERS="@im=fcitx"
 fcitx&
 xscreensaver &
 
-exec awesome
+#pcmanfm --desktop&
+#cairo-dock -o &
+#exec openbox
+exec startxfce4
