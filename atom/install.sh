@@ -8,3 +8,5 @@ apm install zentabs
 apm install language-latex
 apm install color-picker
 apm install atom-html-preview
+apm install project-manager
+apm install resize-panes
