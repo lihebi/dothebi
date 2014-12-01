@@ -39,4 +39,6 @@ endif
 let mapleader = ","
 
 " highlight all matches
-:set hlsearch
+set hlsearch
+
+set noswapfile
