@@ -1,3 +1,5 @@
+'.editor':
+  'cmd-=': 'editor:auto-indent'
 '.platform-linux .editor':
   'ctrl-n': 'core:move-down'
   'ctrl-p': 'core:move-up'
@@ -5,7 +7,6 @@
   'ctrl-f': 'core:move-right'
   'ctrl-d': 'core:delete'
   'ctrl-h': 'core:backspace'
-  'cmd-f': 'find-and-replace:toggle'
-  'cmd-=': 'editor:auto-indent'
   'ctrl-e': 'editor:move-to-end-of-line'
   'ctrl-a': 'editor:move-to-first-character-of-line'
+  'cmd-f': 'find-and-replace:toggle'
