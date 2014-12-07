@@ -14,4 +14,3 @@ apm install resize-panes
 apm install atom-beautify
 apm install html-entities
 apm install linter
-apm install autocomplete-plus
