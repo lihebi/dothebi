@@ -1,5 +1,5 @@
 '.editor':
-  'cmd-=': 'editor:auto-indent'
+  'ctrl-=': 'editor:auto-indent'
 '.platform-linux .editor':
   'ctrl-n': 'core:move-down'
   'ctrl-p': 'core:move-up'

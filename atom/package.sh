@@ -1,8 +1,5 @@
 #!/bin/sh
 
-ln -sf $HOME/.hebi/atom/styles.less $HOME/.atom/styles.less
-ln -sf $HOME/.hebi/atom/keymap.cson $HOME/.atom/keymap.cson
-
 rm -rf $HOME/.atom/packages/*
 
 apm install minimap
