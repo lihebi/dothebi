@@ -22,12 +22,6 @@ export NVM_DIR="$HOME/.nvm"
 # XDG CONFIG HOME
 export XDG_CONFIG_HOME=$HOME/.config
 
-# transset-df
-if [ `uname` != 'Darwin' ]
-then
-  [ $TERM != "linux" ] && transset-df -a > /dev/null
-fi
-
 # RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -64,3 +58,5 @@ extract () {
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gm='git commit -m'
+
+export EDITOR=vim
