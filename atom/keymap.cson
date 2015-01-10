@@ -14,3 +14,11 @@
   'ctrl-e': 'editor:move-to-end-of-line'
   'ctrl-a': 'editor:move-to-first-character-of-line'
   'cmd-f': 'find-and-replace:toggle'
+  'cmd-s': 'core:save'
+'.platform-linux, .platform-linux .command-palette .editor':
+  'cmd-shift-p': 'command-palette:toggle'
+'atom-workspace atom-text-editor:not([mini])':
+  'cmd-enter': 'editor:newline-below'
+  'cmd-shift-enter': 'editor:newline-above'
+'.platform-linux':
+  'cmd-,': 'application:show-settings'
