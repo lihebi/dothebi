@@ -42,3 +42,5 @@ let mapleader = ","
 set hlsearch
 
 set noswapfile
+
+set copyindent
