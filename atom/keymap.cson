@@ -22,3 +22,15 @@
   'cmd-shift-enter': 'editor:newline-above'
 '.platform-linux':
   'cmd-,': 'application:show-settings'
+  'cmd-w': 'core:close'
+  'cmd-z': 'core:undo'
+  'cmd-y': 'core:redo'
+  'cmd-l': 'editor:select-line'
+  'cmd-t': 'fuzzy-finder:toggle-file-finder'
+  'cmd-]': 'editor:indent-selected-rows'
+  'cmd-[': 'editor:outdent-selected-rows'
+  'cmd-enter': 'editor:newline-below'
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-]': 'symbols-view:go-to-declaration'
+'.editor.vim-mode':
+  'ctrl-c': 'core:copy'
