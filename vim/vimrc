@@ -10,6 +10,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Townk/vim-autoclose'
+Plugin 'tomasr/molokai'
 " <leader>c<space>: toggle
 " <leader>cs: sexy comment: use /* ... */
 Plugin 'scrooloose/nerdcommenter'
@@ -37,6 +38,8 @@ endif
 
 " set map leader
 let mapleader = ","
+
+colorscheme molokai
 
 " highlight all matches
 set hlsearch
