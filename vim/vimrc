@@ -16,6 +16,7 @@ Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
 call vundle#end()
 filetype plugin indent on
+colorscheme molokai
 syntax on
 
 "disable vim-markdown folding
@@ -39,7 +40,6 @@ endif
 " set map leader
 let mapleader = ","
 
-colorscheme molokai
 
 " highlight all matches
 set hlsearch
