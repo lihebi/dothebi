@@ -21,6 +21,7 @@
   'cmd-enter': 'editor:newline-below'
   'cmd-shift-enter': 'editor:newline-above'
 '.platform-linux':
+  'cmd-a': 'core:select-all'
   'cmd-,': 'application:show-settings'
   'cmd-w': 'core:close'
   'cmd-z': 'core:undo'
