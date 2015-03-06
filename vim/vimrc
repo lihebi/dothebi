@@ -50,3 +50,5 @@ set incsearch
 set noswapfile
 
 set copyindent
+
+map gr :tabprev<CR>
