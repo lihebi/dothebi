@@ -16,32 +16,43 @@ atom.grammars.loadGrammar "#{process.env['ATOM_HOME']}/grammar.cson"
 
 atom.contextMenu.add {
   'atom-text-editor': [{
-      label: 'Show PDF in Preview'
-      command: 'hebi:open-pdf'
+      label: 'Smart Scholar'
+      command: 'hebi:scholar'
     }]
 }
-atom.commands.add 'atom-text-editor', 'hebi:open-pdf', ->
-  Editor = atom.workspace.getActiveTextEditor()
-  Cursor = Editor.getLastCursor()
-  _lineContent = Cursor.getCurrentBufferLine()
-  url = _lineContent.match(/PDF: ([^\s]+)/)
-  return if not url? or not url.length? or url.length==1
+
+matchPDF = (line) ->
+  url = line.match(/PDF: ([^\s]+)/)
+  return if not url? or not url.length? or url.length<2
   url = url[1]
   url = "#{atom.project.getPath()}/#{url}"
-  # find url in _lineContent
-  console.log url
-  # open preview for the url
   command = "open"
   args = ['-a', 'Preview', url]
   new BufferedProcess({command, args})
 
-atom.contextMenu.add {
-  'atom-workspace': [{label: 'Help', command: 'application:open-documentation'}]
-  'atom-text-editor': [{
-    label: 'History',
-    submenu: [
-      {label: 'Undo', command:'core:undo'}
-      {label: 'Redo', command:'core:redo'}
-    ]
-  }]
-}
+matchTitle = (line) ->
+  title = line.match(/title={([^}]*)}/)
+  return if not title? or not title.length? or title.length<2
+  title = title[1]
+  command = "open"
+  args = ['-a', 'Google Chrome', "https://scholar.google.com/scholar?hl=en&q=#{title}"]
+  new BufferedProcess({command, args})
+
+atom.commands.add 'atom-text-editor', 'hebi:scholar', ->
+  Editor = atom.workspace.getActiveTextEditor()
+  Cursor = Editor.getLastCursor()
+  line = Cursor.getCurrentBufferLine()
+  console.log line
+  matchPDF(line)
+  matchTitle(line)
+
+# atom.contextMenu.add {
+#   'atom-workspace': [{label: 'Help', command: 'application:open-documentation'}]
+#   'atom-text-editor': [{
+#     label: 'History',
+#     submenu: [
+#       {label: 'Undo', command:'core:undo'}
+#       {label: 'Redo', command:'core:redo'}
+#     ]
+#   }]
+# }
