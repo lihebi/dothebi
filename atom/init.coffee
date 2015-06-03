@@ -38,7 +38,7 @@ matchTitle = (line) ->
   args = ['-a', 'Google Chrome', "https://scholar.google.com/scholar?hl=en&q=#{title}"]
   new BufferedProcess({command, args})
 
-atom.commands.add 'atom-text-editor', 'hebi:scholar', ->
+atom.commands.add 'atom-text-editor', 'hebi:Smart Scholar', ->
   Editor = atom.workspace.getActiveTextEditor()
   Cursor = Editor.getLastCursor()
   line = Cursor.getCurrentBufferLine()
