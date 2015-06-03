@@ -38,13 +38,31 @@ matchTitle = (line) ->
   args = ['-a', 'Google Chrome', "https://scholar.google.com/scholar?hl=en&q=#{title}"]
   new BufferedProcess({command, args})
 
+matchAuthor = (line, column) ->
+  authors = line.match(/author={([^}]*)}/)
+  return if not authors? or not authors.length? or authors.length<2
+  authors = authors[1]
+  authors = authors.split('and')
+  return if not authors? or not authors.length? or authors.length<1
+  result = ''
+  for author in authors
+    do (author) ->
+      if line.indexOf(author) <= column
+        result = author
+  command = "open"
+  args = ['-a', 'Google Chrome', encodeURI("https://www.google.com/#q=#{result}")]
+  console.log args
+  new BufferedProcess({command, args})
+
 atom.commands.add 'atom-text-editor', 'hebi:Smart Scholar', ->
   Editor = atom.workspace.getActiveTextEditor()
   Cursor = Editor.getLastCursor()
   line = Cursor.getCurrentBufferLine()
+  column = Cursor.getBufferColumn()
   console.log line
   matchPDF(line)
   matchTitle(line)
+  matchAuthor(line, column)
 
 # atom.contextMenu.add {
 #   'atom-workspace': [{label: 'Help', command: 'application:open-documentation'}]
