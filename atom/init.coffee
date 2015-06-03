@@ -25,7 +25,9 @@ matchPDF = (line) ->
   url = line.match(/PDF: ([^\s]+)/)
   return if not url? or not url.length? or url.length<2
   url = url[1]
-  url = "#{atom.project.getPath()}/#{url}"
+  path = atom.workspace.getActiveTextEditor().getPath()
+  path = path.substring(0, path.lastIndexOf('/'))
+  url = "#{path}/#{url}"
   command = "open"
   args = ['-a', 'Preview', url]
   new BufferedProcess({command, args})
@@ -35,7 +37,7 @@ matchTitle = (line) ->
   return if not title? or not title.length? or title.length<2
   title = title[1]
   command = "open"
-  args = ['-a', 'Google Chrome', "https://scholar.google.com/scholar?hl=en&q=#{title}"]
+  args = ["https://scholar.google.com/scholar?hl=en&q=#{title}"]
   new BufferedProcess({command, args})
 
 matchAuthor = (line, column) ->
@@ -50,7 +52,7 @@ matchAuthor = (line, column) ->
       if line.indexOf(author) <= column
         result = author
   command = "open"
-  args = ['-a', 'Google Chrome', encodeURI("https://www.google.com/#q=#{result}")]
+  args = [encodeURI("https://www.google.com/#q=#{result}")]
   console.log args
   new BufferedProcess({command, args})
 
