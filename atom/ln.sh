@@ -1,5 +1,7 @@
 #!/bin/sh
 
-ln -f $HOME/.hebi/atom/styles.less $HOME/.atom/styles.less
-ln -f $HOME/.hebi/atom/keymap.cson $HOME/.atom/keymap.cson
-ln -f $HOME/.hebi/atom/snippets.cson $HOME/.atom/snippets.cson
+ln -sf `pwd`/styles.less $HOME/.atom
+ln -sf `pwd`/keymap.cson $HOME/.atom
+ln -sf `pwd`/snippets.cson $HOME/.atom
+ln -sf `pwd`/init.coffee $HOME/.atom
+ln -sf `pwd`/grammar.cson $HOME/.atom

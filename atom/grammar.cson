@@ -1,0 +1,14 @@
+'scopeName': 'source.cson'
+'name': 'HEBI'
+'injectionSelector': 'comment, text.plain source.cson'
+# 'fileTypes': ['hebi'] HEBI TODO FIXME HEBI PDF: fd UNIV
+'patterns': [
+  {
+    'match': '(?<!\\w)@?(HEBI|CONF|PROBLEM|CONTRIB|DOWN|TECHNIQUE|UNIV)\\b'
+    'name': 'hebi.type.${1:/downcase}'
+  }
+  {
+    'match': 'PDF: [^\\s]+'
+    'name': 'hebi.type.pdf'
+  }
+]
