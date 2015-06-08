@@ -4,7 +4,7 @@
 # 'fileTypes': ['hebi'] HEBI TODO FIXME HEBI PDF: fd UNIV
 'patterns': [
   {
-    'match': '(?<!\\w)@?(CONF|PROBLEM|CONTRIB|DOWN|TECHNIQUE|UNIV|ALIAS)\\b'
+    'match': '(?<!\\w)@?(CONF|PROBLEM|CONTRIB|DOWN|TECHNIQUE|RELATED|UNIV|ALIAS)\\b'
     'name': 'smart-scholar.type.${1:/downcase}'
   }
   {

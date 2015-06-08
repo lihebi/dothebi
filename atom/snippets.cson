@@ -25,4 +25,4 @@
 '.comment':
   'bib':
     'prefix': 'bib'
-    'body': ' CONF$1\nPROBLEM\nCONTRIB\nTECHNIQUE\nDOWN\nUNIV'
+    'body': ' CONF$1\nPROBLEM\nCONTRIB\nTECHNIQUE\nDOWN\nRELATED\nUNIV$2\nPDF: $3'
