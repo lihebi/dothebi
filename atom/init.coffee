@@ -33,7 +33,7 @@ matchPDF = (line) ->
   new BufferedProcess({command, args})
 
 matchTitle = (line) ->
-  title = line.match(/title={([^}]*)}/)
+  title = line.match(/title\s*=\s*{([^}]*)}/)
   return if not title? or not title.length? or title.length<2
   title = title[1]
   command = "open"
