@@ -1,7 +1,9 @@
 'scopeName': 'source'
 'name': 'HEBI'
 'injectionSelector': 'comment, text.plain'
-# 'fileTypes': ['hebi'] HEBI TODO FIXME HEBI PDF: fd UNIV
+# 'fileTypes': ['hebi'] HEBI
+# TODO FIXME HEBI
+# PDF: fd UNIV
 'patterns': [
   {
     'match': '(?<!\\w)@?(CONF|PROBLEM|CONTRIB|DOWN|TECHNIQUE|BENCHMARK|RELATED|UNIV|ALIAS)\\b'

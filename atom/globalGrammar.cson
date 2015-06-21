@@ -1,0 +1,13 @@
+'scopeName': 'source'
+'name': 'HEBIBIB'
+'injectionSelector': '*'
+'fileTypes': [
+  'bib'
+]
+'patterns' : [
+  {
+    'match': '\\s*title\\s*=\\s*{(.*)}'
+    'captures':
+      '1': 'name': 'bibtitle'
+  }
+]

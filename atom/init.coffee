@@ -12,7 +12,8 @@
 # PDF: a.pdf
 
 {BufferedProcess} = require 'atom'
-atom.grammars.loadGrammar "#{process.env['ATOM_HOME']}/grammar.cson"
+atom.grammars.loadGrammar "#{process.env['ATOM_HOME']}/globalGrammar.cson"
+atom.grammars.loadGrammar "#{process.env['ATOM_HOME']}/commentGrammar.cson"
 
 atom.contextMenu.add {
   'atom-text-editor': [{
