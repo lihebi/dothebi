@@ -6,7 +6,7 @@
 ]
 'patterns' : [
   {
-    'match': '\\s*title\\s*=\\s*{(.*)}'
+    'match': '\\s*\\btitle\\s*=\\s*{(.*)}'
     'captures':
       '1': 'name': 'bibtitle'
   }
