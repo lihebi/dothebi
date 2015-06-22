@@ -14,6 +14,10 @@
     'name': 'hebi'
   }
   {
+    'match': '(?<!\\w)@?STEP\\b.*'
+    'name': 'hebi-step'
+  }
+  {
     'match': 'PDF: [^\\s]+'
     'name': 'smart-scholar.type.pdf'
   }
