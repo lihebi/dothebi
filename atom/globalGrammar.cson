@@ -1,5 +1,4 @@
 'scopeName': 'source'
-'name': 'HEBIBIB'
 'injectionSelector': '*'
 'fileTypes': [
   'bib'
