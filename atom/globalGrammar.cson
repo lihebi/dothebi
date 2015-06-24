@@ -1,8 +1,5 @@
 'scopeName': 'source'
 'injectionSelector': '*'
-'fileTypes': [
-  'bib'
-]
 'patterns' : [
   {
     'match': '\\s*\\btitle\\s*=\\s*{(.*)}'
