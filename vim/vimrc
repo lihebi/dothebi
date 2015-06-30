@@ -11,6 +11,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tomasr/molokai'
+Plugin 'scrooloose/nerdtree'
 " <leader>c<space>: toggle
 " <leader>cs: sexy comment: use /* ... */
 Plugin 'scrooloose/nerdcommenter'
