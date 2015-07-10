@@ -1,26 +1,22 @@
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="wuffers"
+ZSH_THEME="hebi"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git, autojump)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
-#export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# XDG CONFIG HOME
-export XDG_CONFIG_HOME=$HOME/.config
 
 # RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -32,7 +28,10 @@ alias "gs"="git status"
 if [[ `uname` == 'Darwin' ]]
 then
   alias google-chrome='open -a Google\ Chrome'
+  export PATH=$PATH:/Library/TeX/texbin/
 fi
+
+# extract all
 
 extract () {
     if [ -f $1 ] ; then
@@ -60,3 +59,9 @@ alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgree
 alias gm='git commit -m'
 
 export EDITOR=vim
+set -o ignoreeof
+export PATH="$HOME/bin:$PATH"
+
+if [ -f $HOME/.zshrc.local ]; then
+  source $HOME/.zshrc.local
+fi
