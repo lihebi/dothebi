@@ -35,14 +35,16 @@ function ssh_connection() {
   fi
 }
 function quote() {
-  echo " 我坐在观众席上看，尔等的愚笨"
+  # echo " 我坐在观众席上看，尔等的愚笨"
+  echo ""
 }
-function name() {
-  echo "合璧"
+function prefix() {
+  # echo "合璧"
+  echo "世界是我的"
 }
 
 PROMPT='
-$(ssh_connection)%{$fg[cyan]%}%m%{$reset_color%} $(name) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)
+$(ssh_connection) $(prefix) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)\
 %{$fg[red]%}˚∆˚%{$reset_color%} $(prompt_char) : '
 
-RPROMPT='${return_status}$(git_prompt_status)%{$reset_color%}'
+RPROMPT='${return_status}%{$reset_color%}'
