@@ -40,11 +40,10 @@ function quote() {
 }
 function prefix() {
   # echo "合璧"
-  echo "世界是我的"
+  echo "哥只是传说"
 }
 
-PROMPT='
-$(ssh_connection) $(prefix) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)\
+PROMPT='$(ssh_connection)$(prefix) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)\
 %{$fg[red]%}˚∆˚%{$reset_color%} $(prompt_char) : '
 
 RPROMPT='${return_status}%{$reset_color%}'
