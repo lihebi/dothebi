@@ -44,6 +44,6 @@ function prefix() {
 }
 
 PROMPT='$(ssh_connection)$(prefix) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)\
-%{$fg[red]%}˚∆˚%{$reset_color%} $(prompt_char) : '
+%{$fg[red]%}%{$reset_color%} $(prompt_char) : '
 
 RPROMPT='${return_status}%{$reset_color%}'
