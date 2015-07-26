@@ -4,6 +4,10 @@
   'ctrl-j': 'core:move-to-bottom'
   'ctrl-t': 'symbols-view:return-from-declaration'
   'ctrl-]': 'symbols-view:go-to-declaration'
+  'cmd-escape': 'hebi:switch-pane-item'
+
+# Linux
+
 '.platform-linux .editor':
   'ctrl-n': 'core:move-down'
   'ctrl-p': 'core:move-up'
@@ -31,6 +35,7 @@
   'cmd-]': 'editor:indent-selected-rows'
   'cmd-[': 'editor:outdent-selected-rows'
   'cmd-enter': 'editor:newline-below'
+
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-]': 'symbols-view:go-to-declaration'
 '.editor.vim-mode':

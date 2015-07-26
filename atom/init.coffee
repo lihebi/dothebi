@@ -77,3 +77,22 @@ atom.commands.add 'atom-text-editor', 'hebi:Smart Scholar', ->
 #     ]
 #   }]
 # }
+
+# switch between two pane items
+lastItem = null
+currentItem = atom.workspace.getActivePaneItem()
+
+atom.workspace.onDidChangeActivePaneItem (item) ->
+  lastItem = currentItem
+  currentItem = item
+
+atom.contextMenu.add {
+  'atom-text-editor': [{
+      label: 'Switch to Last Pane Item'
+      command: 'hebi:switch-pane-item'
+    }]
+}
+
+atom.commands.add 'atom-text-editor', 'hebi:switch-pane-item', ->
+  pane = atom.workspace.getActivePane()
+  pane.activateItem(lastItem)
