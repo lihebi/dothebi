@@ -13,3 +13,7 @@ apm install linter
 apm install autocomplete-paths
 apm install autocomplete-bibtex
 apm install autocomplete-clang
+apm install seti-syntax
+apm install seti-ui
+apm install linter-pylint
+apm install markdown-table-formatter
