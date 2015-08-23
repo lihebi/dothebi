@@ -17,3 +17,6 @@ apm install seti-syntax
 apm install seti-ui
 apm install linter-pylint
 apm install markdown-table-formatter
+apm install tool-bar-main
+apm install atom-material-ui
+apm install atom-material-syntax
