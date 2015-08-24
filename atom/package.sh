@@ -20,3 +20,5 @@ apm install markdown-table-formatter
 apm install tool-bar-main
 apm install atom-material-ui
 apm install atom-material-syntax
+apm install monokai
+apm install unity-ui
