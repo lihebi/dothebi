@@ -22,3 +22,4 @@ apm install atom-material-ui
 apm install atom-material-syntax
 apm install monokai
 apm install unity-ui
+apm install linter-clang
