@@ -105,16 +105,24 @@ atom.commands.add 'atom-text-editor', 'hebi:c-playground', ->
   current_file_path = editor.getPath()
   current_dir = current_file_path.substring(0, current_file_path.lastIndexOf('/'))
   command = 'g++'
-  output_executable = current_dir+'/a.out'
+  output_executable = '/tmp/a.out'
   args = [current_file_path, '-o', output_executable]
+  exit = (code) ->
+    if code == 0
+      # run
+      command = output_executable
+      stdout = (output) ->
+        element = hebi_panel.getItem()
+        element.innerText = output
+        hebi_panel.show()
+      new BufferedProcess({command, stdout})
   # compile
-  new BufferedProcess({command, args})
-  # run
-  output_func = (output) ->
+  stderr = (err) ->
+    console.log err
     element = hebi_panel.getItem()
-    element.textContent = output
+    element.innerText = "compile error. See console for detail"
     hebi_panel.show()
-  new BufferedProcess({command: output_executable, stdout: output_func})
+  new BufferedProcess({command, args, stderr, exit})
 
 atom.commands.add 'atom-workspace',
   'core:cancel': -> hebi_panel.hide()
