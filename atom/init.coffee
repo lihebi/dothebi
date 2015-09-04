@@ -96,3 +96,25 @@ atom.contextMenu.add {
 atom.commands.add 'atom-text-editor', 'hebi:switch-pane-item', ->
   pane = atom.workspace.getActivePane()
   pane.activateItem(lastItem)
+
+hebi_panel_element = document.createElement('hebi-panel')
+hebi_panel = atom.workspace.addBottomPanel({item: hebi_panel_element, visible: false})
+
+atom.commands.add 'atom-text-editor', 'hebi:c-playground', ->
+  editor = atom.workspace.getActiveTextEditor()
+  current_file_path = editor.getPath()
+  current_dir = current_file_path.substring(0, current_file_path.lastIndexOf('/'))
+  command = 'g++'
+  output_executable = current_dir+'/a.out'
+  args = [current_file_path, '-o', output_executable]
+  # compile
+  new BufferedProcess({command, args})
+  # run
+  output_func = (output) ->
+    element = hebi_panel.getItem()
+    element.textContent = output
+    hebi_panel.show()
+  new BufferedProcess({command: output_executable, stdout: output_func})
+
+atom.commands.add 'atom-workspace',
+  'core:cancel': -> hebi_panel.hide()
