@@ -21,6 +21,26 @@
   'Katex':
     'prefix': 'k'
     'body': '`$$1$`$2'
+  'red':
+    'prefix': 'red'
+    'body': '\\\\033[31m'
+  'green':
+    'prefix': 'green'
+    'body': '\\\\033[32m'
+  'reset':
+    'prefix': 'reset'
+    'body': '\\\\033[0m'
+  'yellow':
+    'prefix': 'yellow'
+    'body': '\\\\033[33m'
+  'blue':
+    'prefix': 'blue'
+    'body': '\\\\033[36m'
+
+'.source.c++':
+  'Debug':
+    'prefix': 'debug'
+    'body': 'std::cout<<[Debug]<<$1<<std::endl;'
 
 '.comment':
   'bib':
