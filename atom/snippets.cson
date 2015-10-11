@@ -45,4 +45,4 @@
 '.comment':
   'bib':
     'prefix': 'bib'
-    'body': 'CONF$1\nPROBLEM\nCONTRIB\nTECHNIQUE\nDOWN\nRELATED\nUNIV$2\nPDF: $3'
+    'body': 'CONF$1\nPROBLEM\nCONTRIB\nTECHNIQUE\nDOWN\nRELATED\nCITE\nPOINT\nUNIV$2\nPDF: $3'
