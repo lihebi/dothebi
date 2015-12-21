@@ -6,6 +6,8 @@
   'ctrl-]': 'symbols-view:go-to-declaration'
   'cmd-escape': 'hebi:switch-pane-item'
   'cmd-ctrl-h': 'switch-header-source:switch'
+  'ctrl-r': 'terminal-status:toggle'
+  'cmd-ctrl-l': 'pane:split-right'
 
 # Linux
 

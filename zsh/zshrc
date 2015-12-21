@@ -58,10 +58,12 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gm='git commit -m'
 
-export EDITOR=vim
+export EDITOR=emacs
 set -o ignoreeof
 export PATH="$HOME/bin:$HOME/.script:$PATH"
 
 if [ -f $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
+
+export TERM=xterm-256color

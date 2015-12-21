@@ -40,7 +40,8 @@ function quote() {
 }
 function prefix() {
   # echo "合璧"
-  echo "哥只是传说"
+    # echo "哥只是传说"
+    echo ""
 }
 
 PROMPT='$(ssh_connection)$(prefix) %{$fg[cyan]%}%~ %{$reset_color%}$(git_prompt_info) $(quote)\
