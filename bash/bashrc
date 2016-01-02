@@ -76,6 +76,7 @@ alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgree
 alias gm='git commit -m'
 
 alias emacs="emacs -nw"         # no window system if invoke from command line
+alias ec="emacsclient -t"
 
 alias ..="cd .."
 alias ...="cd ../.."
