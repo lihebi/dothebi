@@ -46,6 +46,9 @@ fi
 export HELIUM_HOME=$HOME/github/Helium
 export PATH=$HOME/github/Helium/scripts:$PATH
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 
 ##############################
 ## Alias
