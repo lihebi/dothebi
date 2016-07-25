@@ -1,0 +1,18 @@
+#!/bin/sh
+xrdb ~/.Xresources
+xcompmgr -c &
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+#export XIM="fcitx"
+#the following line is the key to use fcitx in urxvt
+export LC_CTYPE="zh_CN.UTF-8"
+
+fcitx&
+xscreensaver &
+
+#pcmanfm --desktop&
+#cairo-dock -o &
+#exec openbox
+exec startxfce4
