@@ -1,6 +1,9 @@
-# .Xresources file
+! .Xresources file
 
 XTerm*metaSendsEscape: true
 XTerm*foreground: white
 XTerm*background: black
 XTerm*faceName: Source Code Pro:Regular:size=12
+
+Xcursor.theme: whiteglass
+!Xcursor.size: 16
