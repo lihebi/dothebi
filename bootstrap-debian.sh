@@ -1,7 +1,8 @@
 #!/bin/bash
 
-list="git emacs xorg xinit build-essential \
-stumpwm
+list="git emacs xorg xinit build-essential tmux \
+stumpwm exuberant-ctags global cmake libsqlite3-dev autoconf \
+silversearcher-ag xcursor-themes
 "
 
 # apt-get update
@@ -38,3 +39,20 @@ sudo apt-get install -y $list
 
 # update-alternative --config x-terminal-emulator
 
+
+
+##############################
+## 3rd party library
+##############################
+
+# find google chrome here: https://wiki.debian.org/UnofficialRepositories
+
+
+##############################
+## Helium
+##############################
+
+helium_list="gnulib libboost-all-dev"
+
+# apt-get update
+sudo apt-get install -y $helium_list
