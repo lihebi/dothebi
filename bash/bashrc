@@ -44,10 +44,12 @@ fi
 
 # Helium
 export HELIUM_HOME=$HOME/github/Helium
-export PATH=$HOME/github/Helium/scripts:$PATH
+export PATH=$HELIUM_HOME/bin:$HELIUM_HOME/scripts:$PATH
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export PATH=$HOME/bin:$PATH
 
 
 ##############################
