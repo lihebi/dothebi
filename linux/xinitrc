@@ -1,8 +1,39 @@
-# .xinitrc file
+##############################
+## .xinitrc file
+##############################
 
+
+# Load ~/.Xresources
+# NEVER put xrdb into background,
+# otherwise programs launched after xrdb may look for resouces before they are loaded
+# The checking file exist version does not work
+# [[ -e ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+# [[ -e ~/.Xresources ]] && xrdb ~/.Xresources
 xrdb .Xresources
+
+# To see current loaded resources
+# xrdb -query -all
+
+
+
+##############################
+## Virtual Box Setting
+##############################
+
 # start clipboard sharing
 # TODO check whether VBoxClient command is available or not
 VBoxClient --clipboard
+
+
+##############################
+## Applications
+##############################
+
+# emacs --daemon &
+
+##############################
+## Window Manager
+##############################
+
 exec stumpwm
 # exec openbox

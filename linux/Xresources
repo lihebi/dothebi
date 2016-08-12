@@ -1,9 +1,82 @@
-! .Xresources file
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! .Xresources file
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! #include ".Xresources.d/xterm"
+! #include ".Xresources.d/rxvt-unicode"
+! #include ".Xresources.d/fonts"
+! #include ".Xresources.d/xscreensaver"
+
+! Source Code Pro
+! Anonymous Pro
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! General
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! The 96x96 dpi got from xdpyinfo is just too small
+! the double dpi seems good, but seems too large
+! I do not know if I can set it at random value
+Xft.dpi: 144
+! Xft.dpi: 192
+! Xft.dpi: 96
+! Xft.autohint: 0
+! Xft.lcdfilter:  lcddefault
+! Xft.hintstyle:  hintfull
+! Xft.hinting: 1
+! Xft.antialias: 1
+! Xft.rgba: rgb
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! XTerm
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 XTerm*metaSendsEscape: true
 XTerm*foreground: white
 XTerm*background: black
-XTerm*faceName: Source Code Pro:Regular:size=12
+XTerm*faceName: Source Code Pro:Regular
+! XTerm*faceName: Source Code Pro:Regular:size=18
 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! Cursor
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Xcursor.theme: whiteglass
-!Xcursor.size: 16
+Xcursor.size: 26
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! URxvt
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! https://github.com/muennich/urxvt-perls
+
+URxvt*foreground: White
+URxvt*background: black
+
+URxvt*font: xft:Source Code Pro:Regular:size=10
+! URxvt*font: xft:Source Code Pro:Regular:size=18
+
+URxvt*color4: RoyalBlue
+URxvt*color12: RoyalBlue
+URxvt*title: URxvt
+URxvt*scrollBar: False
+! URxvt*termName: Hello ! not taken effect
+
+! fake transparent: will show wallpaper
+! BTW setting wallpaper: feh --bg-fill /path/to/wall/paper
+! real transparent needs compositor like compiz
+URxvt.transparent: True
+URxvt.shading: 20
+
+URxvt*loginShell: true
+
+! I want to set up for the high resolution monitor, known as
+! HiDPI (High Dots Per Inch) displays
+! But setting dpi alone does not scale the title and menu bars
+! Well, it does scale:
+! - terminal
+! - chrome
+! Including more does not help, and makes the screen blur.
