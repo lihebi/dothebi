@@ -33,6 +33,7 @@ VBoxClient --clipboard
 
 # [[ -e ~/.fehbg ]] && sh ~/.fehbg &
 sh ~/.fehbg &
+xmodmap ~/.Xmodmap
 
 ##############################
 ## Window Manager
