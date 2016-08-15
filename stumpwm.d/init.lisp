@@ -185,6 +185,7 @@
 ;; (define-key *root-map* (kbd "C-Down") "move-window down")
 ;; (define-key *root-map* (kbd "C-Right") "move-window right")
 
+(stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-z") "echo Zzzzz...")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Start

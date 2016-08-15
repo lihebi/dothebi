@@ -80,3 +80,7 @@ URxvt*loginShell: true
 ! - terminal
 ! - chrome
 ! Including more does not help, and makes the screen blur.
+
+! for ratpoison border?
+! URxvt*internalBorder: 16
+! URxvt*externalBorder: 8

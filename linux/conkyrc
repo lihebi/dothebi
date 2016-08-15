@@ -1,0 +1,90 @@
+##############################
+## conky config file
+##############################
+
+
+out_to_x no
+background no
+cpu_avg_samples 2
+net_avg_samples 2
+no_buffers yes
+out_to_console yes
+out_to_stderr no
+extra_newline no
+update_interval 1.0
+uppercase no
+use_spacer none
+
+update_interval 0.1
+# draw_borders yes
+# border_width 2
+
+# own_window yes
+# font -adobe-courier-*-*-*-*-34-*-*-*-*-*-*-*
+# usexft yes
+# font Source Code Pro:size=30
+# alignment top_left
+
+TEXT
+
+# $addr
+
+# ^fg(grey)RAM: ^fg(green)$memperc% ^fg(grey)CPU: ^fg(green)$cpu%  \
+# ^fg(grey)U: ^fg(green)${upspeedf wlan0} ^fg(grey)D: ^fg(green)${downspeedf wlan0} \
+
+${exec ratpoison -c "windows" | sed -e "s/\"//g"  | awk  '/^\*/ {print "^fg(green) | ",$0,"^fg()"}; /^\+/ {print "^fg() | ",$0}; /^-/ {print "^fg() | ",$0};' | tr '\n' ' '} \
+^p(_RIGHT)^p(-300) \
+^fg(yellow)${time %a.%d.%m.%Y  %R} |\
+
+# ${exec ratpoison -c "windows" \
+#        | sed -e 's/\*/\^bg\(grey\)/g' \
+#        | tr '\n' ' '}
+# ${exec ratpoison -c "windows" \
+# | awk ''
+#        | sed -e 's/\*/\^bg\(grey\)/g' \
+#        | tr '\n' ' '}
+
+# ${exec xprop -id $(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}') | awk '/_NET_WM_NAME/{$1=$2="";print}' | tr -s ' ' | awk '{print substr($0, 3, length($0) - 3)}'} 
+
+# ^fg(grey)TOP_PROC: ^fg(green)${top name 1}^fg(grey)M:^fg(green)${top mem 1} \
+# ^fg(grey)C:^fg(green)${top cpu 1} \
+
+
+
+
+# background no
+# use_xft yes 
+# xftfont Sans:size=6
+# xftalpha 1
+# mail_spool $MAIL
+# update_interval 1.0
+# total_run_times 0
+# own_window yes
+# own_window_type desktop
+# own_window_transparent yes
+# own_window_colour black
+# own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+# double_buffer yes
+# minimum_size 1220 3
+# draw_shades no
+# draw_outline no
+# draw_borders no
+# draw_graph_borders yes
+# stippled_borders 0
+# border_margin 4
+# border_width 1
+# default_color darkgray
+# default_shade_color white
+# default_outline_color darkgray
+# alignment top_left
+# gap_x 30
+# gap_y 5
+# no_buffers yes
+# uppercase no
+# cpu_avg_samples 2
+# net_avg_samples 2
+# override_utf8_locale yes
+# use_spacer right
+
+# TEXT
+# ${color white}${offset 12}[MPD $mpd_status] [Random:$mpd_random Repeat:$mpd_repeat] [$mpd_elapsed / $mpd_length]${alignc}root   ${fs_bar 6,50 /}${offset 15}home   ${fs_bar 6,50 /home}${offset 15}adolf   ${fs_bar 6,50 /media/adolf}${alignr}pkgs: ${texeci 3600 perl /home/jon/script/arch-updates/conky-updates.pl} | mem: ${memperc}% | cpu: ${cpu}%${color}

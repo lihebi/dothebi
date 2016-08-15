@@ -1,0 +1,90 @@
+##############################
+## Appearance
+##############################
+
+startup_message off
+msgwait 3
+
+# default: "%n%s%t"
+# %m%n%s%c
+set winfmt "%s%a"
+
+# This is the border between applications
+set border 0
+
+# This is for the input bar
+# set barborder 0
+
+
+##############################
+## virtual desks
+##############################
+# gnewbg one
+# gnewbg two
+# rpws workspace management (in ratpoison/contrib)
+exec rpws init 4 -k
+
+
+##############################
+## Key Binding
+##############################
+# This can only execute it, but not switch to it
+# bind e exec emacs
+# bind b exec chromium
+
+
+
+# by default the hotkey is Alt-F(1-6)
+# bind them to C-(1-6)
+# bind C-1 exec rpws 1
+# bind C-2 exec rpws 2
+
+
+##############################
+## Conky
+##############################
+
+# unmanage conky
+set padding 0 28 0 0
+# exec conky
+
+
+# set font Mono-10
+# set bargravity nw
+# set bgcolor cyan
+
+# definekey super-x B    set padding 0 18 0 0
+# definekey super-x b    set padding 0 0 0 0
+
+
+
+## https://gist.github.com/teffalump/3161454
+
+# kill old dzen process, start the conky piping to dzen process, set padding, and initially show statusbar
+addhook quit exec killall dzen2
+# set padding 0 16 0 0
+# exec conky
+exec conky | dzen2 -ta l -e 'sigusr1=hide;sigusr2=unhide' -h '28' -fn 'inconsolata-g' &
+
+# script to smartly toggle dzen --> all logic there
+# bind z exec ~/.ratpoison/dzconky.rp
+
+# addhook key exec ratpoison -c "windows" | sed -e 's/\*/\^bg\(grey\)/g' | tr '\n' ' ' | dzen2 -ta c -e 'sigusr1=hide;sigusr2=unhide' -h '16' -fn 'inconsolata-g' &
+# addhook key exec ratpoison -c "windows" | sed -e 's/\*/\^bg\(grey\)/g' | tr '\n' ' ' > ~/tmp.txt
+
+##############################
+## run-or-raise
+## https://github.com/ivoarch/.dot-org-files/blob/master/ratpoison.org
+##############################
+
+# bind e exec ~/.hebi/linux/rp-run-or-raise.sh Emacs 'emacs'
+# bind c exec ~/.hebi/linux/rp-run-or-raise.sh URxvt 'urxvt'
+
+##############################
+## Random Doc
+##############################
+
+# the command tmpwm is very interesting
+
+
+

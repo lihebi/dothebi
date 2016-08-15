@@ -31,9 +31,13 @@ VBoxClient --clipboard
 
 # emacs --daemon &
 
+# [[ -e ~/.fehbg ]] && sh ~/.fehbg &
+sh ~/.fehbg &
+
 ##############################
 ## Window Manager
 ##############################
 
-exec stumpwm
+# exec stumpwm
 # exec openbox
+exec ratpoison
