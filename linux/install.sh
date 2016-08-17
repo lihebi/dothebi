@@ -5,3 +5,4 @@ ln -sf $HOME/.hebi/linux/Xmodmap $HOME/.Xmodmap
 
 ln -sf $HOME/.hebi/linux/ratpoisonrc $HOME/.ratpoisonrc
 ln -sf $HOME/.hebi/linux/conkyrc $HOME/.conkyrc
+ln -sf $HOME/.hebi/linux/conkerorrc $HOME/.conkerorrc

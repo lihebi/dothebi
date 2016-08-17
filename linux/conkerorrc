@@ -1,0 +1,34 @@
+/*******************************
+ * theme staff
+ *******************************/
+
+theme_load_paths.unshift("~/.hebi/conkeror/themes/");
+theme_unload("default");
+theme_load("conkeror-theme-zenburn");
+
+/*******************************
+ * other
+ *******************************/
+
+url_remoting_fn = load_url_in_new_buffer;
+
+// Enable auto save session and make it load automatically at startup.
+
+require("session.js");
+session_auto_save_auto_load = true;
+
+// Setup how long in days, history entries are kept before being automatically expired.
+session_pref('browser.history_expire_days', 30);
+
+
+
+// widgets
+require("mode-line.js");
+
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(zoom_widget));
+add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
