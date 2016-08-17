@@ -148,20 +148,20 @@
 ;; show dropbox status
 ;; toggle on=|=off modeline
 
-;; (defcommand emacs () ()
-;;   "run-or-raise emacs"
-;;   (run-or-raise "emacsclient -ca emacs" '(:class "Emacs")))
-;; (define-key *root-map* (kbd "e") "emacs")
+(defcommand emacs-with-server () ()
+  "run-or-raise emacs"
+  (run-or-raise "emacsclient -ca emacs" '(:class "Emacs")))
+(define-key *root-map* (kbd "e") "emacs-with-server")
 
-;; (defcommand browser () ()
-;;   "run or raise conkeror"
-;;   (run-or-raise "conkeror" '(:class "Conkeror")))
-;; (define-key *root-map* (kbd "w") "browser")
+(defcommand browser () ()
+  "run or raise conkeror"
+  (run-or-raise "conkeror" '(:class "Conkeror")))
+(define-key *root-map* (kbd "b") "browser")
 
-;; (defcommand terminal () ()
-;;   "run or raise urxvt"
-;;   (run-or-raise "urxvt -e screen" '(:class "URxvt")))
-;; (define-key *root-map* (kbd "c") "terminal")
+(defcommand terminal () ()
+  "run or raise urxvt"
+  (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
+(define-key *root-map* (kbd "c") "terminal")
 
 ;; (defcommand dropbox-status () ()
 ;;   (run-shell-command "dropbox status"))

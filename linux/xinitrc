@@ -39,6 +39,6 @@ xmodmap ~/.Xmodmap
 ## Window Manager
 ##############################
 
-# exec stumpwm
+exec stumpwm
 # exec openbox
-exec ratpoison
+# exec ratpoison
