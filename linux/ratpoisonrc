@@ -7,7 +7,7 @@ msgwait 3
 
 # default: "%n%s%t"
 # %m%n%s%c
-set winfmt "%s%a"
+set winfmt "%s%n%a"
 
 # This is the border between applications
 set border 0
@@ -77,8 +77,10 @@ exec conky | dzen2 -ta l -e 'sigusr1=hide;sigusr2=unhide' -h '28' -fn 'inconsola
 ## https://github.com/ivoarch/.dot-org-files/blob/master/ratpoison.org
 ##############################
 
-# bind e exec ~/.hebi/linux/rp-run-or-raise.sh Emacs 'emacs'
-# bind c exec ~/.hebi/linux/rp-run-or-raise.sh URxvt 'urxvt'
+bind e exec ~/.hebi/linux/rp-run-or-raise.sh emacs emacs
+# note this overwrite the default x-terminal-xxx opening
+bind c exec ~/.hebi/linux/rp-run-or-raise.sh urxvt urxvt
+bind b exec ~/.hebi/linux/rp-run-or-raise.sh Navigator conkeror
 
 ##############################
 ## Random Doc
