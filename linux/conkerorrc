@@ -1,3 +1,7 @@
+
+require('eye-guide.js');
+define_key(content_buffer_normal_keymap, "space", "eye-guide-scroll-down");
+define_key(content_buffer_normal_keymap, "back_space", "eye-guide-scroll-up");
 /*******************************
  * theme staff
  *******************************/
@@ -5,6 +9,44 @@
 theme_load_paths.unshift("~/.hebi/conkeror/themes/");
 theme_unload("default");
 theme_load("conkeror-theme-zenburn");
+
+
+
+
+
+/*******************************
+ * mode line
+ *******************************/
+require("mode-line.js");
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(zoom_widget));
+add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
+
+require("new-tabs.js");
+
+
+/*******************************
+ * General Actions
+ *******************************/
+
+add_hook("window_before_close_hook",
+         function () {
+             var w = get_recent_conkeror_window();
+             var result = (w == null) ||
+                 "y" == (yield w.minibuffer.read_single_character_option(
+                     $prompt = "Quit Conkeror? (y/n)",
+                     $options = ["y", "n"]));
+             yield co_return(result);
+         });
+
+/*******************************
+ * Web jumps
+ *******************************/
+
+define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
 
 /*******************************
  * other
@@ -20,15 +62,9 @@ session_auto_save_auto_load = true;
 // Setup how long in days, history entries are kept before being automatically expired.
 session_pref('browser.history_expire_days', 30);
 
+hints_display_url_panel = true;
 
 
-// widgets
-require("mode-line.js");
+require("adblockplus");
 
-remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
-add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
-add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
-add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
-add_hook("mode_line_hook", mode_line_adder(zoom_widget));
-add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
