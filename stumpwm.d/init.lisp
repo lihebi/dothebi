@@ -152,6 +152,7 @@
   "run-or-raise emacs"
   (run-or-raise "emacsclient -ca emacs" '(:class "Emacs")))
 (define-key *root-map* (kbd "e") "emacs-with-server")
+(define-key *root-map* (kbd "C-e") "emacs-with-server")
 
 (defcommand browser () ()
   "run or raise conkeror"

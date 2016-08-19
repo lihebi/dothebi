@@ -11,18 +11,20 @@
 //          });
 
 // homepage = "https://www.google.com";
-homepage = "https://lihebi.com";
+homepage = "http://lihebi.com";
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
 
 
 // theme
+// CAUTION: Require init the submodule in .hebi!
 
 theme_load_paths.unshift("~/.hebi/conkeror/themes/");
 theme_unload("default");
 theme_load("conkeror-theme-zenburn");
 
+require("new-tabs.js");
 
 
 
@@ -38,7 +40,6 @@ require("mode-line.js");
 // add_hook("mode_line_hook", mode_line_adder(zoom_widget));
 // add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
 
-require("new-tabs.js");
 
 
 
