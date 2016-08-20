@@ -15,6 +15,9 @@ homepage = "https://lihebi.com";
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
+cwd = get_home_directory();
+cwd = make_file("~/Downloads");
+
 
 
 // theme
