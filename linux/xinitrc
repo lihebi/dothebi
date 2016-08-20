@@ -31,7 +31,7 @@ autocutsel -s PRIMARY &
 ## Applications
 ##############################
 
-# emacs --daemon &
+emacs --daemon &
 
 # [[ -e ~/.fehbg ]] && sh ~/.fehbg &
 sh ~/.fehbg &
