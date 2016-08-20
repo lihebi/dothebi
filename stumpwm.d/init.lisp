@@ -82,7 +82,7 @@
 ;; Finally, I can only use "XLFD" ("X Logical Font Description") fonts
 ;; this is done by xfontsel or xlsfonts
 ;; this is the biggest nick name from xlsfonts | grep x
-(set-font "12x24")
+;; (set-font "12x24")
 
 
 ;; (set-font (open-font "Source Code Pro"))
