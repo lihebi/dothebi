@@ -8,6 +8,35 @@ pointer = 1 2 3 5 4
 !! Keyboard remapping
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! keycode 66 = Control_L
-! clear Lock
+keycode 66 = Control_L
+clear Lock
+add Control = Control_L
+
+
+! another more portable way
+
+! remove Lock = Caps_Lock
+! remove Control = Control_L
+! keysym Control_L = Caps_Lock
+! keysym Caps_Lock = Control_L
+! add Lock = Caps_Lock
 ! add Control = Control_L
+
+
+
+! remove Super = Super_R
+! remove Alt = Alt_R
+! keysym Super_R = Alt_R
+! keysym Alt_R = Super_R
+! add Super = Super_R
+! add Alt = Alt_R
+
+remove Mod4 = Super_R
+remove Mod1 = Alt_R
+keycode 134 = Alt_R
+keycode 108 = Super_R
+add Mod1 = Alt_R
+add Mod4 = Super_R
+
+
+

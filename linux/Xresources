@@ -39,6 +39,7 @@ XTerm*foreground: white
 XTerm*background: black
 XTerm*faceName: Source Code Pro:Regular
 ! XTerm*faceName: Source Code Pro:Regular:size=18
+! XTerm*faceName: :Anonymous Pro:Regular
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -58,6 +59,7 @@ URxvt*background: black
 
 URxvt*font: xft:Source Code Pro:Regular:size=10
 ! URxvt*font: xft:Source Code Pro:Regular:size=18
+! URxvt*font: xft:Anonymous Pro:Regular:size=16
 
 URxvt*color4: RoyalBlue
 URxvt*color12: RoyalBlue

@@ -152,6 +152,7 @@
   "run-or-raise emacs"
   (run-or-raise "emacsclient -ca emacs" '(:class "Emacs")))
 (define-key *root-map* (kbd "e") "emacs-with-server")
+(define-key *root-map* (kbd "C-e") "emacs-with-server")
 
 (defcommand browser () ()
   "run or raise conkeror"
@@ -162,6 +163,13 @@
   "run or raise urxvt"
   (run-or-raise "urxvt -e tmux" '(:class "URxvt")))
 (define-key *root-map* (kbd "c") "terminal")
+
+(defcommand xselyank () ()
+  "Paste X Sel not using shift-insert"
+  ;; (echo "what?")
+  (window-send-string (get-x-selection)))
+
+(define-key *root-map* (kbd "y") "xselyank")
 
 ;; (defcommand dropbox-status () ()
 ;;   (run-shell-command "dropbox status"))
