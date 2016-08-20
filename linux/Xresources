@@ -18,7 +18,7 @@
 ! The 96x96 dpi got from xdpyinfo is just too small
 ! the double dpi seems good, but seems too large
 ! I do not know if I can set it at random value
-Xft.dpi: 144
+! Xft.dpi: 144
 ! Xft.dpi: 192
 ! Xft.dpi: 96
 ! Xft.autohint: 0
