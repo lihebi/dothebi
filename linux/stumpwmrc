@@ -1,5 +1,9 @@
 ; -*- mode: Lisp;-*-
 ;;; .stumpwmrc --- StumpWM Init File
+(in-package :stumpwm)
+
+;; If using multiple files, load them like this:
+;; (load "~/.stumpwm.d/init.lisp")
 
 ;; https://github.com/ivoarch/.dot-org-files/blob/master/stumpwm.org
 
@@ -97,9 +101,19 @@
 
 ;; (set-font "-*-*-*-*-*-*-10-*-*-*-*-*-*-*")
 
+
+;; this does not work because the "-*-*-*-..." format font only available for some size
+;; I need to use ttf font, which I can see a xlc-truetype, as well as contrib/ttl-fonts
+;; xlc-truetype should work, but I'm exetremely unfamiliar with common lisp, I don't know how to use it though.
+;; ttl-fonts is a module, but it is actually not available at least in my stumpwm.
+;; So now I'm going to use the specific setup for high def screen
+
+;; (parse-integer (run-shell-command "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc" t))
+
+;; (set-font (concat "-adobe-courier-*-*-*-*-"
+;;                   (run-shell-command "echo $(xrdb -query | grep dpi | awk '{print $2}') ' / 5 ' | bc" t)
+;;                   "-*-*-*-*-*-*-*"))
 ;; (set-font "-adobe-courier-*-*-*-*-34-*-*-*-*-*-*-*")
-
-
 
 
 

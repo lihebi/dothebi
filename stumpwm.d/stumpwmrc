@@ -1,6 +1,0 @@
-; -*- mode: Lisp;-*-
-;;; .stumpwmrc --- StumpWM Init File
-
-(in-package :stumpwm)
-
-(load "~/.stumpwm.d/init.lisp")
