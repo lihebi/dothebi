@@ -37,7 +37,6 @@ if [ -n $yres ]; then
         echo "Xft.dpi: 144" | xrdb -merge;
     else
         echo "Xft.dpi: 96" | xrdb -merge;
-        exit 1;
     fi
         
     # if [[ $yres == "1080" ]]; then
@@ -50,8 +49,6 @@ if [ -n $yres ]; then
     #     # other
     #     echo "Xft.dpi: 96" | xrdb -merge;
     # fi
-else
-    exit 1;
 fi
 
 # merge PRIMARY and CLIPBOARD xsel
