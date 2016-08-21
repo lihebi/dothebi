@@ -105,13 +105,20 @@
 ;; (parse-integer (run-shell-command "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc" t))
 
 ;; (set-font "-*-*-*-*-*-*-10-*-*-*-*-*-*-*")
+;; (when (= (values
+;;           (parse-integer
+;;            (run-shell-command
+;;             "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc | tr '\n' ' '" t))) 192)
+;;   (set-font "12x24")
+;;   )
+
 (when (= (values
           (parse-integer
            (run-shell-command
-            "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc | tr '\n' ' '" t))) 192)
+            "xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}'"
+            t))) 1600)
   (set-font "12x24")
   )
-
 
 ;; The let version does not work!! Because "(= dpi 192) is NIL, not a number ..." ???
 

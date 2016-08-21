@@ -19,14 +19,27 @@ fi
 
 
 # dynamically adjust DPI setting
-dpi=$(xdpyinfo | grep resolution | awk '{print $2}')
-# dpi="96x96"
-dpi=${dpi%x*}
-if [ -n $dpi ]; then
-    dpi="$dpi*2"
-    # dpi=$((dpi)) # not working, need to use bc
-    dpi=$(echo $dpi | bc)
-    echo "Xft.dpi: $dpi" | xrdb -merge
+# dpi=$(xdpyinfo | grep resolution | awk '{print $2}')
+# dpi=${dpi%x*}
+# if [ -n $dpi ]; then
+#     dpi="$dpi*2"
+#     # dpi=$((dpi)) # not working, need to use bc
+#     dpi=$(echo $dpi | bc)
+#     echo "Xft.dpi: $dpi" | xrdb -merge
+# fi
+
+yres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}')
+if [ -n $yres ]; then
+    if [[ yres == "1080" ]]; then
+        # 1080p
+        echo "Xft.dpi: 96" | xrdb -merge;
+    elif [[ yres == "1600" ]]; then
+        # macbook
+        echo "Xft.dpi: 144" | xrdb -merge;
+    else
+        # other
+        echo "Xft.dpi: 96" | xrdb -merge;
+    fi
 fi
 
 # merge PRIMARY and CLIPBOARD xsel
