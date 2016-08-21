@@ -51,6 +51,10 @@ require("mode-line.js");
 *******************************/
 
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
+define_webjump("gitisu", "http://git.linux.iastate.edu");
+define_webjump("wikihebi", "http://wiki.lihebi.com");
+define_webjump("github", "http://github.com");
+define_webjump("cymail", "http://cymail.iastate.edu")
 
 /*******************************
 * other
