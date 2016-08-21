@@ -1,30 +1,50 @@
+#!/bin/bash
+
+
 ##############################
 ## .xinitrc file
 ##############################
 
 
 # Load ~/.Xresources
-# NEVER put xrdb into background,
-# otherwise programs launched after xrdb may look for resouces before they are loaded
-# The checking file exist version does not work
-# [[ -e ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-# [[ -e ~/.Xresources ]] && xrdb ~/.Xresources
-xrdb .Xresources
-
 # To see current loaded resources
 # xrdb -query -all
 
+# NEVER put xrdb into background,
+# otherwise programs launched after xrdb may look for resouces before they are loaded
 
-autocutsel &
-autocutsel -s PRIMARY &
+if [ -e ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+
+# dynamically adjust DPI setting
+dpi=$(xdpyinfo | grep resolution | awk '{print $2}')
+# dpi="96x96"
+dpi=${dpi%x*}
+if [ -n $dpi ]; then
+    dpi="$dpi*2"
+    # dpi=$((dpi)) # not working, need to use bc
+    dpi=$(echo $dpi | bc)
+    echo "Xft.dpi: $dpi" | xrdb -merge
+fi
+
+# merge PRIMARY and CLIPBOARD xsel
+if [ `which autocutsel` ]; then
+    autocutsel &
+    autocutsel -s PRIMARY &
+fi    
+
 
 ##############################
 ## Virtual Box Setting
 ##############################
 
 # start clipboard sharing
-# TODO check whether VBoxClient command is available or not
-# VBoxClient --clipboard
+
+if [ `which VBoxClient` ]; then
+    VBoxClient --clipboard
+fi
 
 
 ##############################
@@ -33,8 +53,10 @@ autocutsel -s PRIMARY &
 
 emacs --daemon &
 
-# [[ -e ~/.fehbg ]] && sh ~/.fehbg &
-sh ~/.fehbg &
+if [ -e ~/.fehbg ]; then
+   sh ~/.fehbg &
+fi
+
 xmodmap ~/.Xmodmap
 
 ##############################
