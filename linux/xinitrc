@@ -30,16 +30,28 @@ fi
 
 yres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}')
 if [ -n $yres ]; then
-    if [[ yres == "1080" ]]; then
-        # 1080p
-        echo "Xft.dpi: 96" | xrdb -merge;
-    elif [[ yres == "1600" ]]; then
+    yres_num=$(echo $yres | bc)
+    if [ $yres_num -eq 1600 ]; then
+    # if [ $yres == "1600" ]; then
         # macbook
         echo "Xft.dpi: 144" | xrdb -merge;
     else
-        # other
         echo "Xft.dpi: 96" | xrdb -merge;
+        exit 1;
     fi
+        
+    # if [[ $yres == "1080" ]]; then
+    #     # 1080p
+    #     echo "Xft.dpi: 96" | xrdb -merge;
+    # elif [[ $yres == "1600" ]]; then
+    #     # macbook
+    #     echo "Xft.dpi: 144" | xrdb -merge;
+    # else
+    #     # other
+    #     echo "Xft.dpi: 96" | xrdb -merge;
+    # fi
+else
+    exit 1;
 fi
 
 # merge PRIMARY and CLIPBOARD xsel
