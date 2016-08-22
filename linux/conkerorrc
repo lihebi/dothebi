@@ -11,12 +11,15 @@
 //          });
 
 // homepage = "https://www.google.com";
-homepage = "http://lihebi.com";
+// homepage = "http://lihebi.com";
+homepage = "http://wiki.lihebi.com"
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
 cwd = get_home_directory();
 cwd = make_file("~/Downloads");
+
+dowload_buffer_automatic_open_target = OPEN_NEW_BUFFER
 
 
 
@@ -55,12 +58,14 @@ define_webjump("gitisu", "http://git.linux.iastate.edu");
 define_webjump("wikihebi", "http://wiki.lihebi.com");
 define_webjump("github", "http://github.com");
 define_webjump("cymail", "http://cymail.iastate.edu")
+define_webjump("blackboard", "http://bb.its.iastate.edu")
+define_webjump("accessplus", "http://accessplus.iastate.edu")
 
 /*******************************
 * other
 *******************************/
 
-// url_remoting_fn = load_url_in_new_buffer;
+url_remoting_fn = load_url_in_new_buffer;
 
 // Enable auto save session and make it load automatically at startup.
 
