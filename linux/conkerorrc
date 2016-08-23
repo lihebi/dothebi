@@ -13,6 +13,7 @@
 // homepage = "https://www.google.com";
 // homepage = "http://lihebi.com";
 homepage = "http://wiki.lihebi.com"
+homepage = "file:////home/hebi/github/wiki-dist/index.html"
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
@@ -54,12 +55,17 @@ require("mode-line.js");
 *******************************/
 
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
-define_webjump("gitisu", "http://git.linux.iastate.edu");
-define_webjump("wikihebi", "http://wiki.lihebi.com");
 define_webjump("github", "http://github.com");
+
+// HEBI
+define_webjump("hebiwki", "http://wiki.lihebi.com");
+
+// ISU
 define_webjump("cymail", "http://cymail.iastate.edu")
-define_webjump("blackboard", "http://bb.its.iastate.edu")
-define_webjump("accessplus", "http://accessplus.iastate.edu")
+define_webjump("isulib", "http://www.lib.iastate.edu/")
+define_webjump("isugit", "http://git.linux.iastate.edu");
+define_webjump("isublackboard", "http://bb.its.iastate.edu")
+define_webjump("isuaccessplus", "http://accessplus.iastate.edu")
 
 /*******************************
 * other
@@ -78,7 +84,8 @@ url_remoting_fn = load_url_in_new_buffer;
 hints_display_url_panel = true;
 
 
-require("adblockplus");
+// Not working
+// require("adblockplus.js");
 
 
 require('eye-guide.js');
