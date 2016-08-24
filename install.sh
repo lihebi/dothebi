@@ -19,3 +19,6 @@ ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/.hebi/bashrc $HOME/.bashrc
 ln -sf $HOME/.hebi/bash_profile $HOME/.bash_profile
 ln -sf $HOME/.hebi/bash_prompt $HOME/.bash_prompt
+
+
+ln -sf $HOME/.hebi/fonts $HOME/.fonts
