@@ -262,9 +262,9 @@
 
 
 
-(defcommand dict () ()
+(defcommand dict (word) ((:STRING "Look Up: "))
             (echo "looking up ..")
-            (echo (run-shell-command (concat "trans -b :zh hello") t)))
+            (echo (run-shell-command (concat "trans -b :zh " word) t)))
 
 
 ;; (defcommand dropbox-status () ()
