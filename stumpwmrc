@@ -262,8 +262,10 @@
 
 
 
-(defcommand dict (word) ((:STRING "Look Up: "))
-            (echo "looking up ..")
+;; :STRING will function incorrect when used NOT interactively
+;;    where it only get the first word
+(defcommand dict (word) ((:REST "Look Up: "))
+            (echo (concat "looking up .." word))
             (echo (run-shell-command (concat "trans -b :zh " word) t)))
 
 
