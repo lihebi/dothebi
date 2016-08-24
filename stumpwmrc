@@ -15,6 +15,11 @@
 ;; disable welcome message
 (setf *startup-message* nil)
 
+
+;; I have to add this for each one? the info page says the *MODULE-DIR* variable is set to make all the modules avaiable,
+;; but it seems the variable is unset
+(stumpwm:add-to-load-path "~/.stumpwm.d/modules/util/ttf-fonts")
+
 ;; configure swank
 ;; https://common-lisp.net/project/slime/
 ;; https://github.com/slime/slime
@@ -112,13 +117,29 @@
 ;;   (set-font "12x24")
 ;;   )
 
-(when (= (values
-          (parse-integer
-           (run-shell-command
-            "xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}'"
-            t))) 1600)
-  (set-font "12x24")
-  )
+;; (when (= (values
+;;           (parse-integer
+;;            (run-shell-command
+;;             "xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}'"
+;;             t))) 1600)
+;;   (set-font "12x24")
+;;   )
+
+(load-module "ttf-fonts")
+;; (set-font (make-instance 'ttf-fonts:open-font :family "Source Code Pro" :subfamily "Regular" :size 13))
+
+;; Finallly I got this working!
+;; Steps
+;; 1. must call (xft:cache-fonts)
+;; 2. you can view the (print xft:*font-dirs*), it shows the path is ~/.fonts, not ~/.fonts/TTF
+;;    So move font files up to the ~/.fonts
+;; Done!
+
+;; Some note for using REPL (slime) (sbcl)
+;; load a module by (ql:quickload "xxx")
+
+(xft:cache-fonts)
+(set-font (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 16))
 
 ;; The let version does not work!! Because "(= dpi 192) is NIL, not a number ..." ???
 
