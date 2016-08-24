@@ -132,15 +132,35 @@
 ;; Steps
 ;; 1. must call (xft:cache-fonts)
 ;; 2. you can view the (print xft:*font-dirs*), it shows the path is ~/.fonts, not ~/.fonts/TTF
+;;    ("/usr/share/fonts/" "/home/hebi/.fonts/")
 ;;    So move font files up to the ~/.fonts
+;; A combo:
+;; (xft:cache-fonts)
+;; (xft:get-font-families)
 ;; Done!
 
 ;; Some note for using REPL (slime) (sbcl)
 ;; load a module by (ql:quickload "xxx")
 
-(xft:cache-fonts)
-(set-font (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 16))
+;; This is very slow, use with caution! neng bu yong jiu bu yong
+;; (xft:cache-fonts)
+;; (set-font (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 16))
 
+
+
+;; How I made the WenQuanYi Micro Hei ttf font (clx-truetype only recognizes ttf, not ttc):
+;; input: ttc file
+;; Tool: fontforge
+;; Open ttc file, select one, generate font, choose truetype
+;; The validation failed, but doesn't matter
+(set-font
+ (list
+  (make-instance 'xft:font :family "WenQuanYi Micro Hei Mono" :subfamily "Regular" :size 16)
+  ;; (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Oblique" :size 16)
+  ;; (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 20)
+  ;; (make-instance 'xft:font :family "cwTeXFangSong" :subfamily "Medium" :size 16)
+  )
+ )
 ;; The let version does not work!! Because "(= dpi 192) is NIL, not a number ..." ???
 
 ;; (let (dpi (values
@@ -242,9 +262,9 @@
 
 
 
-;; (defcommand dict () ()
-;;             (echo "looking up ..")
-;;             (echo (run-shell-command (concat "trans -b :zh good") t)))
+(defcommand dict () ()
+            (echo "looking up ..")
+            (echo (run-shell-command (concat "trans -b :zh hello") t)))
 
 
 ;; (defcommand dropbox-status () ()
