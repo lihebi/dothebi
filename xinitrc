@@ -28,13 +28,17 @@ fi
 #     echo "Xft.dpi: $dpi" | xrdb -merge
 # fi
 
+xres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $1}')
 yres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}')
 if [ -n $yres ]; then
     yres_num=$(echo $yres | bc)
+    xres_num=$(echo $xres | bc)
     if [ $yres_num -eq 1600 ]; then
-    # if [ $yres == "1600" ]; then
         # macbook
         echo "Xft.dpi: 144" | xrdb -merge;
+    elif [ $xres_num -eq 2560 ]; then
+        # 29UM67-P
+        echo "Xft.dpi: 128" | xrdb -merge;
     else
         echo "Xft.dpi: 96" | xrdb -merge;
     fi
