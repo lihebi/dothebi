@@ -18,7 +18,14 @@
 
 ;; I have to add this for each one? the info page says the *MODULE-DIR* variable is set to make all the modules avaiable,
 ;; but it seems the variable is unset
-(stumpwm:add-to-load-path "~/.stumpwm.d/modules/util/ttf-fonts")
+(stumpwm:init-load-path "~/.stumpwm.d/modules/")
+;; (stumpwm:add-to-load-path "~/.stumpwm.d/modules/util/ttf-fonts")
+(load-module "ttf-fonts")
+(load-module "cpu")
+;; The "battery" will stuck on macbook
+(load-module "battery-portable")
+(load-module "wifi")
+(load-module "amixer")
 
 ;; configure swank
 ;; https://common-lisp.net/project/slime/
@@ -43,6 +50,9 @@
 ;; default timeout
 ;; (setf *mode-line-timeout* 1)
 
+
+
+
 ;; smart modeline
 (if (not (head-mode-line (current-head)))
     (toggle-mode-line (current-screen) (current-head)))
@@ -56,13 +66,15 @@
     (nth (- mon 1) '("Jan" "Feb" "March" "April"
                      "May" "Jun" "Jul" "Aug"
                      "Sep" "Oct" "Nov" "Dec")))
-(multiple-value-bind (sec min hr date mon yr dow dst-p tz)
+  (multiple-value-bind (sec min hr date mon yr dow dst-p tz)
       (get-decoded-time)
-    (format NIL "~2,'0d:~2,'0d:~2,'0d ~a, ~d ~a ~d (GMT ~@d)"
+    (format NIL
+            ;; "~2,'0d:~2,'0d:~2,'0d ~a, ~d ~a ~d (GMT ~@d)"
+            "~2,'0d:~2,'0d:~2,'0d ~a, ~d ~a ~d"
             hr min sec
             (stringify-dow dow)
             date (stringify-mon mon)
-             yr (- tz))))
+            yr (- tz))))
 
 
 ;; Modeline format
@@ -70,7 +82,17 @@
       (list "[^B%n^b] %W " ; groups/windows
             "^>" ; right align
             " ^7* " '(:eval (pretty-time)); date
+            " %c %t" ; cpu
+            ;; " %b" ; battery
+            " %B" ; battery-portable
+            ;; " %I" ; wifi
             ))
+
+
+;; TODO
+;; (define-key *top-map* (kbd "XF86AudioLowerVolume") "amixer-Front-1-")
+;; (define-key *top-map* (kbd "XF86AudioRaiseVolume") "amixer-Front-1+")
+;; (define-key *top-map* (kbd "XF86AudioMute") "amixer-Master-toggle pulse")
 
 
 
@@ -125,7 +147,6 @@
 ;;   (set-font "12x24")
 ;;   )
 
-(load-module "ttf-fonts")
 ;; (set-font (make-instance 'ttf-fonts:open-font :family "Source Code Pro" :subfamily "Regular" :size 13))
 
 ;; Finallly I got this working!
