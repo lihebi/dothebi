@@ -22,7 +22,7 @@ cwd = make_file("~/Downloads");
 
 dowload_buffer_automatic_open_target = OPEN_NEW_BUFFER
 
-
+editor_shell_command = "emacsclient"
 
 // theme
 // CAUTION: Require init the submodule in .hebi!
@@ -55,7 +55,7 @@ require("mode-line.js");
 *******************************/
 
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
-define_webjump("github", "http://github.com");
+define_webjump("github", "http://github.com/search?q=%s");
 
 // HEBI
 define_webjump("hebiwki", "http://wiki.lihebi.com");
@@ -66,6 +66,8 @@ define_webjump("isulib", "http://www.lib.iastate.edu/")
 define_webjump("isugit", "http://git.linux.iastate.edu");
 define_webjump("isublackboard", "http://bb.its.iastate.edu")
 define_webjump("isuaccessplus", "http://accessplus.iastate.edu")
+
+define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s")
 
 /*******************************
 * other
