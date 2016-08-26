@@ -267,7 +267,7 @@
 (defcommand browser () ()
   "run or raise conkeror"
   (run-or-raise "conkeror" '(:class "Conkeror")))
-(define-key *root-map* (kbd "b") "browser")
+(define-key *root-map* (kbd "w") "browser")
 
 (defcommand terminal () ()
   "run or raise urxvt"
@@ -288,6 +288,42 @@
 (defcommand dict (word) ((:REST "Look Up: "))
             (echo (concat "looking up .." word))
             (echo (run-shell-command (concat "trans -b :zh " word) t)))
+
+(defcommand inc-brightness () ()
+            "Increase brightness by 100"
+            ;; /sys/class/backlight/intel_backlight/brightness
+            (let ((brightness-file "/sys/class/backlight/intel_backlight/brightness"))
+              ;; get current brightness
+              (let ((cur-val
+                     (values (parse-integer (run-shell-command (concat "cat " brightness-file) t)))))
+                ;; add 100 to it
+                (setq cur-val (+ cur-val 100))
+                ;; (echo cur-val)
+                (echo (concat "echo " (write-to-string cur-val) " > " brightness-file))
+                (run-shell-command (concat "echo " (write-to-string cur-val) " > " brightness-file))
+                )
+              )
+            )
+
+
+(defcommand dec-brightness () ()
+            "Decrease brightness by 100"
+            ;; /sys/class/backlight/intel_backlight/brightness
+            (let ((brightness-file "/sys/class/backlight/intel_backlight/brightness"))
+              ;; get current brightness
+              (let ((cur-val
+                     (values (parse-integer (run-shell-command (concat "cat " brightness-file) t)))))
+                ;; add 100 to it
+                (setq cur-val (- cur-val 100))
+                ;; (echo cur-val)
+                (echo (concat "echo " (write-to-string cur-val) " > " brightness-file))
+                (run-shell-command (concat "echo " (write-to-string cur-val) " > " brightness-file))
+                )
+              )
+            )
+
+(define-key *root-map* (kbd "b") "inc-brightness")
+(define-key *root-map* (kbd "C-b") "dec-brightness")
 
 
 ;; (defcommand dropbox-status () ()
