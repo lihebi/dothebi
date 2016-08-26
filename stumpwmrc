@@ -289,6 +289,8 @@
             (echo (concat "looking up .." word))
             (echo (run-shell-command (concat "trans -b :zh " word) t)))
 
+
+;; TODO the file will be reset to root, and max brightness
 (defcommand inc-brightness () ()
             "Increase brightness by 100"
             ;; /sys/class/backlight/intel_backlight/brightness
