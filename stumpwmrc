@@ -168,6 +168,21 @@
 ;; (set-font (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 16))
 
 
+(defun get-dpi()
+  (values
+   (parse-integer
+    (run-shell-command
+     "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc | tr '\n' ' '" t))))
+
+(defcommand hebi()()
+            (echo (get-dpi))
+            (echo (get-font-size)))
+
+(defun get-font-size()
+  (case (get-dpi)
+    (96 12)
+    (144 16)
+    (otherwise 14)))
 
 ;; How I made the WenQuanYi Micro Hei ttf font (clx-truetype only recognizes ttf, not ttc):
 ;; input: ttc file
@@ -176,7 +191,7 @@
 ;; The validation failed, but doesn't matter
 (set-font
  (list
-  (make-instance 'xft:font :family "WenQuanYi Micro Hei Mono" :subfamily "Regular" :size 16)
+  (make-instance 'xft:font :family "WenQuanYi Micro Hei Mono" :subfamily "Regular" :size (get-font-size))
   ;; (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Oblique" :size 16)
   ;; (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 20)
   ;; (make-instance 'xft:font :family "cwTeXFangSong" :subfamily "Medium" :size 16)
