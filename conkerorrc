@@ -14,6 +14,7 @@
 // homepage = "http://lihebi.com";
 homepage = "http://wiki.lihebi.com"
 homepage = "file:////home/hebi/github/wiki-dist/index.html"
+homepage = "http://google.com"
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
@@ -68,6 +69,7 @@ define_webjump("isublackboard", "http://bb.its.iastate.edu")
 define_webjump("isuaccessplus", "http://accessplus.iastate.edu")
 
 define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s")
+define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html")
 
 /*******************************
 * other
