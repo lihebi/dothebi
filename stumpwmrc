@@ -348,6 +348,10 @@
 (define-key *root-map* (kbd "b") "inc-brightness")
 (define-key *root-map* (kbd "C-b") "dec-brightness")
 
+(defcommand chown-brightness () ()
+            (let ((brightness-file "/sys/class/backlight/intel_backlight/brightness"))
+              (set-x-selection (concat "chown hebi:hebi " brightness-file))))
+
 
 ;; (defcommand dropbox-status () ()
 ;;   (run-shell-command "dropbox status"))
