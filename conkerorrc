@@ -13,8 +13,8 @@
 // homepage = "https://www.google.com";
 // homepage = "http://lihebi.com";
 homepage = "http://wiki.lihebi.com"
-homepage = "file:////home/hebi/github/wiki-dist/index.html"
 homepage = "http://google.com"
+homepage = "file:////home/hebi/github/wiki-dist/index.html"
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
