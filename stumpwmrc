@@ -353,6 +353,15 @@
               (set-x-selection (concat "chown hebi:hebi " brightness-file))))
 
 
+(defcommand rotate-left () ()
+            (run-shell-command "xrandr --output HDMI-0 --rotate left"))
+
+(defcommand rotate-right () ()
+            (run-shell-command "xrandr --output HDMI-0 --rotate right"))
+
+(defcommand rotate-normal () ()
+            (run-shell-command "xrandr --output HDMI-0 --rotate normal"))
+
 ;; (defcommand dropbox-status () ()
 ;;   (run-shell-command "dropbox status"))
 
