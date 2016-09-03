@@ -57,6 +57,7 @@ require("mode-line.js");
 
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
 define_webjump("github", "http://github.com/search?q=%s");
+define_webjump("leetcode", "http://leetcode.com");
 
 // HEBI
 define_webjump("hebiwki", "http://wiki.lihebi.com");

@@ -27,31 +27,12 @@
 (load-module "wifi")
 (load-module "amixer")
 
-;; configure swank
-;; https://common-lisp.net/project/slime/
-;; https://github.com/slime/slime
-
-;; (load "~/.emacs.d/elpa/slime-20140420.33/swank-loader.lisp")
-;; (swank-loader:init)
-;; (defcommand swank () ()
-;;   "Creates a swank server in the stumpwm lisp process"
-;;   (setf stumpwm:*top-level-error-action* :break)
-;;   (swank:create-server :port 4005
-;;            :style swank:*communication-style*
-;;            :dont-close t)
-;; (echo-string (current-screen)
-;;          "Starting swank. M-x slime-connect RET RET, then (in-package stumpwm)."))
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Mode Line
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; default timeout
 ;; (setf *mode-line-timeout* 1)
-
-
-
 
 ;; smart modeline
 (if (not (head-mode-line (current-head)))
@@ -100,55 +81,6 @@
 ;; Setting fonts
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Set the font for the message bar and input bar.
-;; 1. Load module for xft fonts.
-;; This load failed no matter how. The load of other modules such as "cpu" succeeded
-;; (load-module "ttf-fonts")
-;; 2. Set xft font.
-;; (set-font (make-instance 'ttf-fonts:open-font :family "Source Code Pro" :subfamily "Regular" :size 13))
-
-;; (set-font "-misc-courier-*-*-*--26-*-*-*-c-60-iso8859-1")
-;; (set-font "6x13")
-
-;; Finally, I can only use "XLFD" ("X Logical Font Description") fonts
-;; this is done by xfontsel or xlsfonts
-;; this is the biggest nick name from xlsfonts | grep x
-;; (set-font "12x24")
-
-
-;; (set-font (open-font "Source Code Pro"))
-
-;; (set-font "-*-terminus-*-*-*-*-18-*-*-*-*-*-iso8859-*")
-
-;; (set-font "-*-*-*-*-*-*-10-*-*-*-*-*-*-*")
-
-
-;; this does not work because the "-*-*-*-..." format font only available for some size
-;; I need to use ttf font, which I can see a xlc-truetype, as well as contrib/ttl-fonts
-;; xlc-truetype should work, but I'm exetremely unfamiliar with common lisp, I don't know how to use it though.
-;; ttl-fonts is a module, but it is actually not available at least in my stumpwm.
-;; So now I'm going to use the specific setup for high def screen
-
-;; (parse-integer (run-shell-command "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc" t))
-
-;; (set-font "-*-*-*-*-*-*-10-*-*-*-*-*-*-*")
-;; (when (= (values
-;;           (parse-integer
-;;            (run-shell-command
-;;             "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc | tr '\n' ' '" t))) 192)
-;;   (set-font "12x24")
-;;   )
-
-;; (when (= (values
-;;           (parse-integer
-;;            (run-shell-command
-;;             "xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}'"
-;;             t))) 1600)
-;;   (set-font "12x24")
-;;   )
-
-;; (set-font (make-instance 'ttf-fonts:open-font :family "Source Code Pro" :subfamily "Regular" :size 13))
-
 ;; Finallly I got this working!
 ;; Steps
 ;; 1. must call (xft:cache-fonts)
@@ -165,7 +97,6 @@
 
 ;; This is very slow, use with caution! neng bu yong jiu bu yong
 ;; (xft:cache-fonts)
-;; (set-font (make-instance 'xft:font :family "Source Code Pro" :subfamily "Regular" :size 16))
 
 
 (defun get-dpi()
@@ -184,11 +115,6 @@
     (144 16)
     (otherwise 14)))
 
-;; How I made the WenQuanYi Micro Hei ttf font (clx-truetype only recognizes ttf, not ttc):
-;; input: ttc file
-;; Tool: fontforge
-;; Open ttc file, select one, generate font, choose truetype
-;; The validation failed, but doesn't matter
 (set-font
  (list
   (make-instance 'xft:font :family "WenQuanYi Micro Hei Mono" :subfamily "Regular" :size (get-font-size))
@@ -197,42 +123,6 @@
   ;; (make-instance 'xft:font :family "cwTeXFangSong" :subfamily "Medium" :size 16)
   )
  )
-;; The let version does not work!! Because "(= dpi 192) is NIL, not a number ..." ???
-
-;; (let (dpi (values
-;;           (parse-integer
-;;            (run-shell-command
-;;             "echo $(xrdb -query | grep dpi | awk '{print $2}') | bc | tr '\n' ' '" t))))
-;;   (when (= 1 1)
-;;     (set-font "12x24")
-;;     )
-;;   (when (= dpi 192)
-;;     (set-font "12x24")
-;;     (set-font "-*-*-*-*-*-*-10-*-*-*-*-*-*-*")
-;;     )
-
-;; (cond
-;;  ((= dpi 192) (set-font "12x24"))))
-;; (when (= 'dpi 192)
-;;   (echo "xxx")
-;;   )
-;;   )
-
-
-
-
-;; (set-font (concat "-adobe-courier-*-*-*-*-"
-;;                   (run-shell-command "echo $(xrdb -query | grep dpi | awk '{print $2}') ' / 5 ' | bc" t)
-;;                   "-*-*-*-*-*-*-*"))
-;; (set-font "-adobe-courier-*-*-*-*-34-*-*-*-*-*-*-*")
-
-
-
-
-
-;; (set-fg-color "white")
-;; (set-bg-color "grey20")
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Window format
@@ -362,16 +252,6 @@
 (defcommand rotate-normal () ()
             (run-shell-command "xrandr --output HDMI-0 --rotate normal"))
 
-;; (defcommand dropbox-status () ()
-;;   (run-shell-command "dropbox status"))
-
-;; (defcommand mode-line-toggle () ()
-;;   "Toggles the mode-line"
-;;   (toggle-mode-line (current-screen) (current-head)))
-;; (define-key *top-map* (kbd "M-m") "mode-line-toggle")
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key bindings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -386,9 +266,3 @@
 
 (stumpwm:define-key stumpwm:*root-map* (stumpwm:kbd "C-z") "echo Zzzzz...")
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Start
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (terminal)
-;; (browser)
