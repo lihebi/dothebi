@@ -252,6 +252,9 @@
 (defcommand rotate-normal () ()
             (run-shell-command "xrandr --output HDMI-0 --rotate normal"))
 
+(defcommand shutdown () ()
+            (run-shell-command "shutdown now"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key bindings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
