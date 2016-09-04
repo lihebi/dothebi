@@ -94,6 +94,11 @@ if [[ `uname` == 'Darwin' ]]; then
     alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 fi
 
+
+function gtcc() {
+    g++ $1 -lgtest -pthread
+}
+
 ##############################
 ## source other files
 ##############################

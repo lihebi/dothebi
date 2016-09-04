@@ -17,6 +17,7 @@ ln -sf $HOME/.xinitrc $HOME/.xsession
 ln -sf $HOME/.hebi/stumpwm.d $HOME/.stumpwm.d
 
 ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/.hebi/xpdfrc $HOME/.xpdfrc
 
 # bash
 ln -sf $HOME/.hebi/bashrc $HOME/.bashrc
