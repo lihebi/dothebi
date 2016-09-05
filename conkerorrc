@@ -1,14 +1,17 @@
 // General Actions
 
-// add_hook("window_before_close_hook",
-//          function () {
-//              var w = get_recent_conkeror_window();
-//              var result = (w == null) ||
-//                  "y" == (yield w.minibuffer.read_single_character_option(
-//                      $prompt = "Quit Conkeror? (y/n)",
-//                      $options = ["y", "n"]));
-//              yield co_return(result);
-//          });
+// define-key(content_buffer_normal_keymap, "y", "copy");
+
+add_hook("window_before_close_hook",
+         function () {
+             var w = get_recent_conkeror_window();
+             var result = (w == null) ||
+                 "y" == (yield w.minibuffer.read_single_character_option(
+                     $prompt = "Quit Conkeror? (y/n)",
+                     $options = ["y", "n"]));
+             yield co_return(result);
+         });
+
 
 // homepage = "https://www.google.com";
 // homepage = "http://lihebi.com";
@@ -50,10 +53,54 @@ require("mode-line.js");
 
 
 
+//////////////////////////////
+// Trying to add hook to forbid website key binding hijack
+// Failed
+//////////////////////////////
+
+// function hebiecho() {
+//   // I.window.minibuffer.message("hebi");
+// }
+
+
+
+
+// function echo_message (window, message) {
+//     window.minibuffer.message(message);
+// }
+
+
+// Weired!
+// interactive("hebiecho",
+//   "echo ..."
+//   function (I) {
+//       I.window.minibuffer.message("hebi");
+//   });
+
+
+// interactive("hebiecho",
+//             "echo a user-supplied message in the minibuffer",
+//             function (I) {
+//                 echo_message(I.window, "hebi");
+//             });
+
+// interactive("echo-message",
+//             "echo a user-supplied message in the minibuffer",
+//             function (I) {
+//                 echo_message(
+//                     I.window,
+//                     (yield I.minibuffer.read($prompt = "message: ")));
+//             });
+
+// define_key(content_buffer_normal_keymap, "C-o", "hebiecho",
+//            $browser_object = browser_object_dom_node);
+
+// add_hook("content_buffer_finished_loading_hook", "echo-message", false, false);
+
 
 /*******************************
-* Web jumps
-*******************************/
+ * Web jumps
+ *******************************/
 
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
 define_webjump("github", "http://github.com/search?q=%s");
@@ -73,8 +120,8 @@ define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s")
 define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html")
 
 /*******************************
-* other
-*******************************/
+ * other
+ *******************************/
 
 url_remoting_fn = load_url_in_new_buffer;
 
