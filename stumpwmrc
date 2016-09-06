@@ -273,6 +273,9 @@
 (define-key *root-map* (kbd "b") "brightness-inc")
 (define-key *root-map* (kbd "C-b") "brightness-dec")
 
+(defcommand suspend () ()
+            (run-shell-command "systemctl suspend"))
+
 ;; (defcommand chown-brightness () ()
 ;;             (let ((brightness-file "/sys/class/backlight/intel_backlight/brightness"))
 ;;               (set-x-selection (concat "chown hebi:hebi " brightness-file))))
