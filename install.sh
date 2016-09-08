@@ -32,3 +32,9 @@ fi
 ln -sf $HOME/.hebi/fonts $HOME/.fonts
 
 # ln -sf $HOME/.hebi/offlineimaprc $HOME/.offlineimaprc
+
+# desktop
+# after this issue
+# xdg-mime default emacsclient.desktop application/pdf
+rm -rf ~/.local/share/applications
+ln -s $HOME/.hebi/desktop ~/.local/share/applications
