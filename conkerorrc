@@ -1,16 +1,18 @@
+// -*- mode: js;-*-
+
 // General Actions
 
 // define-key(content_buffer_normal_keymap, "y", "copy");
 
-add_hook("window_before_close_hook",
-         function () {
-             var w = get_recent_conkeror_window();
-             var result = (w == null) ||
-                 "y" == (yield w.minibuffer.read_single_character_option(
-                     $prompt = "Quit Conkeror? (y/n)",
-                     $options = ["y", "n"]));
-             yield co_return(result);
-         });
+// add_hook("window_before_close_hook",
+//          function () {
+//              var w = get_recent_conkeror_window();
+//              var result = (w == null) ||
+//                  "y" == (yield w.minibuffer.read_single_character_option(
+//                      $prompt = "Quit Conkeror? (y/n)",
+//                      $options = ["y", "n"]));
+//              yield co_return(result);
+//          });
 
 
 // homepage = "https://www.google.com";
@@ -105,19 +107,20 @@ require("mode-line.js");
 define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?search=%s");
 define_webjump("github", "http://github.com/search?q=%s");
 define_webjump("leetcode", "http://leetcode.com");
+define_webjump("leetdiscuss", "https://discuss.leetcode.com/category/8/oj");
 
 // HEBI
 define_webjump("hebiwki", "http://wiki.lihebi.com");
 
 // ISU
-define_webjump("cymail", "http://cymail.iastate.edu")
-define_webjump("isulib", "http://www.lib.iastate.edu/")
+define_webjump("cymail", "http://cymail.iastate.edu");
+define_webjump("isulib", "http://www.lib.iastate.edu/");
 define_webjump("isugit", "http://git.linux.iastate.edu");
-define_webjump("isublackboard", "http://bb.its.iastate.edu")
-define_webjump("isuaccessplus", "http://accessplus.iastate.edu")
+define_webjump("isublackboard", "http://bb.its.iastate.edu");
+define_webjump("isuaccessplus", "http://accessplus.iastate.edu");
 
-define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s")
-define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html")
+define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s");
+define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html");
 
 /*******************************
  * other
