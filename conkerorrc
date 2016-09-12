@@ -20,6 +20,8 @@
 homepage = "http://wiki.lihebi.com"
 homepage = "http://google.com"
 homepage = "file:////home/hebi/github/wiki-dist/index.html"
+
+
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
 
@@ -109,8 +111,6 @@ define_webjump("github", "http://github.com/search?q=%s");
 define_webjump("leetcode", "http://leetcode.com");
 define_webjump("leetdiscuss", "https://discuss.leetcode.com/category/8/oj");
 
-// HEBI
-define_webjump("hebiwki", "http://wiki.lihebi.com");
 
 // ISU
 define_webjump("cymail", "http://cymail.iastate.edu");
@@ -121,6 +121,10 @@ define_webjump("isuaccessplus", "http://accessplus.iastate.edu");
 
 define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s");
 define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html");
+
+// HEBI
+define_webjump("hebiwiki", "http://wiki.lihebi.com");
+define_webjump("hebi", "file:////home/hebi/github/wiki-dist/hebi.html");
 
 /*******************************
  * other
