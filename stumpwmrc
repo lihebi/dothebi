@@ -245,7 +245,7 @@
               (let ((cur-val
                      (values (parse-integer (run-shell-command (concat "cat " brightness-file) t)))))
                 ;; add 100 to it
-                (setq cur-val (+ cur-val 100))
+                (setq cur-val (+ cur-val 300))
                 ;; (echo cur-val)
                 (echo (concat "echo " (write-to-string cur-val) " > " brightness-file))
                 (run-shell-command (concat "echo " (write-to-string cur-val) " > " brightness-file))
@@ -262,7 +262,7 @@
               (let ((cur-val
                      (values (parse-integer (run-shell-command (concat "cat " brightness-file) t)))))
                 ;; add 100 to it
-                (setq cur-val (- cur-val 100))
+                (setq cur-val (- cur-val 300))
                 ;; (echo cur-val)
                 (echo (concat "echo " (write-to-string cur-val) " > " brightness-file))
                 (run-shell-command (concat "echo " (write-to-string cur-val) " > " brightness-file))
