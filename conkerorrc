@@ -152,6 +152,24 @@ define_key(content_buffer_normal_keymap, "space", "eye-guide-scroll-down");
 define_key(content_buffer_normal_keymap, "back_space", "eye-guide-scroll-up");
 
 
+
+
+// Using C-g to unfocus, and ESC to stop-loading
+
+// define_key(content_buffer_normal_keymap, "C-x C-s", "save-page");
+// define_key(content_buffer_normal_keymap, "C-x h", "cmd_selectAll");
+
+// define_key(content_buffer_normal_keymap, "C-g", "stop-loading");
+define_key(content_buffer_normal_keymap, "C-g", "unfocus");
+
+// define_key(content_buffer_normal_keymap, "escape", "unfocus");
+define_key(content_buffer_normal_keymap, "escape", "stop-loading");
+
+// define_key(content_buffer_normal_keymap, "M-escape", "unfocus");
+
+// define_key(content_buffer_normal_keymap, "tab", "browser-focus-next-form-field");
+
+
 /*******************************
  * Restore
  *******************************/
