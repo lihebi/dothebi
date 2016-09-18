@@ -18,6 +18,7 @@ ln -sf $HOME/.hebi/stumpwm.d $HOME/.stumpwm.d
 
 ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/.hebi/xpdfrc $HOME/.xpdfrc
+ln -sf $HOME/.hebi/sbclrc $HOME/.sbclrc
 
 # bash
 ln -sf $HOME/.hebi/bashrc $HOME/.bashrc
