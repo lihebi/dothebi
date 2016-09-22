@@ -125,6 +125,7 @@ define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html");
 // HEBI
 define_webjump("hebiwiki", "http://wiki.lihebi.com");
 define_webjump("hebi", "file:////home/hebi/github/wiki-dist/hebi.html");
+define_webjump("helium", "file:////home/hebi/github/Helium/doc/doxygen/html/index.html")
 
 /*******************************
  * other
