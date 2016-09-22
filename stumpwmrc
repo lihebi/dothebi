@@ -198,6 +198,15 @@
 ;; show dropbox status
 ;; toggle on=|=off modeline
 
+
+;; I want to disable C-t k because it got mis-shooting!
+;; But, this is not working
+(undefine-key *root-map* (kbd "k"))
+;; I have to "define" it to do some dummy echo
+(define-key *root-map* (kbd "k") "echo Zzz..")
+
+
+
 (defcommand emacs-with-server () ()
             "run-or-raise emacs"
             (run-or-raise "emacsclient -ca emacs" '(:class "Emacs")))
