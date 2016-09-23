@@ -52,6 +52,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$HOME/bin:$PATH
+export INFOPATH=$HOME/.info:$INFOPATH
 
 
 ##############################
