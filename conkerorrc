@@ -110,7 +110,7 @@ define_webjump("ratpoisonwiki", "http://ratpoison.wxcvbn.org/cgi-bin/wiki.pl?sea
 define_webjump("github", "http://github.com/search?q=%s");
 define_webjump("leetcode", "http://leetcode.com");
 define_webjump("leetdiscuss", "https://discuss.leetcode.com/category/8/oj");
-
+define_webjump("hackernews", "https://news.ycombinator.com/");
 
 // ISU
 define_webjump("cymail", "http://cymail.iastate.edu");

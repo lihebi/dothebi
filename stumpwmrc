@@ -284,8 +284,10 @@
               )
             )
 
-(define-key *root-map* (kbd "b") "brightness-inc")
-(define-key *root-map* (kbd "C-b") "brightness-dec")
+;; (define-key *root-map* (kbd "b") "brightness-inc")
+;; (define-key *root-map* (kbd "C-b") "brightness-dec")
+(define-key *root-map* (kbd "XF86MonBrightnessUp") "brightness-inc")
+(define-key *root-map* (kbd "XF86MonBrightnessDown") "brightness-dec")
 
 (defcommand suspend () ()
             (run-shell-command "systemctl suspend"))
