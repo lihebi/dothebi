@@ -77,6 +77,7 @@ fi
 ## Applications
 ##############################
 
+export INFOPATH=$HOME/.info:$INFOPATH
 emacs --daemon &
 
 # if [ -e ~/.fehbg ]; then
@@ -88,6 +89,11 @@ xmodmap ~/.Xmodmap
 ##############################
 ## Window Manager
 ##############################
+
+# put the xrandr setup in it
+if [ -e $HOME/.xinitrc.local ]; then
+    . $HOME/.xinitrc.local
+fi
 
 exec stumpwm
 # exec openbox
