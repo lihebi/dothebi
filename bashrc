@@ -45,7 +45,7 @@ then
 fi
 
 # Helium
-export HELIUM_HOME=$HOME/github/Helium
+export HELIUM_HOME=$HOME/github/helium
 export PATH=$HELIUM_HOME/bin:$HELIUM_HOME/scripts:$PATH
 
 export GOPATH=$HOME/go
@@ -125,3 +125,7 @@ fi;
 if [[ -f $HOME/.bashrc.local ]]; then
     . $HOME/.bashrc.local
 fi
+
+# Xrandr setting for dual monitors in office
+# xrandr --output HDMI-1 --left-of VGA-1
+# xrandr --output HDMI-1 --rotate left
