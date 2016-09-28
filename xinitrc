@@ -78,6 +78,7 @@ fi
 ##############################
 
 export INFOPATH=$HOME/.info:$INFOPATH
+export HELIUM_HOME=$HOME/github/helium # for gdb working for helium
 emacs --daemon &
 
 # if [ -e ~/.fehbg ]; then
