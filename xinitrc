@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ##############################
 ## .xinitrc file
 ##############################
@@ -13,46 +12,12 @@
 # NEVER put xrdb into background,
 # otherwise programs launched after xrdb may look for resouces before they are loaded
 
-if [ -e ~/.Xresources ]; then
-    xrdb -merge ~/.Xresources
+if [ -e $HOME/.Xresources ]; then
+    xrdb -merge $HOME/.Xresources
 fi
 
-
-# dynamically adjust DPI setting
-# dpi=$(xdpyinfo | grep resolution | awk '{print $2}')
-# dpi=${dpi%x*}
-# if [ -n $dpi ]; then
-#     dpi="$dpi*2"
-#     # dpi=$((dpi)) # not working, need to use bc
-#     dpi=$(echo $dpi | bc)
-#     echo "Xft.dpi: $dpi" | xrdb -merge
-# fi
-
-xres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $1}')
-yres=$(xdpyinfo | grep dimension | awk '{print $2}' | awk -F 'x' '{print $2}')
-if [ -n $yres ]; then
-    yres_num=$(echo $yres | bc)
-    xres_num=$(echo $xres | bc)
-    if [ $yres_num -eq 1600 ]; then
-        # macbook
-        echo "Xft.dpi: 144" | xrdb -merge;
-    elif [ $xres_num -eq 2560 ]; then
-        # 29UM67-P
-        echo "Xft.dpi: 128" | xrdb -merge;
-    else
-        echo "Xft.dpi: 96" | xrdb -merge;
-    fi
-        
-    # if [[ $yres == "1080" ]]; then
-    #     # 1080p
-    #     echo "Xft.dpi: 96" | xrdb -merge;
-    # elif [[ $yres == "1600" ]]; then
-    #     # macbook
-    #     echo "Xft.dpi: 144" | xrdb -merge;
-    # else
-    #     # other
-    #     echo "Xft.dpi: 96" | xrdb -merge;
-    # fi
+if [ -e $HOME/.hebi/local/Xresources ]; then
+    xrdb -merge $HOME/.hebi/local/Xresources
 fi
 
 # merge PRIMARY and CLIPBOARD xsel
@@ -78,7 +43,6 @@ fi
 ##############################
 
 export INFOPATH=$HOME/.info:$INFOPATH
-export HELIUM_HOME=$HOME/github/helium # for gdb working for helium
 emacs --daemon &
 
 # if [ -e ~/.fehbg ]; then
@@ -92,8 +56,8 @@ xmodmap ~/.Xmodmap
 ##############################
 
 # put the xrandr setup in it
-if [ -e $HOME/.xinitrc.local ]; then
-    . $HOME/.xinitrc.local
+if [ -e $HOME/.hebi/local/xinitrc ]; then
+    . $HOME/.hebi/local/xinitrc
 fi
 
 exec stumpwm

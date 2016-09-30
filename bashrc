@@ -122,10 +122,6 @@ fi;
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-if [[ -f $HOME/.bashrc.local ]]; then
-    . $HOME/.bashrc.local
+if [[ -f $HOME/.hebi/local/bashrc ]]; then
+    . $HOME/.hebi/local/bashrc
 fi
-
-# Xrandr setting for dual monitors in office
-# xrandr --output HDMI-1 --left-of VGA-1
-# xrandr --output HDMI-1 --rotate left
