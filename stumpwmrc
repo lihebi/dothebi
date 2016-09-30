@@ -221,6 +221,10 @@
 (defcommand browser () ()
             "run or raise conkeror"
             (run-or-raise "conkeror" '(:class "Conkeror")))
+
+;; (defcommand browser () ()
+;;             "run or raise chromium"
+;;             (run-or-raise "chromium" '(:class "chromium")))
 (define-key *root-map* (kbd "w") "browser")
 
 (defcommand terminal () ()

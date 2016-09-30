@@ -127,6 +127,34 @@ define_webjump("hebiwiki", "http://wiki.lihebi.com");
 define_webjump("hebi", "file:////home/hebi/github/wiki-dist/hebi.html");
 define_webjump("helium", "file:////home/hebi/github/helium/doc/doxygen/html/index.html")
 
+
+
+
+// 'delete', bound to 'd', can delete a DOM element
+
+define_webjump("icse16", "http://dl.acm.org/citation.cfm?id=2884781&CFID=845161757&CFTOKEN=80603939")
+define_webjump("icse15a", "http://dl.acm.org/citation.cfm?id=2818754&CFID=845161757&CFTOKEN=80603939")
+define_webjump("icse15b", "http://dl.acm.org/citation.cfm?id=2819009&CFID=845161757&CFTOKEN=80603939")
+define_webjump("icse14", "http://dl.acm.org/citation.cfm?id=2568225&CFID=845161757&CFTOKEN=80603939")
+define_webjump("icse13", "http://dl.acm.org/citation.cfm?id=2486788&CFID=845161757&CFTOKEN=80603939")
+define_webjump("icse12", "http://dl.acm.org/citation.cfm?id=2337223&CFID=845161757&CFTOKEN=80603939")
+
+define_webjump("fse14", "http://dl.acm.org/citation.cfm?id=2635868&picked=prox&CFID=845161757&CFTOKEN=80603939")
+define_webjump("fse12", "http://dl.acm.org/citation.cfm?id=2393596&CFID=845161757&CFTOKEN=80603939")
+
+define_webjump("pldi16", "http://dl.acm.org/citation.cfm?id=2908080&CFID=845161757&CFTOKEN=80603939")
+define_webjump("pldi15", "http://dl.acm.org/citation.cfm?id=2737924&CFID=845161757&CFTOKEN=80603939")
+define_webjump("pldi14", "http://dl.acm.org/citation.cfm?id=2594291&CFID=845161757&CFTOKEN=80603939")
+define_webjump("pldi13", "http://dl.acm.org/citation.cfm?id=2491956&CFID=845161757&CFTOKEN=80603939")
+define_webjump("pldi12", "http://dl.acm.org/citation.cfm?id=2254064&CFID=845161757&CFTOKEN=80603939")
+
+define_webjump("issta16", "http://dl.acm.org/citation.cfm?id=2931037&CFID=845161757&CFTOKEN=80603939")
+define_webjump("issta15", "http://dl.acm.org/citation.cfm?id=2771783&CFID=845161757&CFTOKEN=80603939")
+define_webjump("issta14", "http://dl.acm.org/citation.cfm?id=2610384&CFID=845161757&CFTOKEN=80603939")
+define_webjump("issta13", "http://dl.acm.org/citation.cfm?id=2483760&CFID=845161757&CFTOKEN=80603939")
+define_webjump("issta12", "http://dl.acm.org/citation.cfm?id=2338965&CFID=845161757&CFTOKEN=80603939")
+
+
 /*******************************
  * other
  *******************************/

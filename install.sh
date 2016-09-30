@@ -39,5 +39,3 @@ ln -sf $HOME/.hebi/fonts $HOME/.fonts
 # xdg-mime default emacsclient.desktop application/pdf
 rm -rf ~/.local/share/applications
 ln -sf $HOME/.hebi/desktop $HOME/.local/share/applications
-
-ln -sf $HOME/.hebi/heliumrc $HOME/.heliumrc 
