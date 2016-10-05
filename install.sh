@@ -39,3 +39,13 @@ ln -sf $HOME/.hebi/fonts $HOME/.fonts
 # xdg-mime default emacsclient.desktop application/pdf
 rm -rf ~/.local/share/applications
 ln -sf $HOME/.hebi/desktop $HOME/.local/share/applications
+
+
+rm -rf ~/texmf
+mkdir -p ~/texmf/tex/latex/local
+# FIXME this could only work in /usr/local/share/texmf folder
+# than I need sudo mktexlsr to updat, then reboot system ...
+# but at least it works now ...
+# Setting the TEXMFHOME=/home/hebi/texmf and TEXMFDBS=/home/hebi/texmf does not help ...
+ln -s $HOME/.hebi/latex $HOME/texmf/tex/latex/local/fse
+
