@@ -49,3 +49,4 @@ mkdir -p ~/texmf/tex/latex/local
 # Setting the TEXMFHOME=/home/hebi/texmf and TEXMFDBS=/home/hebi/texmf does not help ...
 ln -s $HOME/.hebi/latex $HOME/texmf/tex/latex/local/fse
 
+ln -s $HOME/.hebi/newsrc $HOME/.newsrc
