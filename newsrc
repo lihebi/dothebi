@@ -1,7 +1,7 @@
 gmane.announce
 gmane.comp.web.chromium.bugs
 gmane.linux.debian.devel.bugs.general
-gmane.linux.kernel
+gmane.linux.kernel:
 gmane.linux.mageia.packages.scm
 gmane.linux.redhat.fedora.extras.cvs
 gmane.linux.ubuntu.bugs.general
