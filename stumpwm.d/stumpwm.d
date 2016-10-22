@@ -1,1 +1,1 @@
-/home/hebi/.hebi/stumpwm.d
+/Users/hebi/.hebi/stumpwm.d
