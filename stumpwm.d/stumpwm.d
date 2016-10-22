@@ -1,1 +1,0 @@
-/Users/hebi/.hebi/stumpwm.d

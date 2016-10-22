@@ -14,6 +14,7 @@ ln -sf $HOME/.hebi/conkerorrc $HOME/.conkerorrc
 ln -sf $HOME/.xinitrc $HOME/.xsession
 
 # app
+rm -rf $HOME/.stumpwm.d
 ln -sf $HOME/.hebi/stumpwm.d $HOME/.stumpwm.d
 
 ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
