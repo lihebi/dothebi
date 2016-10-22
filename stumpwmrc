@@ -269,6 +269,29 @@
 
 (define-key *root-map* (kbd "d") "dict-xsel")
 
+;; speech
+(defcommand speech (word) ((:REST "Speech: "))
+            (echo (concat "speaking out " word))
+            (run-shell-command (concat "espeak \"" + word + "\"")))
+
+(defcommand speech-xsel () ()
+            (let ((word (get-x-selection)))
+              (speech word)))
+
+(defcommand speech-festival (word) ((:REST "Speech by festival: "))
+            (echo (concat "speaking out " word))
+            (run-shell-command (concat "echo \"" word "\" | festival --tts")))
+
+(defcommand speech-kill () ()
+            (echo "killing speech")
+            (run-shell-command (concat
+                                "for pid in `ps -ef | grep 'espeak' | awk '{print $2}'`; do kill $pid; done")))
+
+
+
+
+
+
 ;; TODO the file will be reset to root, and max brightness
 (defcommand brightness-inc () ()
             "Increase brightness by 100"
@@ -327,6 +350,16 @@
 
 (defcommand shutdown () ()
             (run-shell-command "/sbin/shutdown now"))
+
+
+
+
+
+
+
+
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Key bindings

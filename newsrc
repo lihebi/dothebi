@@ -12,7 +12,7 @@ gmane.linux.debian.devel.bugs.general:
 gmane.linux.kernel:
 gmane.linux.debian.devel.general:
 gmane.linux.debian.devel.kernel:
-gmane.linux.debian.user:
+gmane.linux.debian.user: 1-1842,518218-518219,518223,518225-518231,518235,518237,518277,518279-518280,518282
 gmane.comp.compilers.clang.scm:
 gmane.comp.compilers.llvm.devel:
 gmane.comp.compilers.clang.devel:
