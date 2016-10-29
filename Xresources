@@ -57,7 +57,7 @@ Xcursor.size: 26
 URxvt*foreground: White
 URxvt*background: black
 
-URxvt*font: xft:Source Code Pro:Regular:size=14
+URxvt*font: xft:Source Code Pro:Regular:size=12
 
 URxvt*color4: RoyalBlue
 URxvt*color12: RoyalBlue
