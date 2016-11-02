@@ -41,7 +41,11 @@ fi
 rm -rf ~/.local/share/applications
 ln -sf $HOME/.hebi/desktop $HOME/.local/share/applications
 
-rm -rf $HOME/texmf
-ln -sf $HOME/.hebi/texmf $HOME/texmf
+# rm -rf $HOME/texmf
+if [ $(uname) == 'Darwin' ]; then
+    ln -sf $HOME/.hebi/texmf $HOME/Library/
+else
+    ln -sf $HOME/.hebi/texmf $HOME/
+fi
 
 ln -sf $HOME/.hebi/newsrc $HOME/.newsrc
