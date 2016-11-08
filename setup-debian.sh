@@ -16,24 +16,24 @@ packages=$(cat debian-packages.conf  | sed 's/#.*//g' | sed '/^$/d')
 packages+=" linux-headers-$(uname -r)"
 echo "Installing package: "
 echo $packages
-sudo apt-get -y install packages
+sudo apt-get -y install $packages
 
 # update-alternative for x-www-browser and x-terminal-emulator
-# update-alternative --config x-terminal-emulator
-# update-alternative --config x-www-browser
+sudo update-alternatives --config x-terminal-emulator
+sudo update-alternatives --config x-www-browser
 
 # some git config
 
-# git config --global user.name "Hebi Li"
-# git config --global user.email "lihebi.com@gmail.com"
-# git config --global credential.helper cache
-# git config --global push.default simple
+git config --global user.name "Hebi Li"
+git config --global user.email "lihebi.com@gmail.com"
+git config --global credential.helper cache
+git config --global push.default simple
 
 
 # after this script, you need to do the following additional steps
 # - compile and install gtest from source
 # - download srcml
-# - install quicklisp
 # - install translate-shell
-
+# - compile most recent stumpwm
+# - install quicklisp, and clx-truetype,zpng
 
