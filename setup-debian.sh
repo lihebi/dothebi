@@ -32,8 +32,8 @@ git config --global push.default simple
 
 # after this script, you need to do the following additional steps
 # - compile and install gtest from source
-# - download srcml
-# - install translate-shell
-# - compile most recent stumpwm
-# - install quicklisp, and clx-truetype,zpng
+# - download srcml (http://131.123.42.38/lmcrs/beta/srcML-Ubuntu14.04-64.deb)
+# - install translate-shell (wget git.io/trans)
+# - compile most recent stumpwm (https://github.com/stumpwm/stumpwm)
+# - install quicklisp, and clx-truetype,zpng (ql:quickload "clx-truetype") (ql:quickload "zpng")
 
