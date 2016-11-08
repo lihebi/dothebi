@@ -6,29 +6,38 @@
 # - added your user to sudo group
 # - change the package source to testing, and dist upgrade the system
 
-# clone .hebi .emacs.d .stumpwm.d .info
-# [ -d .hebi ] || git clone https://github.com/lihebi/dothebi .hebi
-# [ -d .emacs.d ] || git clone https://github.com/lihebi/emacs.d .emacs.d
-# [ -d .stumpwm.d ] || git clone https://github.com/lihebi/stumpwm.d .stumpwm.d
-# [ -d .info ] || git clone https://github.com/lihebi/info .info
+PS3='Whic one? '
+desktop_packages=$(cat debian-desktop-package.conf | sed 's/#.*//g' | sed '/^$/d')
+desktop_packages+=" linux-headers-$(uname -r)"
+server_package=$(cat debian-server-package.conf | sed 's/#.*//g' | sed '/^$/d')
+select machine in 'desktop' 'server' 'git' 'repo'; do
+    case machine in
+        'desktop')
+            sudo apt-get -y install ${server_packages};
+            sudo apt-get -y install ${desktop_packages};;
+        'server')
+            sudo apt-get -y install ${server_packages};;
+        'git')
+            git config --global user.name "Hebi Li";
+            git config --global user.email "lihebi.com@gmail.com";
+            git config --global credential.helper cache;
+            git config --global push.default simple;;
+        'alt')
+            sudo update-alternatives --config x-terminal-emulator;
+            sudo update-alternatives --config x-www-browser;;
+        'repo')
+            [ -d ~/.hebi ] || git clone https://github.com/lihebi/dothebi ~/.hebi
+            [ -d ~/.emacs.d ] || git clone https://github.com/lihebi/emacs.d ~/.emacs.d
+            [ -d ~/.stumpwm.d ] || git clone https://github.com/lihebi/stumpwm.d ~/.stumpwm.d
+            [ -d ~/.info ] || git clone https://github.com/lihebi/info ~/.info
+    esac
+done
 
-packages=$(cat debian-packages.conf  | sed 's/#.*//g' | sed '/^$/d')
-packages+=" linux-headers-$(uname -r)"
-echo "Installing package: "
-echo $packages
-sudo apt-get -y install $packages
-
-# update-alternative for x-www-browser and x-terminal-emulator
-sudo update-alternatives --config x-terminal-emulator
-sudo update-alternatives --config x-www-browser
-
-# some git config
-
-git config --global user.name "Hebi Li"
-git config --global user.email "lihebi.com@gmail.com"
-git config --global credential.helper cache
-git config --global push.default simple
-
+# packages=$(cat debian-packages.conf  | sed 's/#.*//g' | sed '/^$/d')
+# packages+=" linux-headers-$(uname -r)"
+# echo "Installing package: "
+# echo $packages
+# sudo apt-get -y install $packages
 
 # after this script, you need to do the following additional steps
 # - compile and install gtest from source
