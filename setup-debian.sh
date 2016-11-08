@@ -10,26 +10,38 @@ PS3='Whic one? '
 desktop_packages=$(cat debian-desktop-package.conf | sed 's/#.*//g' | sed '/^$/d')
 desktop_packages+=" linux-headers-$(uname -r)"
 server_package=$(cat debian-server-package.conf | sed 's/#.*//g' | sed '/^$/d')
-select machine in 'desktop' 'server' 'git' 'repo'; do
-    case machine in
+select machine in 'desktop' 'server' 'git' 'alt' 'repo'; do
+    case $machine in
         'desktop')
+            echo "Installing desktop packages .."
             sudo apt-get -y install ${server_packages};
-            sudo apt-get -y install ${desktop_packages};;
+            sudo apt-get -y install ${desktop_packages};
+            exit 0;;
         'server')
-            sudo apt-get -y install ${server_packages};;
+            echo "Installing server packages .."
+            sudo apt-get -y install ${server_packages};
+            exit 0;;
         'git')
+            echo "Configuring git .."
             git config --global user.name "Hebi Li";
             git config --global user.email "lihebi.com@gmail.com";
             git config --global credential.helper cache;
-            git config --global push.default simple;;
+            git config --global push.default simple;
+            exit 0;;
         'alt')
+            echo "Setting alternatives .."
             sudo update-alternatives --config x-terminal-emulator;
-            sudo update-alternatives --config x-www-browser;;
+            sudo update-alternatives --config x-www-browser;
+            exit 0;;
         'repo')
-            [ -d ~/.hebi ] || git clone https://github.com/lihebi/dothebi ~/.hebi
-            [ -d ~/.emacs.d ] || git clone https://github.com/lihebi/emacs.d ~/.emacs.d
-            [ -d ~/.stumpwm.d ] || git clone https://github.com/lihebi/stumpwm.d ~/.stumpwm.d
-            [ -d ~/.info ] || git clone https://github.com/lihebi/info ~/.info
+            echo "Cloning configure repos .."
+            [ -d ~/.hebi ] || git clone https://github.com/lihebi/dothebi ~/.hebi;
+            [ -d ~/.emacs.d ] || git clone https://github.com/lihebi/emacs.d ~/.emacs.d;
+            [ -d ~/.stumpwm.d ] || git clone https://github.com/lihebi/stumpwm.d ~/.stumpwm.d;
+            [ -d ~/.info ] || git clone https://github.com/lihebi/dotinfo ~/.info;
+            exit 0;;
+        *)
+            echo "invalid";;
     esac
 done
 
