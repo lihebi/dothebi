@@ -36,4 +36,5 @@ git config --global push.default simple
 # - install translate-shell (wget git.io/trans)
 # - compile most recent stumpwm (https://github.com/stumpwm/stumpwm)
 # - install quicklisp, and clx-truetype,zpng (ql:quickload "clx-truetype") (ql:quickload "zpng")
+# - init the submodules: .stumpwm.d .hebi
 
