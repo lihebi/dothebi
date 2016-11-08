@@ -9,16 +9,17 @@
 PS3='Whic one? '
 desktop_packages=$(cat debian-desktop-package.conf | sed 's/#.*//g' | sed '/^$/d')
 desktop_packages+=" linux-headers-$(uname -r)"
-server_package=$(cat debian-server-package.conf | sed 's/#.*//g' | sed '/^$/d')
+server_packages=$(cat debian-server-package.conf | sed 's/#.*//g' | sed '/^$/d')
 select machine in 'desktop' 'server' 'git' 'alt' 'repo'; do
     case $machine in
         'desktop')
             echo "Installing desktop packages .."
-            sudo apt-get -y install ${server_packages};
+            echo ${desktop_packages}
             sudo apt-get -y install ${desktop_packages};
             exit 0;;
         'server')
             echo "Installing server packages .."
+            echo ${server_packages}
             sudo apt-get -y install ${server_packages};
             exit 0;;
         'git')
