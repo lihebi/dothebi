@@ -55,7 +55,8 @@ prompt_cmd() {
 
     # Set the terminal title to the current working directory.
     # PS1="$(echo $?) $(if [[ $? = 0 ]];then echo 'correct';else echo 'wrong';fi)"
-    PS1="\[\033]0;\w\007\]";
+    # PS1="\[\033]0;\w\007\]";
+    PS1=""
     # PS1+="\[${bold}\]\n"; # newline
     PS1+="\[${userStyle}\]\u"; # username
     PS1+="\[${white}\] at ";
