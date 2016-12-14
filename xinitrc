@@ -21,10 +21,10 @@ if [ -e $HOME/.hebi/local/Xresources ]; then
 fi
 
 # merge PRIMARY and CLIPBOARD xsel
-if [ `which autocutsel` ]; then
-    autocutsel &
-    autocutsel -s PRIMARY &
-fi    
+# if [ `which autocutsel` ]; then
+#     autocutsel &
+#     autocutsel -s PRIMARY &
+# fi    
 
 
 ##############################
