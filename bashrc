@@ -47,6 +47,7 @@ fi
 # Helium
 export HELIUM_HOME=$HOME/github/helium
 export PATH=$HELIUM_HOME/bin:$HELIUM_HOME/scripts:$PATH
+export PATH=$HELIUM_HOME/scripts/analyze:$HELIUM_HOME/scripts/hexp:$PATH
 export ASAN_OPTIONS=detect_leaks=0:detect_stack_use_after_scope=0
 
 export GOPATH=$HOME/go
