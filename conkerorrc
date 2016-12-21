@@ -118,6 +118,7 @@ define_webjump("isulib", "http://www.lib.iastate.edu/");
 define_webjump("isugit", "http://git.linux.iastate.edu");
 define_webjump("isublackboard", "http://bb.its.iastate.edu");
 define_webjump("isuaccessplus", "http://accessplus.iastate.edu");
+define_webjump("isuvmaster", "http://vmaster.las.iastate.edu")
 
 define_webjump("doccpp", "http://www.cplusplus.com/search.do?q=%s");
 define_webjump("localwiki", "file:////home/hebi/github/wiki-dist/index.html");
