@@ -59,10 +59,10 @@ prompt_cmd() {
     PS1=""
     # PS1+="\[${bold}\]\n"; # newline
     PS1+="\[${userStyle}\]\u"; # username
-    PS1+="\[${white}\] at ";
+    PS1+="\[${white}\]@";
     PS1+="\[${hostStyle}\]\h"; # host
-    PS1+="\[${white}\] in ";
-    PS1+="\[${green}\]\w"; # working directory
+    PS1+="\[${white}\]&";
+    PS1+="\[${green}\]\W"; # working directory
 
     # PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
     # PS1+='$(if [[ $? = 0 ]];then echo "";else echo "$?";fi)'
@@ -77,7 +77,7 @@ prompt_cmd() {
 	branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
 			git rev-parse --short HEAD 2> /dev/null || \
 			echo '(unknown)')";
-        PS1+="\[${white}\] on \[${violet}\]${branchName}"
+        PS1+="\[${white}\]#\[${violet}\]${branchName}"
 	# check if the current directory is in .git before running git checks
         s=""
 	if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
