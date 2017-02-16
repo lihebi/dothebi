@@ -45,9 +45,9 @@ fi
 export INFOPATH=$HOME/.info:$INFOPATH
 emacs --daemon &
 
-# if [ -e ~/.fehbg ]; then
-#    sh ~/.fehbg &
-# fi
+if [ -e ~/.fehbg ]; then
+   sh ~/.fehbg &
+fi
 
 xmodmap ~/.Xmodmap
 
