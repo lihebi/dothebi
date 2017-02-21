@@ -69,11 +69,12 @@ select machine in 'desktop' 'server' 'git' 'alt' 'repo' 'additional' 'quicklisp'
             chmod a+x ~/bin/trans
             # - compile most recent stumpwm (https://github.com/stumpwm/stumpwm)
             git clone https://github.com/stumpwm/stumpwm /tmp/stumpwm
-            cd /tmp/stumpwm
-            ./autogen.sh
-            ./configure
-            make
-            sudo make install
+            echo "stumpwm downloaded into /tmp/stumpwm. Compile it manually"
+            # cd /tmp/stumpwm
+            # ./autogen.sh
+            # ./configure
+            # make
+            # sudo make install
             exit 0;;
         'quicklisp')
             cd /tmp
