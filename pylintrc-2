@@ -1,5 +1,3 @@
-# -*- mode: conf -*-
-
 [MASTER]
 
 # Specify a configuration file.
@@ -67,10 +65,8 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=file-builtin,zip-builtin-not-iterating,suppressed-message,redefined-outer-name,standarderror-builtin,oct-method,delslice-method,long-suffix,next-method-called,using-cmp-argument,reload-builtin,unpacking-in-except,unichr-builtin,cmp-method,old-ne-operator,no-self-use,invalid-name,old-raise-syntax,setslice-method,basestring-builtin,buffer-builtin,no-absolute-import,indexing-exception,backtick,missing-docstring,coerce-method,unicode-builtin,hex-method,range-builtin-not-iterating,long-builtin,round-builtin,old-division,input-builtin,import-star-module-level,parameter-unpacking,print-statement,raw_input-builtin,nonzero-method,too-few-public-methods,useless-suppression,dict-view-method,apply-builtin,reduce-builtin,intern-builtin,dict-iter-method,metaclass-assignment,execfile-builtin,cmp-builtin,raising-string,multiple-statements,map-builtin-not-iterating,getslice-method,old-octal-literal,xrange-builtin,filter-builtin-not-iterating,coerce-builtin
+disable=import-star-module-level,old-octal-literal,oct-method,print-statement,unpacking-in-except,parameter-unpacking,backtick,old-raise-syntax,old-ne-operator,long-suffix,dict-view-method,dict-iter-method,metaclass-assignment,next-method-called,raising-string,indexing-exception,raw_input-builtin,long-builtin,file-builtin,execfile-builtin,coerce-builtin,cmp-builtin,buffer-builtin,basestring-builtin,apply-builtin,filter-builtin-not-iterating,using-cmp-argument,useless-suppression,range-builtin-not-iterating,suppressed-message,no-absolute-import,old-division,cmp-method,reload-builtin,zip-builtin-not-iterating,intern-builtin,unichr-builtin,reduce-builtin,standarderror-builtin,unicode-builtin,xrange-builtin,coerce-method,delslice-method,getslice-method,setslice-method,input-builtin,round-builtin,hex-method,nonzero-method,map-builtin-not-iterating,   missing-docstring,too-few-public-methods,invalid-name,redefined-outer-name,no-self-use,multiple-statements
 
-# disable backup
-# missing-docstring,too-few-public-methods,invalid-name,redefined-outer-name,no-self-use,multiple-statements
 
 [REPORTS]
 
@@ -98,6 +94,12 @@ evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / stateme
 # Template used to display messages. This is a python new-style format string
 # used to format the message information. See doc for all details
 #msg-template=
+
+
+[MISCELLANEOUS]
+
+# List of note tags to take in consideration, separated by a comma.
+notes=FIXME,XXX,TODO
 
 
 [FORMAT]
@@ -132,13 +134,6 @@ indent-after-paren=4
 expected-line-ending-format=
 
 
-[LOGGING]
-
-# Logging modules to check that the string format arguments are in logging
-# function parameter format
-logging-modules=logging
-
-
 [VARIABLES]
 
 # Tells whether we should check for unused import in __init__ files.
@@ -161,6 +156,21 @@ callbacks=cb_,_cb
 redefining-builtins-modules=six.moves,future.builtins
 
 
+[SIMILARITIES]
+
+# Minimum lines number of a similarity.
+min-similarity-lines=4
+
+# Ignore comments when computing similarities.
+ignore-comments=yes
+
+# Ignore docstrings when computing similarities.
+ignore-docstrings=yes
+
+# Ignore imports when computing similarities.
+ignore-imports=no
+
+
 [SPELLING]
 
 # Spelling dictionary name. Available dictionaries: none. To make it working
@@ -176,106 +186,6 @@ spelling-private-dict-file=
 # Tells whether to store unknown words to indicated private dictionary in
 # --spelling-private-dict-file option instead of raising a message.
 spelling-store-unknown-words=no
-
-
-[BASIC]
-
-# Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_
-
-# Bad variable names which should always be refused, separated by a comma
-bad-names=foo,bar,baz,toto,tutu,tata
-
-# Colon-delimited sets of names that determine each other's naming style when
-# the name regexes allow several styles.
-name-group=
-
-# Include a hint for the correct naming format with invalid-name
-include-naming-hint=no
-
-# List of decorators that produce properties, such as abc.abstractproperty. Add
-# to this list to register other decorators that produce valid properties.
-property-classes=abc.abstractproperty
-
-# Regular expression matching correct argument names
-argument-rgx=[a-z_][a-z0-9_]{2,30}$
-
-# Naming hint for argument names
-argument-name-hint=[a-z_][a-z0-9_]{2,30}$
-
-# Regular expression matching correct class attribute names
-class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$
-
-# Naming hint for class attribute names
-class-attribute-name-hint=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$
-
-# Regular expression matching correct module names
-module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
-
-# Naming hint for module names
-module-name-hint=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
-
-# Regular expression matching correct class names
-class-rgx=[A-Z_][a-zA-Z0-9]+$
-
-# Naming hint for class names
-class-name-hint=[A-Z_][a-zA-Z0-9]+$
-
-# Regular expression matching correct function names
-function-rgx=[a-z_][a-z0-9_]{2,30}$
-
-# Naming hint for function names
-function-name-hint=[a-z_][a-z0-9_]{2,30}$
-
-# Regular expression matching correct constant names
-const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
-
-# Naming hint for constant names
-const-name-hint=(([A-Z_][A-Z0-9_]*)|(__.*__))$
-
-# Regular expression matching correct attribute names
-attr-rgx=[a-z_][a-z0-9_]{2,30}$
-
-# Naming hint for attribute names
-attr-name-hint=[a-z_][a-z0-9_]{2,30}$
-
-# Regular expression matching correct method names
-method-rgx=[a-z_][a-z0-9_]{2,30}$
-
-# Naming hint for method names
-method-name-hint=[a-z_][a-z0-9_]{2,30}$
-
-# Regular expression matching correct inline iteration names
-inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
-
-# Naming hint for inline iteration names
-inlinevar-name-hint=[A-Za-z_][A-Za-z0-9_]*$
-
-# Regular expression matching correct variable names
-variable-rgx=[a-z_][a-z0-9_]{2,30}$
-
-# Naming hint for variable names
-variable-name-hint=[a-z_][a-z0-9_]{2,30}$
-
-# Regular expression which should only match function or class names that do
-# not require a docstring.
-no-docstring-rgx=^_
-
-# Minimum line length for functions/classes that require docstrings, shorter
-# ones are exempt.
-docstring-min-length=-1
-
-
-[ELIF]
-
-# Maximum number of nested blocks for function / method body
-max-nested-blocks=5
-
-
-[MISCELLANEOUS]
-
-# List of note tags to take in consideration, separated by a comma.
-notes=FIXME,XXX,TODO
 
 
 [TYPECHECK]
@@ -306,19 +216,105 @@ generated-members=
 contextmanager-decorators=contextlib.contextmanager
 
 
-[SIMILARITIES]
+[LOGGING]
 
-# Minimum lines number of a similarity.
-min-similarity-lines=4
+# Logging modules to check that the string format arguments are in logging
+# function parameter format
+logging-modules=logging
 
-# Ignore comments when computing similarities.
-ignore-comments=yes
 
-# Ignore docstrings when computing similarities.
-ignore-docstrings=yes
+[BASIC]
 
-# Ignore imports when computing similarities.
-ignore-imports=no
+# Good variable names which should always be accepted, separated by a comma
+good-names=i,j,k,ex,Run,_
+
+# Bad variable names which should always be refused, separated by a comma
+bad-names=foo,bar,baz,toto,tutu,tata
+
+# Colon-delimited sets of names that determine each other's naming style when
+# the name regexes allow several styles.
+name-group=
+
+# Include a hint for the correct naming format with invalid-name
+include-naming-hint=no
+
+# List of decorators that produce properties, such as abc.abstractproperty. Add
+# to this list to register other decorators that produce valid properties.
+property-classes=abc.abstractproperty
+
+# Regular expression matching correct function names
+function-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming hint for function names
+function-name-hint=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression matching correct variable names
+variable-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming hint for variable names
+variable-name-hint=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression matching correct constant names
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
+
+# Naming hint for constant names
+const-name-hint=(([A-Z_][A-Z0-9_]*)|(__.*__))$
+
+# Regular expression matching correct attribute names
+attr-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming hint for attribute names
+attr-name-hint=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression matching correct argument names
+argument-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming hint for argument names
+argument-name-hint=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression matching correct class attribute names
+class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$
+
+# Naming hint for class attribute names
+class-attribute-name-hint=([A-Za-z_][A-Za-z0-9_]{2,30}|(__.*__))$
+
+# Regular expression matching correct inline iteration names
+inlinevar-rgx=[A-Za-z_][A-Za-z0-9_]*$
+
+# Naming hint for inline iteration names
+inlinevar-name-hint=[A-Za-z_][A-Za-z0-9_]*$
+
+# Regular expression matching correct class names
+class-rgx=[A-Z_][a-zA-Z0-9]+$
+
+# Naming hint for class names
+class-name-hint=[A-Z_][a-zA-Z0-9]+$
+
+# Regular expression matching correct module names
+module-rgx=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+
+# Naming hint for module names
+module-name-hint=(([a-z_][a-z0-9_]*)|([A-Z][a-zA-Z0-9]+))$
+
+# Regular expression matching correct method names
+method-rgx=[a-z_][a-z0-9_]{2,30}$
+
+# Naming hint for method names
+method-name-hint=[a-z_][a-z0-9_]{2,30}$
+
+# Regular expression which should only match function or class names that do
+# not require a docstring.
+no-docstring-rgx=^_
+
+# Minimum line length for functions/classes that require docstrings, shorter
+# ones are exempt.
+docstring-min-length=-1
+
+
+[ELIF]
+
+# Maximum number of nested blocks for function / method body
+max-nested-blocks=5
 
 
 [DESIGN]
