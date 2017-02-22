@@ -49,3 +49,4 @@ else
 fi
 
 ln -sf $HOME/.hebi/newsrc $HOME/.newsrc
+ln -sf $HOME/.hebi/pylintrc $HOME/.pylintrc
