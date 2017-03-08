@@ -2,7 +2,7 @@
 !! Natural scrolling
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-pointer = 1 2 3 5 4
+! pointer = 1 2 3 4 5
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! Keyboard remapping
@@ -31,16 +31,16 @@ add Control = Control_L
 ! add Super = Super_R
 ! add Alt = Alt_R
 
-remove Mod1 = Alt_R
-remove Mod4 = Super_R
+! remove Mod1 = Alt_R
+! remove Mod4 = Super_R
 
 
-keycode 134 = Alt_R
+! keycode 134 = Alt_R
 ! keycode 108 = Super_R
 
 
-add Mod1 = Alt_R
-add Mod4 = Super_R
+! add Mod1 = Alt_R
+! add Mod4 = Super_R
 
 
 
