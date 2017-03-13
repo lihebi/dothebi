@@ -127,3 +127,7 @@ fi;
 if [[ -f $HOME/.hebi/local/bashrc ]]; then
     . $HOME/.hebi/local/bashrc
 fi
+
+
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
