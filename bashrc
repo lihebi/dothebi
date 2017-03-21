@@ -129,5 +129,6 @@ if [[ -f $HOME/.hebi/local/bashrc ]]; then
 fi
 
 
+## Remember to install them! Otherwise all the compilation is likely to fail!
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
