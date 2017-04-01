@@ -131,8 +131,8 @@ URxvt*scrollBar: False
 ! fake transparent: will show wallpaper
 ! BTW setting wallpaper: feh --bg-fill /path/to/wall/paper
 ! real transparent needs compositor like compiz
-URxvt.transparent: True
-URxvt.shading: 20
+! URxvt.transparent: True
+! URxvt.shading: 20
 
 URxvt*loginShell: true
 
