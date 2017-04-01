@@ -27,6 +27,17 @@ shopt -s checkwinsize
 ## Common Config
 ##############################
 
+# setting the TERM should not be a good idea
+# tmux gives me screen-256color
+# and I found it works great with:
+# - emacs solarized color
+# - terminal solarized color
+# - inside docker
+# when setting all these 3, emacs inside docker is great
+# actaully on my machine, it sets to screen-256color when using tmux
+# and set to rxvt-unicode-256color when using urxvt only
+# but I cannot set the color to rxvt-unitcode-256color inside docker
+export TERM=screen-256color
 # export TERM=xterm-256color
 export EDITOR="emacsclient -t"
 set -o ignoreeof
