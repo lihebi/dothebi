@@ -43,7 +43,7 @@ fi
 ##############################
 
 export INFOPATH=$HOME/.info:$INFOPATH
-emacs --daemon &
+# emacs --daemon &
 
 if [ -e ~/.fehbg ]; then
    sh ~/.fehbg &
