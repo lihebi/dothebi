@@ -2,3 +2,8 @@
 
 xrandr --output HDMI-1 --left-of VGA-1
 xrandr --output HDMI-1 --rotate left
+
+# if using name, must have prefix pointer: and keyboard:, without whitespaces
+xinput set-prop "pointer:Logitech USB Receiver" "libinput Natural Scrolling Enabled" 1
+# can also use device ID, prop ID
+# xinput set-prop 10 291 1
