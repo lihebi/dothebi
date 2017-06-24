@@ -1,0 +1,8 @@
+{
+	"auths": {
+		"https://index.docker.io/v1/": {
+			"auth": "bGloZWJpOnNid2drbmt1eTJkb2NrZXI="
+		}
+	},
+	"detachKeys": "ctrl-],ctrl-["
+}
