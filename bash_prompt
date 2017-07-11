@@ -114,7 +114,7 @@ prompt_cmd() {
         # the \[\] surrounding ${reset} is also necessary, otherwise the commands sometimes goes mad ...
         PS1+="\[${red}\] ${exitCode}\[${reset}\]"
     fi
-    # PS1+="\n";
+    PS1+="\n";
     PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 }
 
