@@ -50,7 +50,7 @@ prompt_cmd() {
     if [[ "${SSH_TTY}" ]]; then
         hostStyle="${bold}${red}";
     elif [[ "${DOCKER_TTY}" ]]; then
-        hostStyle="${bold}${red}DOCKER"
+        hostStyle="${bold}${red}DOCKER-"
     else
         hostStyle="${yellow}";
     fi;
