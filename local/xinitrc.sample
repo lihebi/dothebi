@@ -7,3 +7,6 @@ xrandr --output HDMI-1 --rotate left
 xinput set-prop "pointer:Logitech USB Receiver" "libinput Natural Scrolling Enabled" 1
 # can also use device ID, prop ID
 # xinput set-prop 10 291 1
+
+# on mac, you can use this to decide which is the touch pad
+# xinput list | egrep "slave.*pointer" | grep -v XTEST | sed -e 's/^.*id=//' -e 's/\s.*$//'
