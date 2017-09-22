@@ -117,9 +117,53 @@ function gtcc() {
 ## source other files
 ##############################
 
-file="$HOME/.bash_prompt"
-[ -r $file ] && [ -f $file ] && source $file
-unset file
+# file="$HOME/.bash_prompt"
+# [ -r $file ] && [ -f $file ] && source $file
+# unset file
+
+# my own prompt
+red="\e[1;31m";
+yellow="\e[1;33m";
+white="\e[1;37m";
+bold='';
+case "$TERM" in
+    # this is for Emacs tramp (tramp-terminal-type)
+"dumb")
+    PS1="> "
+    ;;
+xterm*|rxvt*|eterm*|screen*)
+    # PS1="my fancy multi-line \n prompt > "
+    PS1=""
+    # user
+    if [[ "${USER}" == "root" ]]; then
+        PS1+="\[${red}\]"
+    else
+        PS1+="\[${yellow}\]"
+    fi
+    PS1+="\u"
+    PS1+="\[${white}\]"
+    PS1+="@"
+    # host
+    if [[ "${SSH_TTY}" ]]; then
+        PS1+="${bold}${red}";
+    elif [[ "${DOCKER_TTY}" ]]; then
+        PS1+="${bold}${red}DOCKER-"
+    else
+        PS1+="${yellow}";
+    fi;
+    PS1+="\h"
+    PS1+="\[${white}\]"
+    PS1+="&"
+    PS1+="\[${green}\]\w"; # working directory
+    # newline
+    PS1+="\n";
+    PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+    ;;
+*)
+    PS1="> "
+    ;;
+esac
+
 
 # bash-completion
 

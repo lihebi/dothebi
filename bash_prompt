@@ -118,7 +118,7 @@ prompt_cmd() {
     PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 }
 
-export PROMPT_COMMAND=prompt_cmd
+# export PROMPT_COMMAND=prompt_cmd
 
 # PS2="\[${yellow}\]→ \[${reset}\]";
 # export PS2;
