@@ -13,3 +13,14 @@ So:
 git submodule init
 git submodule update
 #+END_EXAMPLE
+
+
+
+
+* Tmp
+
+Use S2716DG
+#+BEGIN_EXAMPLE
+xrandr --output DP-2 --rotate left --left-of DP-0
+#+END_EXAMPLE
+
