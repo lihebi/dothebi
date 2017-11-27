@@ -55,3 +55,10 @@ if [ -d $HOME/.docker ]; then
     rm -rf $HOME/.docker
 fi
 ln -sf $HOME/.hebi/docker $HOME/.docker
+
+# mpd
+if [ ! -d $HOME/.config/mpd ]; then
+    mkdir -p $HOME/.config/mpd
+fi
+
+ln -sf $HOME/.hebi/mpd.conf $HOME/.config/mpd/
