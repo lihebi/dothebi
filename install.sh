@@ -55,3 +55,12 @@ if [ -d $HOME/.docker ]; then
     rm -rf $HOME/.docker
 fi
 ln -sf $HOME/.hebi/docker $HOME/.docker
+
+# openbox
+if [ ! -d $HOME/.config ]; then
+    mkdir -p $HOME/.config
+fi
+if [ -d $HOME/.config/openbox ]; then
+    rm -rf $HOME/.config/openbox
+fi
+ln -sf $HOME/.hebi/openbox $HOME/.config/
