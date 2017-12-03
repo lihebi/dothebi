@@ -63,4 +63,4 @@ fi
 # exec stumpwm
 # exec openbox
 # exec ratpoison
-exec sbcl --load $HOME/.hebi/startstump
+exec sbcl --quit --load $HOME/.hebi/startstump
