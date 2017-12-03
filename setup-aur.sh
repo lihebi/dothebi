@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# AUR
+if [ -d $HOME/tmp ]; then
+    rm -rf $HOME/tmp
+fi
+mkdir -p $HOME/tmp
+cd $HOME/tmp
+git clone https://aur.archlinux.org/quicklisp
+cd quicklisp && makepkg --noconfirm -si && cd -
+git clone https://aur.archlinux.org/translate-shell
+cd translate-shell && makepkg --noconfirm -si && cd -
+git clone https://aur.archlinux.org/acpilight
+cd acpilight && makepkg --noconfirm -si && cd -
+# git clone https://aur.archlinux.org/clx-git
+# git clone https://aur.archlinux.org/cl-alexandria
+# git clone https://aur.archlinux.org/stumpwm-git
+# cd cl-ppcre && makepkg -si
+# cd clx-git && makepkg -si
+# cd cl-alexandria && makepkg -si
+# cd stumpwm-git && makepkg -si
