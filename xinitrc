@@ -60,6 +60,7 @@ if [ -e $HOME/.hebi/local/xinitrc ]; then
     . $HOME/.hebi/local/xinitrc
 fi
 
-exec stumpwm
+# exec stumpwm
 # exec openbox
 # exec ratpoison
+exec sbcl --load $HOME/.hebi/startstump
