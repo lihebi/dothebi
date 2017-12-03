@@ -6,15 +6,17 @@ if [ -d $HOME/tmp ]; then
 fi
 mkdir -p $HOME/tmp
 cd $HOME/tmp
+
 git clone https://aur.archlinux.org/quicklisp
-cd quicklisp && makepkg --noconfirm -si && cd -
+cd quicklisp && makepkg --noconfirm --needed -si && cd -
+
 git clone https://aur.archlinux.org/translate-shell
-cd translate-shell && makepkg --noconfirm -si && cd -
+cd translate-shell && makepkg --noconfirm --needed -si && cd -
 
 # conflicing with acpilight cannot be resolved
 git clone https://aur.archlinux.org/acpilight
 echo "TODO Make acpilight manually"
-# cd acpilight && makepkg --noconfirm -si && cd -
+# cd acpilight && makepkg --noconfirm --needed -si && cd -
 
 
 # git clone https://aur.archlinux.org/clx-git
