@@ -7,7 +7,7 @@ sudo sbcl --load /usr/lib/quicklisp/setup\
      --eval '(ql:quickload "cl-ppcre")'\
      --eval '(ql:quickload "alexandria")'\
      --eval '(ql:quickload "clx-truetype")'\
-     --eval '(ql:quickload "stumpwm")'
+     --eval '(ql:quickload "stumpwm")'\
      --eval '(ql:quickload "zpng")'\
-     --eval '(ql:quickload "swank")'
+     --eval '(ql:quickload "swank")'\
      -non-interactive
