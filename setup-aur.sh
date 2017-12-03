@@ -10,8 +10,13 @@ git clone https://aur.archlinux.org/quicklisp
 cd quicklisp && makepkg --noconfirm -si && cd -
 git clone https://aur.archlinux.org/translate-shell
 cd translate-shell && makepkg --noconfirm -si && cd -
+
+# conflicing with acpilight cannot be resolved
 git clone https://aur.archlinux.org/acpilight
-cd acpilight && makepkg --noconfirm -si && cd -
+echo "TODO Make acpilight manually"
+# cd acpilight && makepkg --noconfirm -si && cd -
+
+
 # git clone https://aur.archlinux.org/clx-git
 # git clone https://aur.archlinux.org/cl-alexandria
 # git clone https://aur.archlinux.org/stumpwm-git
