@@ -2,45 +2,6 @@
 
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
-  <menu id="root-menu" label="Openbox 3">
-    <separator label="HEBI"/>
-    <item label="chromium">
-      <action name="Execute">
-        <command>chromium</command>
-      </action>
-    </item>
-    <item label="urxvt">
-      <action name="Execute">
-        <command>urxvt -e tmux</command>
-      </action>
-    </item>
-    <item label="Emacs">
-      <action name="Execute">
-        <command>emacs</command>
-      </action>
-    </item>
-    <!-- not sure why reconfig disappear in system-menu -->
-    <item label="Reconfigure Openbox">
-      <action name="Reconfigure" />
-    </item>
-    <!-- <separator label="Applications" /> -->
-    <!-- <menu id="apps-accessories-menu"/> -->
-    <!-- <menu id="apps-editors-menu"/> -->
-    <!-- <menu id="apps-graphics-menu"/> -->
-    <!-- <menu id="apps-net-menu"/> -->
-    <!-- <menu id="apps-office-menu"/> -->
-    <!-- <menu id="apps-multimedia-menu"/> -->
-    <!-- <menu id="apps-term-menu"/> -->
-    <!-- <menu id="apps-fileman-menu"/> -->
-    <separator label="System" />
-    <menu id="system-menu"/>
-    <separator />
-    <item label="Log Out">
-      <action name="Exit">
-        <prompt>yes</prompt>
-      </action>
-    </item>
-  </menu>
 
   
   <menu id="apps-accessories-menu" label="Accessories">
@@ -412,5 +373,46 @@
     </item>
   </menu>
 
+  <menu id="root-menu" label="Openbox 3">
+    <separator label="HEBI"/>
+    <item label="chromium">
+      <action name="Execute">
+        <command>chromium</command>
+      </action>
+    </item>
+    <item label="urxvt">
+      <action name="Execute">
+        <command>urxvt -e tmux</command>
+      </action>
+    </item>
+    <item label="Emacs">
+      <action name="Execute">
+        <command>emacs</command>
+      </action>
+    </item>
+    <item label="Reconfigure Openbox">
+      <action name="Reconfigure" />
+    </item>
+    <!-- <separator label="Applications" /> -->
+    <!-- <menu id="apps-accessories-menu"/> -->
+    <!-- <menu id="apps-editors-menu"/> -->
+    <!-- <menu id="apps-graphics-menu"/> -->
+    <!-- <menu id="apps-net-menu"/> -->
+    <!-- <menu id="apps-office-menu"/> -->
+    <!-- <menu id="apps-multimedia-menu"/> -->
+    <!-- <menu id="apps-term-menu"/> -->
+    <!-- <menu id="apps-fileman-menu"/> -->
+    <separator label="System" />
+    <!-- not sure why reconfig disappear in system-menu. It should be
+         because the "definition of system-menu must appear before
+         this section" -->
+    <!-- <menu id="system-menu"/> -->
+    <!-- <separator /> -->
+    <item label="Log Out">
+      <action name="Exit">
+        <prompt>yes</prompt>
+      </action>
+    </item>
+  </menu>
 
 </openbox_menu>
