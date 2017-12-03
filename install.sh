@@ -64,3 +64,10 @@ if [ -d $HOME/.config/openbox ]; then
     rm -rf $HOME/.config/openbox
 fi
 ln -sf $HOME/.hebi/openbox $HOME/.config/
+
+# mpd
+if [ ! -d $HOME/.config/mpd ]; then
+    mkdir -p $HOME/.config/mpd
+fi
+
+ln -sf $HOME/.hebi/mpd.conf $HOME/.config/mpd/
