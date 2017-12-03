@@ -257,14 +257,27 @@
     </action>
   </keybind>
 
-  <keybind key="C-t C-t">
-    <action name="NextWindow">
-      <finalactions>
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
-      </finalactions>
-    </action>
+  <!-- <keybind key="C-t C-t"> -->
+  <!--   <action name="NextWindow"> -->
+  <!--     <finalactions> -->
+  <!--       <action name="Focus"/> -->
+  <!--       <action name="Raise"/> -->
+  <!--       <action name="Unshade"/> -->
+  <!--     </finalactions> -->
+  <!--   </action> -->
+  <!-- </keybind> -->
+
+  <keybind key="C-t">
+    <keybind key="C-t">
+      <action name="Focus"/>
+      <action name="Raise"/>
+      <action name="Unshade"/>
+    </keybind>
+    <keybind key="n">
+      <action name="Focus"/>
+      <action name="Raise"/>
+      <action name="Unshade"/>
+    </keybind>
   </keybind>
 
   <keybind key="A-S-Tab">
