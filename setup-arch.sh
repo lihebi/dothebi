@@ -48,3 +48,5 @@ $INSTALL libzip poppler-glib imagemagick
 
 # NVIDIA
 # $INSTALL nvidia nvidia-settings
+
+$INSTALL dialog iw wpa_supplicant
