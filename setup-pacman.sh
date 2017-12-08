@@ -51,3 +51,5 @@ $INSTALL libzip poppler-glib imagemagick
 # $INSTALL nvidia nvidia-settings
 
 $INSTALL dialog iw wpa_supplicant
+
+$INSTALL audacity
