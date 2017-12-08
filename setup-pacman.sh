@@ -2,32 +2,33 @@
 
 INSTALL="sudo pacman -S --needed --noconfirm"
 
-$INSTALL\
-    base-devel cmake pugixml ninja\
-    gtest antlr2 rapidjson libxslt
+$INSTALL base-devel cmake pugixml ninja
+$INSTALL gtest antlr2 rapidjson libxslt
 
-$INSTALL\
-    xorg\
-    xorg-xinit\
-    xorg-server xorg-xinit xterm rxvt-unicode xorg-xinput\
-    xorg-xdm xorg-xconsole\
-    openbox\
-    xorg-twm xorg-xterm xorg-xclock xorg-xkill\
-    xorg-xeyes xorg-xcalc xorg-xconsole\
-    xorg-server-devel
+$INSTALL xorg
+$INSTALL xorg-xinit
+
+$INSTALL xorg-xinit
+$INSTALL xorg-server xorg-xinit xterm rxvt-unicode xorg-xinput
+$INSTALL xorg-xdm xorg-xconsole
+$INSTALL openbox
+$INSTALL xorg-twm xorg-xterm xorg-xclock xorg-xkill
+$INSTALL xorg-xeyes xorg-xcalc xorg-xconsole
+$INSTALL xorg-server-devel
 
 $INSTALL ghostscript # for ps2pdf
-$INSTALL sbcl bc git curl mlocate bash-completion\
-         ctags the_silver_searcher python python2\
-         python-pip ipython ispell aspell aspell-en\
-         feh tidy unzip cloc svn ntfs-3g openssh\
-         clojure r youtube-dl
+$INSTALL sbcl bc git curl mlocate bash-completion
+$INSTALL ctags the_silver_searcher python python2
+$INSTALL python-pip ipython ispell aspell aspell-en
+$INSTALL feh tidy unzip cloc svn ntfs-3g openssh
+$INSTALL clojure r youtube-dl
+
 $INSTALL spice # the command is remove-viewer
 $INSTALL virt-viewer
 $INSTALL ruby markdown
 $INSTALL dosfstools # for mkfs.vfat, used for raspberry pi
-$INSTALL pavucontrol pulseaudio alsa-utils pulseaudio-alsa\
-         racket racket-docs swi-prolog
+$INSTALL pavucontrol pulseaudio alsa-utils pulseaudio-alsa
+$INSTALL racket racket-docs swi-prolog
 
 
 # $INSTALL doxygen gperftools valgrind
