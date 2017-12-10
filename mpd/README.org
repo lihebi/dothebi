@@ -1,0 +1,6 @@
+#+TITLE: MPD
+
+
+- mpd-update: update the database to include new songs
+
+use cantata as a front end to organize playlist
