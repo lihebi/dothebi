@@ -53,3 +53,6 @@ $INSTALL libzip poppler-glib imagemagick
 $INSTALL dialog iw wpa_supplicant
 
 $INSTALL audacity
+
+# without this font file, n1256 would show bad in pdf-tools
+$INSTALL ttf-dejavu
