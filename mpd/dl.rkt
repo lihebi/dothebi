@@ -135,6 +135,17 @@
      ("https://www.youtube.com/watch?v=P1qnhfb3PUY&list=RDGMEMQ1dJ7wXfLlqCjwV0xfSNbAVMP1qnhfb3PUY"
       "Taylor Swift - Blank Space")))
 
+  (youtube-dl-multiple
+   '(("https://www.youtube.com/watch?v=EHkozMIXZ8w"
+      "Eminem - The Monster")
+     ("https://www.youtube.com/watch?v=uelHwf8o7_U"
+      "Eminem - Love The Way You Lie")))
+
+  ;; TODO High School Musical
+  (youtube-dl-multiple
+   '(("https://www.youtube.com/watch?v=I6EOUaWscrE"
+      "High School Musical - Start Of Something New")))
+
   ;; (youtube-dl-single "https://www.youtube.com/watch?v=5NPBIwQyPWE" "aaa" "mp3")
   (youtube-dl-multiple
    '(("https://www.youtube.com/watch?v=BsvIwqyiaJw&list=RDBsvIwqyiaJw"
