@@ -49,6 +49,8 @@ else
 fi
 
 ln -sf $HOME/.hebi/newsrc $HOME/.newsrc
+ln -sf $HOME/.hebi/newsrc.eld $HOME/.newsrc.eld
+
 ln -sf $HOME/.hebi/pylintrc $HOME/.pylintrc
 
 if [ -d $HOME/.docker ]; then
