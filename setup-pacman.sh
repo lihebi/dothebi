@@ -56,3 +56,9 @@ $INSTALL audacity
 
 # without this font file, n1256 would show bad in pdf-tools
 $INSTALL ttf-dejavu
+# sendmail alternative for supporting multi SMTP servers
+$INSTALL msmtp
+
+$INSTALL ghc cabal-install
+# stack
+# alex happy
