@@ -13,6 +13,9 @@ cd quicklisp && makepkg --noconfirm --needed -si && cd -
 git clone https://aur.archlinux.org/translate-shell
 cd translate-shell && makepkg --noconfirm --needed -si && cd -
 
+git clone https://aur.archlinux.org/global
+cd global && makepkg --noconfirm --needed -si && cd -
+
 # conflicing with acpilight cannot be resolved
 git clone https://aur.archlinux.org/acpilight
 echo "TODO Make acpilight manually"
