@@ -1,31 +1,23 @@
 #!/bin/bash
 
-# AUR
-if [ -d $HOME/tmp ]; then
-    rm -rf $HOME/tmp
-fi
 mkdir -p $HOME/tmp
 cd $HOME/tmp
 
-git clone https://aur.archlinux.org/quicklisp
-cd quicklisp && makepkg --noconfirm --needed -si && cd -
+function install_aur {
+    if [ -d $1 ]; then
+        echo "$1 Exists"
+    else
+        git clone https://aur.archlinux.org/$1
+        cd $1 && makepkg --noconfirm --needed -si && cd -
+    fi
+}
 
-git clone https://aur.archlinux.org/translate-shell
-cd translate-shell && makepkg --noconfirm --needed -si && cd -
-
-git clone https://aur.archlinux.org/global
-cd global && makepkg --noconfirm --needed -si && cd -
+install_aur bear
+install_aur quicklisp
+install_aur translate-shell
+install_aur global
 
 # conflicing with acpilight cannot be resolved
-git clone https://aur.archlinux.org/acpilight
-echo "TODO Make acpilight manually"
-# cd acpilight && makepkg --noconfirm --needed -si && cd -
-
-
-# git clone https://aur.archlinux.org/clx-git
-# git clone https://aur.archlinux.org/cl-alexandria
-# git clone https://aur.archlinux.org/stumpwm-git
-# cd cl-ppcre && makepkg -si
-# cd clx-git && makepkg -si
-# cd cl-alexandria && makepkg -si
-# cd stumpwm-git && makepkg -si
+# install_aur acpilight
+# git clone https://aur.archlinux.org/acpilight
+# echo "TODO Make acpilight manually"
