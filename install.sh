@@ -73,4 +73,5 @@ if [ ! -d $HOME/.config/mpd ]; then
 fi
 
 ln -sf $HOME/.hebi/mpd.conf $HOME/.config/mpd/
+rm -rf $HOME/.mpd
 ln -sf $HOME/.hebi/mpd $HOME/.mpd
