@@ -33,9 +33,12 @@
   (let-values ([(exit out) (git-op repo 'status)])
     (cond
       [(not (zero? exit)) (display (format "----- fatal: ~a failed" repo))]
-      [(string-contains? out "Your branch is ahead of") (displayln (~a "------ " repo ": Local change not pushed"))]
-      [(string-contains? out "Changes not staged") (displayln (~a "------ " repo ": Changes not staged"))]
-      [(string-contains? out "Changes to be committed") (displayln (~a "------ " repo ": Changes to be committed"))]
+      [(string-contains? out "Your branch is ahead of") (displayln (~a "------ " repo ": Local change not pushed"))
+                                                        (displayln out)]
+      [(string-contains? out "Changes not staged") (displayln (~a "------ " repo ": Changes not staged"))
+                                                   (displayln out)]
+      [(string-contains? out "Changes to be committed") (displayln (~a "------ " repo ": Changes to be committed"))
+                                                        (displayln out)]
       [(string-contains? out "working tree clean") (displayln (format "~a: clean" repo))]
       [else (displayln (~a "------ " repo ": dirty"))
             (displayln out)])))
