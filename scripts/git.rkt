@@ -2,6 +2,8 @@
 
 ;; git pull and push all my work
 
+
+;; TODO return (exit-code, output)
 (define (git-op repo op)
   (let ([cmd (case op
                [(pull) "git pull"]
