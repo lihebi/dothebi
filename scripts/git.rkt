@@ -70,6 +70,7 @@
                       "~/github/books"
                       "~/github/hebicc"
                       "~/github/helium"
+                      "~/github/helium2"
                       "~/github/note"
                       "~/github/papers"
                       "~/github/scratch/"
