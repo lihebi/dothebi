@@ -101,6 +101,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias helium-clang="clang -Xclang -load -Xclang /home/hebi/github/helium2/build/lib/libhelium.so"
 
 if [[ `uname` == 'Darwin' ]]; then
     # Show/hide hidden files in Finder
