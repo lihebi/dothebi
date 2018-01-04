@@ -62,3 +62,4 @@ $INSTALL msmtp
 $INSTALL ghc cabal-install
 # stack
 # alex happy
+$INSTALL gdb
