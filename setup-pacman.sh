@@ -63,3 +63,4 @@ $INSTALL ghc cabal-install
 # stack
 # alex happy
 $INSTALL gdb
+$INSTALL graphviz
