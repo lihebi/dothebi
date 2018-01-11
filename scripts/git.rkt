@@ -6,6 +6,7 @@
   (let ([arg (case op
                [(pull) "pull"]
                [(status) "status"]
+               [(push) "push"]
                [else (raise-syntax-error #f "unsupported git command" op)])])
     (parameterize ([current-directory (expand-user-path repo)])
       (let-values ([(sp stdout stdin _stderr)
@@ -27,6 +28,14 @@
       [(not (zero? exit)) (display (format "fatal: ~a failed" repo))]
       [(string-contains? out "Already up to date") (displayln (format "~a: Up to date" repo))]
       [else (displayln (~a repo ": Pulled"))
+            (displayln out)])))
+
+(define (git-push repo)
+  (let-values ([(exit out) (git-op repo 'push)])
+    (cond
+      [(not (zero? exit)) (display (format "fatal: ~a failed" repo))]
+      [(string-contains? out "Everything up-to-date") (displayln (format "~a: Up to date" repo))]
+      [else (displayln (~a repo ": Pushed"))
             (displayln out)])))
 
 (define (git-status repo)
@@ -57,11 +66,17 @@
                        (thread (lambda ()
                                  (git-pull repo))))
                      repos)))
+(define (git-push-repos repos)
+  (join-threads (map (lambda (repo)
+                       (thread (lambda ()
+                                 (git-push repo))))
+                     repos)))
 (define (git-status-repos repos)
   (join-threads (map (lambda (repo)
                        (thread (lambda ()
                                  (git-status repo))))
                      repos)))
+
 
 (module+ test
   ;; TODO download missing repo
@@ -79,7 +94,8 @@
                       "~/.emacs.d"
                       ))
   (git-pull-repos all-repos)
-  (git-status-repos all-repos))
+  (git-status-repos all-repos)
+  (git-push-repos all-repos))
 
 #;
 (define (git-pull-all)
