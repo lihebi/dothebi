@@ -103,7 +103,9 @@
      ("https://www.youtube.com/watch?v=QMi9DQPTIa8&list=RDvTtcFMY7-vI&index=4"
       "董貞 - 繁花")
      ("https://www.youtube.com/watch?v=9NIrgZwwOcY&list=PLfkWGvionty8hx8e6yz9gDbehWAccLVKb&index=3"
-      "香香 - 就算沒有如果")))
+      "香香 - 就算沒有如果")
+     ("https://www.youtube.com/watch?v=RRZp7sVdhzQ"
+      "赵丽颖 - 想你")))
 
   (youtube-dl-multiple
    '(("https://www.youtube.com/watch?v=JGwWNGJdvx8"
