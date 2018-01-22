@@ -88,7 +88,7 @@
                       "~/github/helium2"
                       "~/github/note"
                       "~/github/research"
-                      "~/github/research/pdf"
+                      ;; "~/github/research/pdf"
                       "~/github/papers"
                       ;; "~/github/scratch/"
                       "~/.hebi"
