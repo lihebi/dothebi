@@ -90,7 +90,7 @@
                       "~/github/research"
                       "~/github/research/pdf"
                       "~/github/papers"
-                      "~/github/scratch/"
+                      ;; "~/github/scratch/"
                       "~/.hebi"
                       "~/.stumpwm.d"
                       "~/.emacs.d"
