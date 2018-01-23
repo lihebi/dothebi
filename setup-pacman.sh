@@ -64,3 +64,8 @@ $INSTALL ghc cabal-install
 # alex happy
 $INSTALL gdb
 $INSTALL graphviz
+# for git instaweb
+$INSTALL lighttpd
+$INSTALL perl-cgi
+$INSTALL cgit
+# $INSTALL apache
