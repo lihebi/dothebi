@@ -69,3 +69,5 @@ $INSTALL lighttpd
 $INSTALL perl-cgi
 $INSTALL cgit
 # $INSTALL apache
+
+$INSTALL docker
