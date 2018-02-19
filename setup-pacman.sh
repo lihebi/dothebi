@@ -71,3 +71,7 @@ $INSTALL cgit
 # $INSTALL apache
 
 $INSTALL docker
+# for MTP file transfer to android
+# $INSTALL mtpfs
+# usage: aft-mtp-mount ~/mnt
+$INSTALL android-file-transfer
