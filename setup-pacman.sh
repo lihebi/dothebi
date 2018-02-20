@@ -75,3 +75,4 @@ $INSTALL docker
 # $INSTALL mtpfs
 # usage: aft-mtp-mount ~/mnt
 $INSTALL android-file-transfer
+$INSTALL rsync
