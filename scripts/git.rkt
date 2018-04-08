@@ -81,6 +81,7 @@
 (module+ test
   ;; TODO download missing repo
   (define all-repos '("~/github/wiki"
+                      "~/github/homepage"
                       "~/github/bibliography"
                       "~/github/books"
                       "~/github/hebicc"
