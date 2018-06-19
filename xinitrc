@@ -63,4 +63,9 @@ fi
 # exec stumpwm
 # exec openbox
 # exec ratpoison
-exec sbcl --quit --load $HOME/.hebi/startstump
+
+# exec sbcl --quit --load $HOME/.hebi/startstump
+
+# make sure exwm is configured
+# exec emacs
+exec dbus-launch --exit-with-session emacs
