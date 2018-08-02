@@ -1,5 +1,51 @@
 #!/bin/bash
 
+##############################
+## This is the prologue from GuixSD .bashrc
+
+# Bash initialization for interactive non-login shells and
+# for remote shells (info "(bash) Bash Startup Files").
+
+# Export 'SHELL' to child processes.  Programs such as 'screen'
+# honor it and otherwise use /bin/sh.
+export SHELL
+
+if [[ $- != *i* ]]
+then
+    # We are being invoked from a non-interactive shell.  If this
+    # is an SSH session (as in "ssh host command"), source
+    # /etc/profile so we get PATH and other essential variables.
+    [[ -n "$SSH_CLIENT" ]] && source /etc/profile
+
+    # Don't do anything else.
+    return
+fi
+
+# Source the system-wide file.
+source /etc/bashrc
+
+# Adjust the prompt depending on whether we're in 'guix environment'.
+if [ -n "$GUIX_ENVIRONMENT" ]
+then
+    PS1='\u@\h \w [env]\$ '
+else
+    PS1='\u@\h \w\$ '
+fi
+alias ls='ls -p --color=auto'
+alias ll='ls -l'
+alias grep='grep --color=auto'
+
+## End of GuixSD prologue
+##############################
+
+
+# alias ls="ls -F ${colorflag}"
+# alias l="ls"
+# alias ll="ls -l"
+# alias la="ls -a"
+# # list only directories
+# alias lsd="ll | grep --color=never '^d'"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -21,7 +67,7 @@ HISTFILESIZE=20000
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 ##############################
 ## Common Config
@@ -42,18 +88,11 @@ export TERM=screen-256color
 export EDITOR="emacsclient -t"
 set -o ignoreeof
 
-export PS1=
-
 ##############################
 ## PATH
 ##############################
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
-
-if [[ `uname` == 'Darwin' ]]
-then
-    export PATH=$PATH:/Library/TeX/texbin/
-fi
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
 
 # Helium
 export HELIUM_HOME=$HOME/github/helium
@@ -71,18 +110,7 @@ export INFOPATH=$HOME/.info:$INFOPATH
 ##############################
 ## Alias
 ##############################
-if [[ `uname` == 'Darwin' ]]; then
-    colorflag="-G"
-else
-    colorflag="--color"
-fi
 
-alias ls="ls -F ${colorflag}"
-alias l="ls"
-alias ll="ls -l"
-alias la="ls -a"
-# list only directories
-alias lsd="ll | grep --color=never '^d'"
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -102,17 +130,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias helium-clang="clang -Xclang -load -Xclang /home/hebi/github/helium2/build/lib/libhelium.so"
-
-if [[ `uname` == 'Darwin' ]]; then
-    # Show/hide hidden files in Finder
-    alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-    alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-fi
-
-
-function gtcc() {
-    g++ $1 -lgtest -pthread
-}
 
 ##############################
 ## source other files
@@ -168,23 +185,23 @@ esac
 
 # bash-completion
 
-if which brew > /dev/null 2>&1 && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+# if which brew > /dev/null 2>&1 && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#     source "$(brew --prefix)/share/bash-completion/bash_completion";
+# elif [ -f /etc/bash_completion ]; then
+#     source /etc/bash_completion;
+# fi;
 
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+# [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+#     . /usr/share/bash-completion/bash_completion
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+# [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-if [[ -f $HOME/.hebi/local/bashrc ]]; then
-    . $HOME/.hebi/local/bashrc
-fi
+# if [[ -f $HOME/.hebi/local/bashrc ]]; then
+#     . $HOME/.hebi/local/bashrc
+# fi
 
 
 ## Remember to install them! Otherwise all the compilation is likely to fail!
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
+# export CC=/usr/bin/clang
+# export CXX=/usr/bin/clang++
