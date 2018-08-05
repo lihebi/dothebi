@@ -205,3 +205,15 @@ esac
 ## Remember to install them! Otherwise all the compilation is likely to fail!
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
+
+
+export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
+export PATH="/home/hebi/.cask/bin:$PATH"
+export PYTHONPATH="/home/hebi/.guix-profile/lib/python2.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
+export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
+
+export poppler_glib_CFLAGS="-I/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/include/poppler/glib"
+export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
+
+export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
