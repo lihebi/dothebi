@@ -11,7 +11,9 @@
 		     gnome base
                      lisp code shells fonts emacs version-control
                      gnuzilla xdisorg pulseaudio xorg dictionaries
-                     algebra curl)
+                     algebra curl tmux autotools gcc pdf
+                     compression image  llvm imagemagick
+                     python bash)
 
 (operating-system
   (host-name "antelope")
@@ -58,8 +60,6 @@
                    nss-certs                      ;for HTTPS access
                    ;; packages other than window managers
                    the-silver-searcher
-                   ;; install stumpwm using quicklisp
-                   ;; sbcl-stumpwm
                    font-wqy-microhei
                    font-wqy-zenhei
                    emacs
@@ -74,7 +74,41 @@
                    bc
                    curl
                    sbcl
-                   %base-packages))
+                   tmux
+                   autoconf
+                   automake
+                   autobuild
+                   gcc
+                   pkg-config
+                   poppler
+                   zlib
+                   libpng
+                   gfortran
+                   llvm
+                   clang
+                   imagemagick
+                   python
+                   bash
+                   glibc
+                   binutils
+                   fontconfig
+                   cairo
+                   aspell               ; for ispell executable in flyspell-mode
+                   aspell-dict-en
+                   qemu
+                   thunar
+                   feh
+                   msmtp
+                   xrandr
+                   ;; make
+                   ;; gcc-toolchain
+                   ;; libstdc++
+                   ;; grep
+                   ;; sed
+                   ;; coreutils
+                   ;; install stumpwm using quicklisp
+                   ;; sbcl-stumpwm
+                  %base-packages))
 
   ;; Use the "desktop" services, which include the X11
   ;; log-in service, networking with NetworkManager, and more.
