@@ -22,7 +22,9 @@ then
 fi
 
 # Source the system-wide file.
-source /etc/bashrc
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
+fi
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
@@ -206,14 +208,19 @@ esac
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
 
+# FIXME GuixSD name
+if [[ `uname` == "GuixSD" ]]; then
 
-export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
-export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
-export PATH="/home/hebi/.cask/bin:$PATH"
-export PYTHONPATH="/home/hebi/.guix-profile/lib/python2.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
-export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
 
-export poppler_glib_CFLAGS="-I/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/include/poppler/glib"
-export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
+    export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
+    export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
+    export PATH="/home/hebi/.cask/bin:$PATH"
+    export PYTHONPATH="/home/hebi/.guix-profile/lib/python2.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
+    export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
 
-export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
+    export poppler_glib_CFLAGS="-I/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/include/poppler/glib"
+    export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
+
+    export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
+
+fi
