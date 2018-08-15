@@ -9,6 +9,11 @@ ln -sf $HOME/.hebi/ratpoisonrc $HOME/.ratpoisonrc
 ln -sf $HOME/.hebi/conkyrc $HOME/.conkyrc
 ln -sf $HOME/.hebi/conkerorrc $HOME/.conkerorrc
 
+if [ -d $HOME/.vnc ]; then
+    rm -rf $HOME/.vnc
+fi
+ln -sf $HOME/.hebi/vnc $HOME/.vnc
+
 # for xdm
 ln -sf $HOME/.hebi/xsession $HOME/.xsession
 
