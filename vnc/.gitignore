@@ -1,0 +1,4 @@
+config
+passwd
+*.log
+*.pid
