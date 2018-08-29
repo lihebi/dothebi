@@ -5,15 +5,9 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop)
+(use-service-modules desktop ssh)
 
-(use-package-modules bootloaders certs ratpoison suckless wm
-		     gnome base
-                     lisp code shells fonts emacs version-control
-                     gnuzilla xdisorg pulseaudio xorg dictionaries
-                     algebra curl tmux autotools gcc pdf
-                     compression image  llvm imagemagick
-                     python bash)
+(use-package-modules certs ratpoison gnome base suckless wm)
 
 (operating-system
   (host-name "antelope")
@@ -58,63 +52,83 @@
   ;; the log-in screen with F1.
   (packages (cons* ratpoison i3-wm i3status dmenu ;window managers
                    nss-certs                      ;for HTTPS access
-                   ;; packages other than window managers
-                   the-silver-searcher
-                   font-wqy-microhei
-                   font-wqy-zenhei
-                   emacs
-                   git
-                   icecat
-                   rxvt-unicode
-                   pavucontrol
-                   xrdb
-                   xmodmap
-                   xinput
-                   translate-shell
-                   bc
-                   curl
-                   sbcl
-                   tmux
-                   autoconf
-                   automake
-                   autobuild
-                   gcc
-                   pkg-config
-                   poppler
-                   zlib
-                   libpng
-                   gfortran
-                   llvm
-                   clang
-                   imagemagick
-                   python
-                   bash
-                   glibc
-                   binutils
-                   fontconfig
-                   cairo
-                   aspell               ; for ispell executable in flyspell-mode
-                   aspell-dict-en
-                   qemu
-                   thunar
-                   feh
-                   msmtp
-                   xrandr
-                   ;; make
-                   ;; gcc-toolchain
-                   ;; libstdc++
-                   ;; grep
-                   ;; sed
-                   ;; coreutils
-                   ;; install stumpwm using quicklisp
-                   ;; sbcl-stumpwm
-                  %base-packages))
+                   ;; FIXME not sure if I need to have this for
+                   ;; openssh service to work
+                   ;; openssh
+                   %base-packages))
 
   ;; Use the "desktop" services, which include the X11
   ;; log-in service, networking with NetworkManager, and more.
   (services (cons*
-	     (gnome-desktop-service)
+	     ;; (gnome-desktop-service)
+             ;; (xfce-desktop-service)
+             ;; (dhcp-client-service)
+             ;; Must define the ssh daemon here. herd status
+             ;; ssh-daemon says it cannot find ssh-daemon
+             ;; service. That's because installing openssh locally
+             ;; will only work for a local ssh client. The package
+             ;; must be installed system-wise to have ssd-daemon.
+             ;;
+             ;; FIXME why 2222? 22 does not work?
+             (service openssh-service-type
+                      (openssh-configuration (port-number 2222)))
+             ;; FIXME what kind of desktop service?
 	     %desktop-services))
 
   ;; Allow resolution of '.local' host names with mDNS.
   (name-service-switch %mdns-host-lookup-nss))
+
+;; The following packages should be installed on a user basis
+;;
+;; FIXME how to declare a local package list to install automatically?
+
+;; make
+;; gcc-toolchain
+;; libstdc++
+;; grep
+;; sed
+;; coreutils
+;; install stumpwm using quicklisp
+;; sbcl-stumpwm
+;; pkg-config
+;; font-wqy-microhei
+;; font-wqy-zenhei
+
+;; the-silver-searcher
+;; emacs
+;; git
+;; icecat
+;; rxvt-unicode
+;; pavucontrol
+;; xrdb
+;; xmodmap
+;; xinput
+;; translate-shell
+;; bc
+;; curl
+;; sbcl
+;; tmux
+;; autoconf
+;; automake
+;; autobuild
+;; gcc
+;; poppler
+;; zlib
+;; libpng
+;; gfortran
+;; llvm
+;; clang
+;; imagemagick
+;; python
+;; bash
+;; glibc
+;; binutils
+;; fontconfig
+;; cairo
+;; aspell               ; for ispell executable in flyspell-mode
+;; aspell-dict-en
+;; qemu
+;; thunar
+;; feh
+;; msmtp
+;; xrandr
