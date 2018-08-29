@@ -222,5 +222,6 @@ if [[ `uname` == "GuixSD" ]]; then
     export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
 
     export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
+    export PATH="/root/.config/guix/current/bin${PATH:+:}$PATH"
 
 fi
