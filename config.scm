@@ -7,7 +7,8 @@
 
 (use-service-modules desktop ssh)
 
-(use-package-modules certs ratpoison gnome base suckless wm)
+(use-package-modules certs ratpoison gnome base suckless wm
+                     bootloaders)
 
 (operating-system
   (host-name "antelope")
@@ -20,23 +21,21 @@
                 (bootloader grub-efi-bootloader)
                 (target "/boot/efi")))
 
-  (initrd-modules (append (list "ahci" "shpchp")
-                                %base-initrd-modules))
-
   ;; Assume the target root file system is labelled "my-root",
   ;; and the EFI System Partition has UUID 1234-ABCD.
   (file-systems (cons* (file-system
-                         (device (file-system-label "my-root"))
-                         (mount-point "/")
-                         (type "ext4"))
+                        (device (file-system-label "my-root"))
+                        (mount-point "/")
+                        (type "ext4"))
                        (file-system
-                         (device (file-system-label "my-home"))
-                         (mount-point "/home")
-                         (type "ext4"))
+                        (device (file-system-label "my-home"))
+                        (mount-point "/home")
+                        (type "ext4"))
                        (file-system
-                         (device (uuid "9AD3-2CAE" 'fat))
-                         (mount-point "/boot/efi")
-                         (type "vfat"))
+                        ;; this UUID is returned by sudo blkid
+                        (device (uuid "9AD3-2CAE" 'fat))
+                        (mount-point "/boot/efi")
+                        (type "vfat"))
                        %base-file-systems))
 
   (users (cons (user-account
@@ -60,18 +59,22 @@
   ;; Use the "desktop" services, which include the X11
   ;; log-in service, networking with NetworkManager, and more.
   (services (cons*
+             ;; TODO now I'm using ~/.xsession to load StumpWM. How
+             ;; can it be done in the login manager level, where I can
+             ;; choose different WM besides StumpWM?
+             ;; 
 	     ;; (gnome-desktop-service)
-             ;; (xfce-desktop-service)
+             (xfce-desktop-service)
              ;; (dhcp-client-service)
+             ;;
              ;; Must define the ssh daemon here. herd status
              ;; ssh-daemon says it cannot find ssh-daemon
              ;; service. That's because installing openssh locally
              ;; will only work for a local ssh client. The package
              ;; must be installed system-wise to have ssd-daemon.
              ;;
-             ;; FIXME why 2222? 22 does not work?
              (service openssh-service-type
-                      (openssh-configuration (port-number 2222)))
+                      (openssh-configuration (port-number 22)))
              ;; FIXME what kind of desktop service?
 	     %desktop-services))
 
