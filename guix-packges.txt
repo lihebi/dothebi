@@ -48,3 +48,4 @@ msmtp	1.6.8	out	/gnu/store/fwxhclyl5d6279rxn4wywjq462v5xa31-msmtp-1.6.8
 tre	0.8.0	out	/gnu/store/biy3qxbhfn2y8mnm2c3v42bkf8v46ls4-tre-0.8.0
 graphviz	2.40.1	out	/gnu/store/3zn1lh0sdr9dq9xs0ixababc7wbpnw3a-graphviz-2.40.1
 texlive	2017	out	/gnu/store/vk7wpfyx9lwpg74c4whrdb1nffs6r1pz-texlive-2017
+the-silver-searcher	2.2.0	out	/gnu/store/lp0r4yj83p769mg3cidc1hijbgg58rd7-the-silver-searcher-2.2.0
