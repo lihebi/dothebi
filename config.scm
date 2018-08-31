@@ -5,7 +5,7 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit)
+(use-service-modules desktop ssh cgit version-control web certbot)
 
 (use-package-modules certs ratpoison gnome base suckless wm
                      bootloaders)
@@ -75,6 +75,30 @@
             ;;
             (service openssh-service-type
                      (openssh-configuration (port-number 22)))
+
+            ;; for configuring cgit interface
+            (service cgit-service-type
+                     (cgit-configuration
+                      (clone-prefix '("http://git.lihebi.com"
+                                      "ssh:hebi@git.lihebi.com:/srv/git"))
+                      (root-readme "README.org")
+                      (readme "README.org")
+                      (max-stats "year")))
+            ;; need this for Nginx to show git.lihebi.com, otherwise
+            ;; Nginx 502 gateway error
+            (service fcgiwrap-service-type)
+            ;; I cannot use SSL certificate yet, thus no push over http
+            (service nginx-service-type
+                     (nginx-configuration
+                      (server-blocks
+                       (list
+                        (nginx-server-configuration
+                         (server-name '("git.lihebi.com"))
+                         (locations
+                          (list
+                           (git-http-nginx-location-configuration
+                            (git-http-configuration (uri-path "/"))))))))))
+
 
             ;; FIXME what kind of desktop service?
 	    %desktop-services))
