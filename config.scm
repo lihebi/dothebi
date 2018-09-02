@@ -8,7 +8,7 @@
 (use-service-modules desktop ssh cgit version-control web)
 
 (use-package-modules certs gnome base suckless wm
-                     lisp openbox version-control)
+                     lisp openbox version-control emacs)
 
 ;; TODO see if just evaluating this will add /usr/bin/env
 ;; (extra-special-file "/usr/bin/env"
@@ -28,16 +28,16 @@
  ;; Assume the target root file system is labelled "my-root",
  ;; and the EFI System Partition has UUID 1234-ABCD.
  (file-systems (cons* (file-system
-                       (device (file-system-label "my-root"))
+                       (device "/dev/sda2")
                        (mount-point "/")
                        (type "ext4"))
                       (file-system
-                       (device (file-system-label "my-home"))
+                       (device "/dev/sda3")
                        (mount-point "/home")
                        (type "ext4"))
                       (file-system
                        ;; this UUID is returned by sudo blkid
-                       (device (uuid "9AD3-2CAE" 'fat))
+                       (device "/dev/sda1")
                        (mount-point "/boot/efi")
                        (type "vfat"))
                       %base-file-systems))
@@ -68,10 +68,8 @@
 	    ;; (gnome-desktop-service)
             ;; (mate-desktop-service)
             ;; (enlightenment-desktop-service-type)
-            (xfce-desktop-service)
-            
-            ;; (dhcp-client-service)
-            ;;
+            ;; (xfce-desktop-service)
+
             ;; Must define the ssh daemon here. herd status
             ;; ssh-daemon says it cannot find ssh-daemon
             ;; service. That's because installing openssh locally
@@ -81,7 +79,9 @@
             (service openssh-service-type
                      (openssh-configuration (port-number 22)))
 
-            ;; for configuring cgit interface
+            ;; For http clone, I don't even need a web server like
+            ;; Nginx.  I just need cgit service. However, it does
+            ;; nothing for hostname resolution.
             (service cgit-service-type
                      (cgit-configuration
                       (clone-prefix '("http://git.lihebi.com"
@@ -91,18 +91,18 @@
                       (max-stats "year")))
             ;; need this for Nginx to show git.lihebi.com, otherwise
             ;; Nginx 502 gateway error
-            (service fcgiwrap-service-type)
+            ;; (service fcgiwrap-service-type)
             ;; I cannot use SSL certificate yet, thus no push over http
-            (service nginx-service-type
-                     (nginx-configuration
-                      (server-blocks
-                       (list
-                        (nginx-server-configuration
-                         (server-name '("git.lihebi.com"))
-                         (locations
-                          (list
-                           (git-http-nginx-location-configuration
-                            (git-http-configuration (uri-path "/"))))))))))
+            ;; (service nginx-service-type
+            ;;          (nginx-configuration
+            ;;           (server-blocks
+            ;;            (list
+            ;;             (nginx-server-configuration
+            ;;              (server-name '("git.lihebi.com"))
+            ;;              (locations
+            ;;               (list
+            ;;                (git-http-nginx-location-configuration
+            ;;                 (git-http-configuration (uri-path "/"))))))))))
 
 
             ;; desktop services includes the X11 log-in service,
