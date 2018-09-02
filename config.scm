@@ -5,10 +5,14 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit version-control web certbot)
+(use-service-modules desktop ssh cgit version-control web)
 
-(use-package-modules certs ratpoison gnome base suckless wm
-                     bootloaders)
+(use-package-modules certs gnome base suckless wm
+                     lisp openbox version-control)
+
+;; TODO see if just evaluating this will add /usr/bin/env
+;; (extra-special-file "/usr/bin/env"
+;;                     (file-append coreutils "/bin/env"))
 
 (operating-system
  (host-name "antelope")
@@ -40,31 +44,32 @@
 
  (users (cons (user-account
                (name "hebi")
-               (comment "Hahaha")
+               (comment "Hebi Li")
                (group "users")
                (supplementary-groups '("wheel" "netdev"
                                        "audio" "video"))
                (home-directory "/home/hebi"))
               %base-user-accounts))
 
- ;; Add a bunch of window managers; we can choose one at
- ;; the log-in screen with F1.
- (packages (cons* ratpoison i3-wm i3status dmenu ;window managers
-                  nss-certs                      ;for HTTPS access
-                  ;; FIXME not sure if I need to have this for
-                  ;; openssh service to work
-                  ;; openssh
-                  %base-packages))
+ (packages (cons*
+            ;; for HTTPS access
+            nss-certs
+            git
+            emacs
+            ;; this stumpwm should wirte Stumpwm.desktop
+            sbcl-stumpwm
+            ;;
+            ;; this is the cl package, not the WM
+            ;; cl-stumpwm
+            openbox
+            %base-packages))
 
- ;; Use the "desktop" services, which include the X11
- ;; log-in service, networking with NetworkManager, and more.
  (services (cons*
-            ;; TODO now I'm using ~/.xsession to load StumpWM. How
-            ;; can it be done in the login manager level, where I can
-            ;; choose different WM besides StumpWM?
-            ;; 
 	    ;; (gnome-desktop-service)
+            ;; (mate-desktop-service)
+            ;; (enlightenment-desktop-service-type)
             (xfce-desktop-service)
+            
             ;; (dhcp-client-service)
             ;;
             ;; Must define the ssh daemon here. herd status
@@ -100,7 +105,12 @@
                             (git-http-configuration (uri-path "/"))))))))))
 
 
-            ;; FIXME what kind of desktop service?
+            ;; desktop services includes the X11 log-in service,
+            ;; networking with NetworkManager, and more. Use F1 to
+            ;; switch between WMs. Must install WMs in the system
+            ;; level, and they should appear in
+            ;; /run/current-system/profile/share/xsessions as
+            ;; XXX.desktop
 	    %desktop-services))
 
  ;; Allow resolution of '.local' host names with mDNS.
