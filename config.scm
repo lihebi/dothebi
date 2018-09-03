@@ -8,7 +8,8 @@
 (use-service-modules desktop ssh cgit version-control web)
 
 (use-package-modules certs gnome base suckless wm
-                     lisp openbox version-control emacs)
+                     lisp openbox version-control emacs
+                     code gnuzilla xdisorg xorg curl tmux)
 
 ;; TODO see if just evaluating this will add /usr/bin/env
 ;; (extra-special-file "/usr/bin/env"
@@ -42,14 +43,21 @@
                        (type "vfat"))
                       %base-file-systems))
 
- (users (cons (user-account
-               (name "hebi")
-               (comment "Hebi Li")
-               (group "users")
-               (supplementary-groups '("wheel" "netdev"
-                                       "audio" "video"))
-               (home-directory "/home/hebi"))
-              %base-user-accounts))
+ (users (cons* (user-account
+                (name "hebi")
+                (comment "Hebi Li")
+                (group "users")
+                (supplementary-groups '("wheel" "netdev"
+                                        "audio" "video"))
+                (home-directory "/home/hebi"))
+               (user-account
+                (name "tester")
+                (comment "Test user")
+                (group "users")
+                (supplementary-groups '("wheel" "netdev"
+                                        "audio" "video"))
+                (home-directory "/home/tester"))
+               %base-user-accounts))
 
  (packages (cons*
             ;; for HTTPS access
@@ -62,13 +70,16 @@
             ;; this is the cl package, not the WM
             ;; cl-stumpwm
             openbox
+            the-silver-searcher icecat rxvt-unicode
+            xrdb xmodmap curl tmux
+            
             %base-packages))
 
  (services (cons*
 	    ;; (gnome-desktop-service)
             ;; (mate-desktop-service)
             ;; (enlightenment-desktop-service-type)
-            ;; (xfce-desktop-service)
+            (xfce-desktop-service)
 
             ;; Must define the ssh daemon here. herd status
             ;; ssh-daemon says it cannot find ssh-daemon
@@ -126,26 +137,15 @@
 ;; grep
 ;; sed
 ;; coreutils
-;; install stumpwm using quicklisp
-;; sbcl-stumpwm
 ;; pkg-config
 ;; font-wqy-microhei
 ;; font-wqy-zenhei
 
-;; the-silver-searcher
-;; emacs
-;; git
-;; icecat
-;; rxvt-unicode
 ;; pavucontrol
-;; xrdb
-;; xmodmap
 ;; xinput
 ;; translate-shell
 ;; bc
-;; curl
 ;; sbcl
-;; tmux
 ;; autoconf
 ;; automake
 ;; autobuild
