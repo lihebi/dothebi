@@ -133,6 +133,8 @@ alias .....="cd ../../../.."
 
 alias helium-clang="clang -Xclang -load -Xclang /home/hebi/github/helium2/build/lib/libhelium.so"
 
+alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -enable-kvm -m 2048 -cpu host -smp 8"
+
 ##############################
 ## source other files
 ##############################
@@ -208,10 +210,10 @@ esac
 # export CC=/usr/bin/clang
 # export CXX=/usr/bin/clang++
 
+
 # FIXME GuixSD name
-if [[ `uname` == "GuixSD" ]]; then
-
-
+command -v guix > /dev/null
+if hash guix 2>/dev/null; then
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PATH="/home/hebi/.cask/bin:$PATH"
@@ -223,5 +225,22 @@ if [[ `uname` == "GuixSD" ]]; then
 
     export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
     export PATH="/root/.config/guix/current/bin${PATH:+:}$PATH"
+    export C_INCLUDE_PATH="/home/hebi/.guix-profile/include${C_INCLUDE_PATH:+:}$C_INCLUDE_PATH"
+    export CPLUS_INCLUDE_PATH="/home/hebi/.guix-profile/include${CPLUS_INCLUDE_PATH:+:}$CPLUS_INCLUDE_PATH"
 
+    export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
+    export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 fi
+
+# pip install --user xxx: will install under this folder
+# python3 -m site --user-base: show the local folder
+export PATH="/home/hebi/.local/bin/:$PATH"
+
+# Using this will make commands such as ls, python3 segment fault
+# export LD_LIBRARY_PATH="/home/hebi/.guix-profile/lib"
+#
+# HACK I have to hack to use the gcc-...-lib/lib/libstdc++.so.6 so
+# that python from scipy import sparse (and some others like jupyter
+# notebook) will work
+export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib"
+
