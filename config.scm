@@ -9,11 +9,9 @@
 
 (use-package-modules certs gnome base suckless wm
                      lisp openbox version-control emacs
-                     code gnuzilla xdisorg xorg curl tmux)
+                     code gnuzilla xdisorg xorg curl tmux
+                     bash gcc)
 
-;; TODO see if just evaluating this will add /usr/bin/env
-;; (extra-special-file "/usr/bin/env"
-;;                     (file-append coreutils "/bin/env"))
 
 (operating-system
  (host-name "antelope")
@@ -76,6 +74,17 @@
             %base-packages))
 
  (services (cons*
+            ;; TODO see if just evaluating this will add /usr/bin/env
+            ;; by default, there is /usr/bin/env and /bin/sh
+            (extra-special-file "/usr/bin/env"
+                                (file-append coreutils "/bin/env"))
+            (extra-special-file "/usr/bin/bash"
+                                (file-append bash "/bin/bash"))
+            (extra-special-file "/bin/bash"
+                                (file-append bash "/bin/bash"))
+            ;; (extra-special-file "/usr/lib/libstdc++.so.6"
+            ;;                     (file-append gcc "/libstdc++.so.6"))
+            
 	    ;; (gnome-desktop-service)
             ;; (mate-desktop-service)
             ;; (enlightenment-desktop-service-type)
