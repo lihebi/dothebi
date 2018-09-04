@@ -19,8 +19,16 @@
 // homepage = "http://lihebi.com";
 homepage = "http://wiki.lihebi.com"
 homepage = "http://google.com"
-homepage = "file:////home/hebi/github/wiki-dist/index.html"
+homepage = "file:////home/hebi/github/homepage-dist/index.html"
 
+// sheet.appendRelativePath(".hebi/conkeror.css");
+// register_user_stylesheet(make_uri(sheet));
+
+// let (sheet = get_home_directory()) {
+//     sheet.appendRelativePath(".conkerorrc/main.css");
+//     register_user_stylesheet(make_uri(sheet));
+// }
+register_user_stylesheet("file:///home/hebi/.hebi/conkerorrc/main.css");
 
 isearch_keep_selection = true;
 isearch_scroll_center_vertically = true;
@@ -35,17 +43,13 @@ editor_shell_command = "emacsclient"
 // theme
 // CAUTION: Require init the submodule in .hebi!
 
-theme_load_paths.unshift("~/.hebi/conkeror/themes/");
-theme_unload("default");
-theme_load("conkeror-theme-zenburn");
+// theme_load_paths.unshift("~/.hebi/conkeror/themes/");
+// theme_unload("default");
+// theme_load("conkeror-theme-zenburn");
 
 require("new-tabs.js");
 
-
-
-
 // mode line
-
 
 require("mode-line.js");
 // remove_hook("mode_line_hook", mode_line_adder(clock_widget));
@@ -55,8 +59,6 @@ require("mode-line.js");
 // add_hook("mode_line_hook", mode_line_adder(zoom_widget));
 // add_hook("mode_line_hook", mode_line_adder(downloads_status_widget));
 
-
-
 //////////////////////////////
 // Trying to add hook to forbid website key binding hijack
 // Failed
@@ -65,9 +67,6 @@ require("mode-line.js");
 // function hebiecho() {
 //   // I.window.minibuffer.message("hebi");
 // }
-
-
-
 
 // function echo_message (window, message) {
 //     window.minibuffer.message(message);
