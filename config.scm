@@ -5,7 +5,7 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit version-control web)
+(use-service-modules desktop ssh cgit version-control web audio)
 
 (use-package-modules certs gnome base suckless wm
                      lisp openbox version-control emacs
@@ -69,7 +69,7 @@
             ;; cl-stumpwm
             openbox
             the-silver-searcher icecat rxvt-unicode
-            xrdb xmodmap curl tmux
+            xrdb xmodmap curl tmux xrandr alsa-utils
             
             %base-packages))
 
@@ -124,6 +124,11 @@
             ;;                (git-http-nginx-location-configuration
             ;;                 (git-http-configuration (uri-path "/"))))))))))
 
+
+            (service mpd-service-type
+                     (mpd-configuration
+                      (user "hebi")
+                      (port "6600")))
 
             ;; desktop services includes the X11 log-in service,
             ;; networking with NetworkManager, and more. Use F1 to
