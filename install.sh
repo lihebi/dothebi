@@ -20,7 +20,7 @@ fi
 ln -sf $HOME/.hebi/xmonad $HOME/.xmonad
 
 # for xdm
-ln -sf $HOME/.hebi/xsession $HOME/.xsession
+# ln -sf $HOME/.hebi/xsession $HOME/.xsession
 
 # app
 
@@ -83,5 +83,8 @@ ln -sf $HOME/.hebi/docker $HOME/.docker
 # fi
 
 # ln -sf $HOME/.hebi/mpd.conf $HOME/.config/mpd/
-# rm -rf $HOME/.mpd
-# ln -sf $HOME/.hebi/mpd $HOME/.mpd
+
+if [ -d $HOME/.mpd ]; then
+    rm -rf $HOME/.mpd
+fi
+ln -sf $HOME/.hebi/mpd $HOME/.mpd
