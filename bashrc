@@ -144,47 +144,47 @@ alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -en
 # unset file
 
 # my own prompt
-red="\e[1;31m";
-yellow="\e[1;33m";
-white="\e[1;37m";
-bold='';
-case "$TERM" in
-    # this is for Emacs tramp (tramp-terminal-type)
-"dumb")
-    PS1="> "
-    ;;
-xterm*|rxvt*|eterm*|screen*)
-    # PS1="my fancy multi-line \n prompt > "
-    PS1=""
-    # user
-    if [[ "${USER}" == "root" ]]; then
-        PS1+="\[${red}\]"
-    else
-        PS1+="\[${yellow}\]"
-    fi
-    PS1+="\u"
-    PS1+="\[${white}\]"
-    PS1+="@"
-    # host
-    if [[ "${SSH_TTY}" ]]; then
-        PS1+="${bold}${red}";
-    elif [[ "${DOCKER_TTY}" ]]; then
-        PS1+="${bold}${red}DOCKER-"
-    else
-        PS1+="${yellow}";
-    fi;
-    PS1+="\h"
-    PS1+="\[${white}\]"
-    PS1+="&"
-    PS1+="\[${green}\]\w"; # working directory
-    # newline
-    PS1+="\n";
-    PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
-    ;;
-*)
-    PS1="> "
-    ;;
-esac
+# red="\e[1;31m";
+# yellow="\e[1;33m";
+# white="\e[1;37m";
+# bold='';
+# case "$TERM" in
+#     # this is for Emacs tramp (tramp-terminal-type)
+# "dumb")
+#     PS1="> "
+#     ;;
+# xterm*|rxvt*|eterm*|screen*)
+#     # PS1="my fancy multi-line \n prompt > "
+#     PS1=""
+#     # user
+#     if [[ "${USER}" == "root" ]]; then
+#         PS1+="\[${red}\]"
+#     else
+#         PS1+="\[${yellow}\]"
+#     fi
+#     PS1+="\u"
+#     PS1+="\[${white}\]"
+#     PS1+="@"
+#     # host
+#     if [[ "${SSH_TTY}" ]]; then
+#         PS1+="${bold}${red}";
+#     elif [[ "${DOCKER_TTY}" ]]; then
+#         PS1+="${bold}${red}DOCKER-"
+#     else
+#         PS1+="${yellow}";
+#     fi;
+#     PS1+="\h"
+#     PS1+="\[${white}\]"
+#     PS1+="&"
+#     PS1+="\[${green}\]\w"; # working directory
+#     # newline
+#     PS1+="\n";
+#     PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+#     ;;
+# *)
+#     PS1="> "
+#     ;;
+# esac
 
 
 # bash-completion
@@ -230,6 +230,7 @@ if hash guix 2>/dev/null; then
 
     export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
     export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
 fi
 
 # pip install --user xxx: will install under this folder
