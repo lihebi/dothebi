@@ -231,6 +231,15 @@ if hash guix 2>/dev/null; then
     export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
     export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
+
+    export PATH="/home/hebi/.guix-profile/bin:/home/hebi/.guix-profile/sbin${PATH:+:}$PATH"
+    export GUIX_GTK3_PATH="/home/hebi/.guix-profile/lib/gtk-3.0${GUIX_GTK3_PATH:+:}$GUIX_GTK3_PATH"
+    export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
+    export ACLOCAL_PATH="/home/hebi/.guix-profile/share/aclocal${ACLOCAL_PATH:+:}$ACLOCAL_PATH"
+
+    export CPATH="/home/hebi/.guix-profile/include${CPATH:+:}$CPATH"
+    export LIBRARY_PATH="/home/hebi/.guix-profile/lib${LIBRARY_PATH:+:}$LIBRARY_PATH"
+    
 fi
 
 # pip install --user xxx: will install under this folder

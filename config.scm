@@ -10,7 +10,9 @@
 (use-package-modules certs gnome base suckless wm
                      lisp openbox version-control emacs
                      code gnuzilla xdisorg xorg curl tmux
-                     bash gcc)
+                     bash gcc linux autotools)
+
+(use-package-modules gtk image compression pdf dictionaries fonts)
 
 
 (operating-system
@@ -27,16 +29,12 @@
  ;; Assume the target root file system is labelled "my-root",
  ;; and the EFI System Partition has UUID 1234-ABCD.
  (file-systems (cons* (file-system
-                       (device "/dev/sda2")
+                       (device "/dev/sdb2")
                        (mount-point "/")
                        (type "ext4"))
                       (file-system
-                       (device "/dev/sda3")
-                       (mount-point "/home")
-                       (type "ext4"))
-                      (file-system
                        ;; this UUID is returned by sudo blkid
-                       (device "/dev/sda1")
+                       (device "/dev/sdb1")
                        (mount-point "/boot/efi")
                        (type "vfat"))
                       %base-file-systems))
@@ -70,6 +68,18 @@
             openbox
             the-silver-searcher icecat rxvt-unicode
             xrdb xmodmap curl tmux xrandr alsa-utils
+
+            ;; additional package
+            ;; Build chain
+            autoconf automake gcc glibc
+            ;; pdf-tools
+            cairo libpng zlib poppler
+            ;; other
+            translate-shell
+            font-wqy-microhei
+            font-wqy-zenhei
+            openssh openssl
+            conkeror
             
             %base-packages))
 
@@ -145,42 +155,40 @@
 ;;
 ;; FIXME how to declare a local package list to install automatically?
 
-;; make
 ;; gcc-toolchain
-;; libstdc++
+;; sbcl
 ;; grep
 ;; sed
 ;; coreutils
+;; binutils
 ;; pkg-config
-;; font-wqy-microhei
-;; font-wqy-zenhei
+;; make
 
 ;; pavucontrol
 ;; xinput
-;; translate-shell
 ;; bc
-;; sbcl
-;; autoconf
-;; automake
-;; autobuild
-;; gcc
-;; poppler
-;; zlib
-;; libpng
 ;; gfortran
 ;; llvm
 ;; clang
 ;; imagemagick
 ;; python
 ;; bash
-;; glibc
-;; binutils
+;; 
 ;; fontconfig
-;; cairo
 ;; aspell               ; for ispell executable in flyspell-mode
 ;; aspell-dict-en
 ;; qemu
 ;; thunar
 ;; feh
 ;; msmtp
+;; iptables
+;; vinagre
+
+;; already have?
+;;
 ;; xrandr
+
+;; Do not install
+;;
+;; libstdc++
+;; autobuild
