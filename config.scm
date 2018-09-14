@@ -10,7 +10,7 @@
 (use-package-modules certs gnome base suckless wm
                      lisp openbox version-control emacs
                      code gnuzilla xdisorg xorg curl tmux
-                     bash gcc linux autotools)
+                     bash gcc linux autotools ssh tls conkeror)
 
 (use-package-modules gtk image compression pdf dictionaries fonts)
 
@@ -19,6 +19,15 @@
  (host-name "antelope")
  (timezone "America/Chicago")
  (locale "en_US.utf8")
+ (hosts-file (plain-file "my-hosts"
+                         (string-join
+                          ;; I probably don't need the first two lines
+                          '("127.0.0.1 localhost antelope"
+                            "::1       localhost antelope"
+                            ;; my servers
+                            "192.168.1.102 joule"
+                            "10.26.52.243 ryzen")
+                          "\n")))
 
  ;; Use the UEFI variant of GRUB with the EFI System
  ;; Partition mounted on /boot/efi.
