@@ -1,11 +1,11 @@
-Config { font = "-misc-fixed-*-*-*-*-25-*-*-*-*-*-*-*"
+Config { font = "-misc-fixed-*-*-*-*-20-*-*-*-*-*-*-*"
        , additionalFonts = []
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
        , fgColor = "grey"
        , alpha = 255
-       , position = Top
+       , position = Bottom
        , textOffset = -1
        , iconOffset = -1
        , lowerOnStart = True
