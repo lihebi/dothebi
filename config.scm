@@ -26,7 +26,9 @@
                             "::1       localhost antelope"
                             ;; my servers
                             "192.168.1.102 joule"
-                            "10.26.52.243 ryzen")
+                            "10.26.52.243 ryzen"
+                            "192.168.1.136 pi"
+                            "127.0.0.1 git.lihebi.com")
                           "\n")))
 
  ;; Use the UEFI variant of GRUB with the EFI System
@@ -75,8 +77,12 @@
             ;; this is the cl package, not the WM
             ;; cl-stumpwm
             openbox
-            the-silver-searcher icecat rxvt-unicode
+            the-silver-searcher
+            rxvt-unicode
             xrdb xmodmap curl tmux xrandr alsa-utils
+
+            ;; icecat is so hard to use
+            ;; icecat
 
             ;; additional package
             ;; Build chain
