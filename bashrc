@@ -218,6 +218,7 @@ if hash guix 2>/dev/null; then
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PATH="/home/hebi/.cask/bin:$PATH"
     export PYTHONPATH="/home/hebi/.guix-profile/lib/python2.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
+    export PYTHONPATH="/home/hebi/.guix-profile/lib/python3.6/site-packages${PYTHONPATH:+:}$PYTHONPATH"
     export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
 
     export poppler_glib_CFLAGS="-I/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/include/poppler/glib"
@@ -239,7 +240,14 @@ if hash guix 2>/dev/null; then
 
     export CPATH="/home/hebi/.guix-profile/include${CPATH:+:}$CPATH"
     export LIBRARY_PATH="/home/hebi/.guix-profile/lib${LIBRARY_PATH:+:}$LIBRARY_PATH"
-    
+    export LD_LIBRARY_PATH="/run/current-system/profile/lib:$LIBRARY_PATH"
+    # hack for libstdc++. The libstdc++ guix package does not work
+    export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib:$LD_LIBRARY_PATH"
+    # export LD_LIBRARY_PATH="/run/current-system/profile/lib"
+    export CMAKE_PREFIX_PATH="/home/hebi/.guix-profile/${CMAKE_PREFIX_PATH:+:}$CMAKE_PREFIX_PATH"
+
+    export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
+    export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
 fi
 
 # pip install --user xxx: will install under this folder
@@ -252,5 +260,3 @@ export PATH="/home/hebi/.local/bin/:$PATH"
 # HACK I have to hack to use the gcc-...-lib/lib/libstdc++.so.6 so
 # that python from scipy import sparse (and some others like jupyter
 # notebook) will work
-export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib"
-
