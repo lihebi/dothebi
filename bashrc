@@ -225,12 +225,11 @@ if hash guix 2>/dev/null; then
     export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
 
     export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
-    export PATH="/root/.config/guix/current/bin${PATH:+:}$PATH"
     export C_INCLUDE_PATH="/home/hebi/.guix-profile/include${C_INCLUDE_PATH:+:}$C_INCLUDE_PATH"
     export CPLUS_INCLUDE_PATH="/home/hebi/.guix-profile/include${CPLUS_INCLUDE_PATH:+:}$CPLUS_INCLUDE_PATH"
 
-    export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
-    export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    # export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
+    # export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
 
     export PATH="/home/hebi/.guix-profile/bin:/home/hebi/.guix-profile/sbin${PATH:+:}$PATH"
@@ -248,6 +247,7 @@ if hash guix 2>/dev/null; then
 
     export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
     export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
+    export PATH="/home/hebi/.config/guix/current/bin${PATH:+:}$PATH"
 fi
 
 # pip install --user xxx: will install under this folder
