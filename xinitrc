@@ -69,3 +69,16 @@ exec sbcl --quit --load $HOME/.hebi/startstump
 # make sure exwm is configured
 # exec emacs
 # exec dbus-launch --exit-with-session emacs
+
+
+# trying rwind
+# ------------
+# Loop between X window managers, infinitely.
+# Note that there's neither `exec` nor `&` here.
+# The X startup script is waiting on the window manager to exit
+# and then starts the other window manager.
+#
+# while true ; do
+#     xmonad
+#     racket -l rwind
+# done

@@ -218,18 +218,18 @@ if hash guix 2>/dev/null; then
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PATH="/home/hebi/.cask/bin:$PATH"
     export PYTHONPATH="/home/hebi/.guix-profile/lib/python2.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
+    export PYTHONPATH="/home/hebi/.guix-profile/lib/python3.6/site-packages${PYTHONPATH:+:}$PYTHONPATH"
     export GIO_EXTRA_MODULES="/home/hebi/.guix-profile/lib/gio/modules${GIO_EXTRA_MODULES:+:}$GIO_EXTRA_MODULES"
 
     export poppler_glib_CFLAGS="-I/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/include/poppler/glib"
     export poppler_glib_LIBS="-L/gnu/store/lk7qa3appvxh6v7iphvkm0v40rv4vbw9-poppler-0.63.0/lib -lpoppler-glib -lpoppler"
 
     export ASPELL_DICT_DIR="/home/hebi/.guix-profile/lib/aspell"
-    export PATH="/root/.config/guix/current/bin${PATH:+:}$PATH"
     export C_INCLUDE_PATH="/home/hebi/.guix-profile/include${C_INCLUDE_PATH:+:}$C_INCLUDE_PATH"
     export CPLUS_INCLUDE_PATH="/home/hebi/.guix-profile/include${CPLUS_INCLUDE_PATH:+:}$CPLUS_INCLUDE_PATH"
 
-    export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
-    export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    # export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
+    # export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
 
     export PATH="/home/hebi/.guix-profile/bin:/home/hebi/.guix-profile/sbin${PATH:+:}$PATH"
@@ -239,7 +239,15 @@ if hash guix 2>/dev/null; then
 
     export CPATH="/home/hebi/.guix-profile/include${CPATH:+:}$CPATH"
     export LIBRARY_PATH="/home/hebi/.guix-profile/lib${LIBRARY_PATH:+:}$LIBRARY_PATH"
-    
+    export LD_LIBRARY_PATH="/run/current-system/profile/lib:$LIBRARY_PATH"
+    # hack for libstdc++. The libstdc++ guix package does not work
+    export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib:$LD_LIBRARY_PATH"
+    # export LD_LIBRARY_PATH="/run/current-system/profile/lib"
+    export CMAKE_PREFIX_PATH="/home/hebi/.guix-profile/${CMAKE_PREFIX_PATH:+:}$CMAKE_PREFIX_PATH"
+
+    export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
+    export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
+    export PATH="/home/hebi/.config/guix/current/bin${PATH:+:}$PATH"
 fi
 
 # pip install --user xxx: will install under this folder
@@ -267,4 +275,3 @@ export PARAM_SET=base
 export DATA_DIR=$HOME/transformer/data
 export MODEL_DIR=$HOME/transformer/model_$PARAM_SET
 export VOCAB_FILE=$DATA_DIR/vocab.ende.32768
-
