@@ -262,3 +262,18 @@ export PATH="/home/hebi/.local/bin/:$PATH"
 # HACK I have to hack to use the gcc-...-lib/lib/libstdc++.so.6 so
 # that python from scipy import sparse (and some others like jupyter
 # notebook) will work
+
+# CUDA ubuntu
+# /usr/local/cuda-9.2/doc has many pdf documents
+export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"
+export PATH="/usr/local/cuda-9.0/bin:$PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64"
+export CLASSPATH=/home/hebi/bin/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
+
+export PYTHONPATH="$PYTHONPATH:/home/hebi/github/reading/models"
+
+# transformer example
+export PARAM_SET=base
+export DATA_DIR=$HOME/transformer/data
+export MODEL_DIR=$HOME/transformer/model_$PARAM_SET
+export VOCAB_FILE=$DATA_DIR/vocab.ende.32768
