@@ -248,6 +248,8 @@ if hash guix 2>/dev/null; then
     export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
     export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
     export PATH="/home/hebi/.config/guix/current/bin${PATH:+:}$PATH"
+    export QMAKEPATH="/home/hebi/.guix-profile/lib/qt5${QMAKEPATH:+:}$QMAKEPATH"
+    export QT_PLUGIN_PATH="/home/hebi/.guix-profile/lib/qt5/plugins${QT_PLUGIN_PATH:+:}$QT_PLUGIN_PATH"
 fi
 
 # pip install --user xxx: will install under this folder
