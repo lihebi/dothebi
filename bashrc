@@ -106,7 +106,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 export PATH=$HOME/bin:$PATH
-export INFOPATH=$HOME/.info:$INFOPATH
+# export INFOPATH=$HOME/.info:$INFOPATH
 
 
 ##############################
@@ -252,6 +252,10 @@ if hash guix 2>/dev/null; then
     export QT_PLUGIN_PATH="/home/hebi/.guix-profile/lib/qt5/plugins${QT_PLUGIN_PATH:+:}$QT_PLUGIN_PATH"
 fi
 
+# ubuntu guix config
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+export INFOPATH="/home/hebi/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
+
 # pip install --user xxx: will install under this folder
 # python3 -m site --user-base: show the local folder
 export PATH="/home/hebi/.local/bin/:$PATH"
@@ -263,15 +267,22 @@ export PATH="/home/hebi/.local/bin/:$PATH"
 # that python from scipy import sparse (and some others like jupyter
 # notebook) will work
 
+
 # CUDA ubuntu
 # /usr/local/cuda-9.2/doc has many pdf documents
-export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"
-export PATH="/usr/local/cuda-9.0/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/extras/CUPTI/lib64"
+# CUDA_PATH=/usr/local/cuda-10.0
+CUDA_PATH=/usr/local/cuda-9.0
+export LD_LIBRARY_PATH="$CUDA_PATH/lib64:$LD_LIBRARY_PATH"
+export PATH="$CUDA_PATH/bin:$PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_PATH/extras/CUPTI/lib64"
+
+# Java classpath
 export CLASSPATH=/home/hebi/bin/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
 
+# Python path
 export PYTHONPATH="$PYTHONPATH:/home/hebi/github/reading/models"
 
+# other deep learning model related paths
 # transformer example
 export PARAM_SET=base
 export DATA_DIR=$HOME/transformer/data
