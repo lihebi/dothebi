@@ -24,5 +24,11 @@
 # xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 # twm &
 
+vncconfig -nowin &
+# vncconfig -iconic &
+
 # openbox-session &
-xmonad &
+# xmonad &
+# dbus-launch gnome-session &
+# gnome-session&
+startxfce4&

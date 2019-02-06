@@ -134,6 +134,8 @@ alias .....="cd ../../../.."
 alias helium-clang="clang -Xclang -load -Xclang /home/hebi/github/helium2/build/lib/libhelium.so"
 
 alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -enable-kvm -m 2048 -cpu host -smp 8"
+# win10 network:
+# qemu-system-x86_64 -enable-kvm -m 4096 -vga virtio -soundhw hda -cpu host -smp 8 win10.img
 
 ##############################
 ## source other files
@@ -247,14 +249,22 @@ if hash guix 2>/dev/null; then
 
     export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
     export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
-    export PATH="/home/hebi/.config/guix/current/bin${PATH:+:}$PATH"
     export QMAKEPATH="/home/hebi/.guix-profile/lib/qt5${QMAKEPATH:+:}$QMAKEPATH"
     export QT_PLUGIN_PATH="/home/hebi/.guix-profile/lib/qt5/plugins${QT_PLUGIN_PATH:+:}$QT_PLUGIN_PATH"
 fi
 
 # ubuntu guix config
+# No need to set the locale for user. Just set for root.
+# UPDATE: this is still needed
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
-export INFOPATH="/home/hebi/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
+# This is important: the emacs and elisp info files appear only here
+export INFOPATH="$HOME/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
+
+# This is the current guix binary resulted from guix pull. Keep this
+# at the front of the list
+export PATH="$HOME/.config/guix/current/bin:$PATH"
+export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
+
 
 # pip install --user xxx: will install under this folder
 # python3 -m site --user-base: show the local folder

@@ -34,3 +34,11 @@ Use S2716DG
 xrandr --output DP-2 --rotate left --left-of DP-0
 #+END_EXAMPLE
 
+* Guix
+
+Other guix packages:
+- docker
+- docker-cli
+- docker-compose
+
+
