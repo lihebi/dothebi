@@ -1,0 +1,18 @@
+#+TITLE: Setting up Guix System Distribution
+
+=config.scm= is used to install the system, then install all software
+using =guix package -m package.scm=.
+
+
+#+BEGIN_EXAMPLE lisp
+(cons*
+ (channel
+  (name 'guix-channel-hebi)
+  (url "https://github.com/lihebi/guix-channel.git")
+  (branch "master"))
+ (channel
+  (name 'guix-chromium)
+  (url "https://gitlab.com/mbakke/guix-chromium.git")
+  (branch "master"))
+ %default-channels)
+#+END_EXAMPLE

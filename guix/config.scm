@@ -5,15 +5,9 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit version-control web audio)
+(use-service-modules desktop ssh cgit audio)
 
-(use-package-modules certs gnome base suckless wm
-                     lisp openbox version-control emacs
-                     code gnuzilla xdisorg xorg curl tmux
-                     bash gcc linux autotools ssh tls conkeror)
-
-(use-package-modules gtk image compression pdf dictionaries fonts)
-
+(use-package-modules base bash linux ssh)
 
 (operating-system
  (host-name "antelope")
@@ -40,12 +34,12 @@
  ;; Assume the target root file system is labelled "my-root",
  ;; and the EFI System Partition has UUID 1234-ABCD.
  (file-systems (cons* (file-system
-                       (device "/dev/sdb2")
+                       (device "/dev/sda2")
                        (mount-point "/")
                        (type "ext4"))
                       (file-system
                        ;; this UUID is returned by sudo blkid
-                       (device "/dev/sdb1")
+                       (device "/dev/sda1")
                        (mount-point "/boot/efi")
                        (type "vfat"))
                       %base-file-systems))
@@ -66,37 +60,7 @@
                 (home-directory "/home/tester"))
                %base-user-accounts))
 
- (packages (cons*
-            ;; for HTTPS access
-            nss-certs
-            git
-            emacs
-            ;; this stumpwm should wirte Stumpwm.desktop
-            sbcl-stumpwm
-            ;;
-            ;; this is the cl package, not the WM
-            ;; cl-stumpwm
-            openbox
-            the-silver-searcher
-            rxvt-unicode
-            xrdb xmodmap curl tmux xrandr alsa-utils
-
-            ;; icecat is so hard to use
-            ;; icecat
-
-            ;; additional package
-            ;; Build chain
-            autoconf automake gcc glibc
-            ;; pdf-tools
-            cairo libpng zlib poppler
-            ;; other
-            translate-shell
-            font-wqy-microhei
-            font-wqy-zenhei
-            openssh openssl
-            conkeror
-            
-            %base-packages))
+ (packages %base-packages)
 
  (services (cons*
             ;; TODO see if just evaluating this will add /usr/bin/env
@@ -113,7 +77,7 @@
 	    ;; (gnome-desktop-service)
             ;; (mate-desktop-service)
             ;; (enlightenment-desktop-service-type)
-            (xfce-desktop-service)
+            ;; (xfce-desktop-service)
 
             ;; Must define the ssh daemon here. herd status
             ;; ssh-daemon says it cannot find ssh-daemon
@@ -165,45 +129,3 @@
 
  ;; Allow resolution of '.local' host names with mDNS.
  (name-service-switch %mdns-host-lookup-nss))
-
-;; The following packages should be installed on a user basis
-;;
-;; FIXME how to declare a local package list to install automatically?
-
-;; gcc-toolchain
-;; sbcl
-;; grep
-;; sed
-;; coreutils
-;; binutils
-;; pkg-config
-;; make
-
-;; pavucontrol
-;; xinput
-;; bc
-;; gfortran
-;; llvm
-;; clang
-;; imagemagick
-;; python
-;; bash
-;; 
-;; fontconfig
-;; aspell               ; for ispell executable in flyspell-mode
-;; aspell-dict-en
-;; qemu
-;; thunar
-;; feh
-;; msmtp
-;; iptables
-;; vinagre
-
-;; already have?
-;;
-;; xrandr
-
-;; Do not install
-;;
-;; libstdc++
-;; autobuild

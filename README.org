@@ -3,12 +3,6 @@
 use =./install.sh= to install.
 This will create soft-links for the dot files.
 
-There're submodules:
-- a conkeror theme
-- stumpwm contrib modules
-
-So:
-
 #+BEGIN_EXAMPLE
 git submodule init
 git submodule update
@@ -33,12 +27,3 @@ Use S2716DG
 #+BEGIN_EXAMPLE
 xrandr --output DP-2 --rotate left --left-of DP-0
 #+END_EXAMPLE
-
-* Guix
-
-Other guix packages:
-- docker
-- docker-cli
-- docker-compose
-
-
