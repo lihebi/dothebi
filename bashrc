@@ -230,8 +230,6 @@ if hash guix 2>/dev/null; then
     export C_INCLUDE_PATH="/home/hebi/.guix-profile/include${C_INCLUDE_PATH:+:}$C_INCLUDE_PATH"
     export CPLUS_INCLUDE_PATH="/home/hebi/.guix-profile/include${CPLUS_INCLUDE_PATH:+:}$CPLUS_INCLUDE_PATH"
 
-    # export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
-    # export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
 
     export PATH="/home/hebi/.guix-profile/bin:/home/hebi/.guix-profile/sbin${PATH:+:}$PATH"
@@ -243,7 +241,7 @@ if hash guix 2>/dev/null; then
     export LIBRARY_PATH="/home/hebi/.guix-profile/lib${LIBRARY_PATH:+:}$LIBRARY_PATH"
     export LD_LIBRARY_PATH="/run/current-system/profile/lib:$LIBRARY_PATH"
     # hack for libstdc++. The libstdc++ guix package does not work
-    export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib:$LD_LIBRARY_PATH"
+    # export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib:$LD_LIBRARY_PATH"
     # export LD_LIBRARY_PATH="/run/current-system/profile/lib"
     export CMAKE_PREFIX_PATH="/home/hebi/.guix-profile/${CMAKE_PREFIX_PATH:+:}$CMAKE_PREFIX_PATH"
 
@@ -251,7 +249,18 @@ if hash guix 2>/dev/null; then
     export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache:/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
     export QMAKEPATH="/home/hebi/.guix-profile/lib/qt5${QMAKEPATH:+:}$QMAKEPATH"
     export QT_PLUGIN_PATH="/home/hebi/.guix-profile/lib/qt5/plugins${QT_PLUGIN_PATH:+:}$QT_PLUGIN_PATH"
+
+    export GIT_EXEC_PATH="/home/hebi/.guix-profile/libexec/git-core"
+    export PYTHONPATH="/home/hebi/.guix-profile/lib/python3.7/site-packages${PYTHONPATH:+:}$PYTHONPATH"
+    export BASH_LOADABLES_PATH="/home/hebi/.guix-profile/lib/bash${BASH_LOADABLES_PATH:+:}$BASH_LOADABLES_PATH"
+    export TERMINFO_DIRS="/home/hebi/.guix-profile/share/terminfo${TERMINFO_DIRS:+:}$TERMINFO_DIRS"
+    export GIT_SSL_CAINFO="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    export CURL_CA_BUNDLE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
+    export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
 fi
+
+export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
 
 # ubuntu guix config
 # No need to set the locale for user. Just set for root.

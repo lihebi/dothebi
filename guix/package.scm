@@ -28,7 +28,9 @@
     "xinput" "gfortran"
     "thunar" "nautilus"
     "vinagre" "feh"
-    "xrandr" "openbox" "rxvt-unicode" "xrdb" "xmodmap")
+    "xrandr"
+    ;; "openbox"
+    "rxvt-unicode" "xrdb" "xmodmap")
   '("sbcl")
   ;; service
   '("openssh" "openssl")
