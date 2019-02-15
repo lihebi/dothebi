@@ -133,7 +133,8 @@ alias .....="cd ../../../.."
 
 alias helium-clang="clang -Xclang -load -Xclang /home/hebi/github/helium2/build/lib/libhelium.so"
 
-alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -enable-kvm -m 2048 -cpu host -smp 8"
+# alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -enable-kvm -m 2048 -cpu host -smp 8"
+alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 2"
 # win10 network:
 # qemu-system-x86_64 -enable-kvm -m 4096 -vga virtio -soundhw hda -cpu host -smp 8 win10.img
 
@@ -216,6 +217,10 @@ alias myqemu="qemu-system-x86_64 -net user -net nic,model=virtio -vga virtio -en
 # FIXME GuixSD name
 command -v guix > /dev/null
 if hash guix 2>/dev/null; then
+    # I'm adding the /usr/bin path on Guix also, as it is not there
+    # already, and nvidia executables are installed there
+    export PATH="/usr/bin:$PATH"
+    export LD_LIBRARY_PATH="/usr/lib:$LD_LIBRARY_PATH"
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PKG_CONFIG_PATH="/home/hebi/.guix-profile/lib/pkgconfig:/home/hebi/.guix-profile/share/pkgconfig${PKG_CONFIG_PATH:+:}$PKG_CONFIG_PATH"
     export PATH="/home/hebi/.cask/bin:$PATH"
@@ -239,9 +244,8 @@ if hash guix 2>/dev/null; then
 
     export CPATH="/home/hebi/.guix-profile/include${CPATH:+:}$CPATH"
     export LIBRARY_PATH="/home/hebi/.guix-profile/lib${LIBRARY_PATH:+:}$LIBRARY_PATH"
-    export LD_LIBRARY_PATH="/run/current-system/profile/lib:$LIBRARY_PATH"
+    export LD_LIBRARY_PATH="/run/current-system/profile/lib:$LIBRARY_PATH:$LD_LIBRARY_PATH"
     # hack for libstdc++. The libstdc++ guix package does not work
-    # export LD_LIBRARY_PATH="/gnu/store/bmaxmigwnlbdpls20px2ipq1fll36ncd-gcc-8.2.0-lib/lib:$LD_LIBRARY_PATH"
     # export LD_LIBRARY_PATH="/run/current-system/profile/lib"
     export CMAKE_PREFIX_PATH="/home/hebi/.guix-profile/${CMAKE_PREFIX_PATH:+:}$CMAKE_PREFIX_PATH"
 
@@ -258,6 +262,10 @@ if hash guix 2>/dev/null; then
     export CURL_CA_BUNDLE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
     export SSL_CERT_DIR="/home/hebi/.guix-profile/etc/ssl/certs"
     export SSL_CERT_FILE="/home/hebi/.guix-profile/etc/ssl/certs/ca-certificates.crt"
+    export PERL5LIB="/home/hebi/.guix-profile/lib/perl5/site_perl${PERL5LIB:+:}$PERL5LIB"
+    # export LINUX_MODULE_DIRECTORY="/lib/modules/4.20.7-gnu/:$LINUX_MODULE_DIRECTORY"
+    export TCLLIBPATH="/home/hebi/.guix-profile/lib/tklib0.6${TCLLIBPATH:+ }$TCLLIBPATH"
+    export TCLLIBPATH="/home/hebi/.guix-profile/lib/tcllib1.18${TCLLIBPATH:+ }$TCLLIBPATH"
 fi
 
 export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
@@ -289,14 +297,17 @@ export PATH="/home/hebi/.local/bin/:$PATH"
 
 # CUDA ubuntu
 # /usr/local/cuda-9.2/doc has many pdf documents
-# CUDA_PATH=/usr/local/cuda-10.0
-CUDA_PATH=/usr/local/cuda-9.0
+CUDA_PATH=/usr/local/cuda-10.0
+# CUDA_PATH=/usr/local/cuda-9.0
 export LD_LIBRARY_PATH="$CUDA_PATH/lib64:$LD_LIBRARY_PATH"
 export PATH="$CUDA_PATH/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_PATH/extras/CUPTI/lib64"
+# cudnn
+export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+
 
 # Java classpath
-export CLASSPATH=/home/hebi/bin/stanford-corenlp-full-2018-10-05/stanford-corenlp-3.9.2.jar
+export CLASSPATH=/home/hebi/bin/stanford-corenlp-3.9.2.jar
 
 # Python path
 export PYTHONPATH="$PYTHONPATH:/home/hebi/github/reading/models"
