@@ -13,7 +13,7 @@
   ;; essential packages
   '("emacs" "git" "nss-certs")
   ;; cmd utilities
-  '("grep" "sed" "coreutils" "binutils" "bc"
+  '("grep" "sed" "coreutils" "bc"
     "aspell" "aspell-dict-en" ; for ispell executable in flyspell-mode
     "msmtp" "iptables"
     "the-silver-searcher" "translate-shell"
@@ -25,13 +25,23 @@
     ;;
     ;; seems glibc contains ld-linux-x86-64.so.2, ldd, as, overlapping
     ;; with gcc-tooltain
-    "glibc"
+    ;; "glibc"
     "bison" "flex"
     "pkg-config" "make" "cmake" "autoconf" "automake"
-    "gcc" "gcc:lib"
-    "glib"
+    ;; I should not install gcc, but gcc-toolchain, according to a
+    ;; mailing list post (TODO: cite)
+    ;; "gcc" "libstdc++"
+    ;;
+    ;; seems that gcc-toolchain does not contains "gcc:lib",
+    ;; e.g. libgomp.so
+    "gcc:lib"
+    ;; gcc-toolchain contains "binutils"
+    "gcc-toolchain"
+    ;; "glib"
     ;; java
-    "ant" "icedtea" "icedtea:jdk")
+    "ant" "icedtea" "icedtea:jdk" "maven"
+    "libxtst"                           ; for IntelliJ
+    )
   ;; languages
   '("python" "bash" "perl")
   ;; tk of python. Seems the python:tk does the trick
@@ -46,7 +56,9 @@
     ;; theme. The solution is to use gnome icons by adding
     ;; ~/.gtkrc-2.0 with gtk-icon-theme-name="gnome"
     "thunar"
-    "nautilus" "gnome-icon-theme"
+    "gnome-icon-theme"
+    ;; "nautilus" conflicting with xdg-desktop-database
+    ;; "nautilus"
     "vinagre" "feh"
     "xrandr"
     ;; "openbox"
@@ -57,7 +69,7 @@
     "xlsfonts" "xset"
     "font-anonymous-pro" "font-fira-mono" "font-dejavu"
     ;; screenshot. Also: maim
-    "flameshot" "gnome-screenshot")
+    "flameshot" "gnome-screenshot" "arandr")
   '("sbcl")
   ;; service
   '("openssh" "openssl")
@@ -70,6 +82,10 @@
   ;; require channel https://gitlab.com/mbakke/guix-chromium.git
   '("chromium")
   '("xf86-video-nouveau")
+  ;; large apps
+  '("kicad" "kicad-symbols" "libreoffice")
+  ;; "kicad-library" is 4.x
+  '("texlive")
   ;; stumpwm
   '("stumpwm")
   ;; stumpwm required libraries
@@ -78,4 +94,4 @@
   '("cl-clx-truetype" "sbcl-zpng")
   ;; other
   '("fontconfig" "qemu" "font-wqy-microhei" "font-wqy-zenhei"
-    "linux-pam" "file" "libstdc++" "shepherd")))
+    "linux-pam" "file" "shepherd")))

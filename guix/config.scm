@@ -5,9 +5,9 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit audio)
+(use-service-modules desktop ssh cgit audio docker)
 
-(use-package-modules base bash linux ssh perl)
+(use-package-modules base bash linux ssh perl lisp)
 
 (operating-system
   (host-name "antelope")
@@ -51,6 +51,7 @@
                  (comment "Hebi Li")
                  (group "users")
                  (supplementary-groups '("wheel" "netdev" "tty"
+                                         "docker"
                                          ;; FIXME run qemu without root?
                                          ;; "libvirtd"
                                          "audio" "video"))
@@ -64,9 +65,12 @@
                  (home-directory "/home/tester"))
                 %base-user-accounts))
 
-  (packages %base-packages)
+  (packages (cons*
+             stumpwm
+             %base-packages))
 
   (services (cons*
+             (service docker-service-type)
              ;; TODO see if just evaluating this will add /usr/bin/env
              ;; by default, there is /usr/bin/env and /bin/sh
              (extra-special-file "/usr/bin/env"
