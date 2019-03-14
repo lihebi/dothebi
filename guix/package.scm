@@ -55,7 +55,7 @@
     ;; thunar seems to be with xfce, and it does not have a icon
     ;; theme. The solution is to use gnome icons by adding
     ;; ~/.gtkrc-2.0 with gtk-icon-theme-name="gnome"
-    "thunar"
+    "thunar" "tumbler"
     "gnome-icon-theme"
     ;; "nautilus" conflicting with xdg-desktop-database
     ;; "nautilus"

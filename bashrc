@@ -266,6 +266,11 @@ if hash guix 2>/dev/null; then
     # export LINUX_MODULE_DIRECTORY="/lib/modules/4.20.7-gnu/:$LINUX_MODULE_DIRECTORY"
     export TCLLIBPATH="/home/hebi/.guix-profile/lib/tklib0.6${TCLLIBPATH:+ }$TCLLIBPATH"
     export TCLLIBPATH="/home/hebi/.guix-profile/lib/tcllib1.18${TCLLIBPATH:+ }$TCLLIBPATH"
+    export KISYSMOD="/home/hebi/.guix-profile/share/kicad/modules${KISYSMOD:+:}$KISYSMOD"
+    export KISYS3DMOD="/home/hebi/.guix-profile/share/kicad/modules/packages3d${KISYS3DMOD:+:}$KISYS3DMOD"
+    export KICAD_SYMBOL_DIR="/home/hebi/.guix-profile/share/kicad/library${KICAD_SYMBOL_DIR:+:}$KICAD_SYMBOL_DIR"
+    export KICAD_TEMPLATE_DIR="/home/hebi/.guix-profile/share/kicad/library${KICAD_TEMPLATE_DIR:+:}$KICAD_TEMPLATE_DIR"
+    
 fi
 
 export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
@@ -307,10 +312,12 @@ export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
 
 # Java classpath
-export CLASSPATH=/home/hebi/bin/stanford-corenlp-3.9.2.jar
+export CLASSPATH=/home/hebi/bin/stanford-corenlp-3.9.2.jar:$CLASSPATH
+# export CLASSPATH=/home/hebi/github/cs587/rmi:$CLASSPATH
 
 # Python path
-export PYTHONPATH="$PYTHONPATH:/home/hebi/github/reading/models"
+export PYTHONPATH="/home/hebi/github/reading/cleverhans/:$PYTHONPATH"
+
 
 # other deep learning model related paths
 # transformer example
