@@ -5,7 +5,7 @@
 (use-modules (gnu)
              (gnu system nss))
 
-(use-service-modules desktop ssh cgit audio docker)
+(use-service-modules desktop ssh cgit audio)
 
 (use-package-modules base bash linux ssh perl lisp)
 
@@ -51,7 +51,7 @@
                  (comment "Hebi Li")
                  (group "users")
                  (supplementary-groups '("wheel" "netdev" "tty"
-                                         "docker"
+                                         ;; "docker"
                                          ;; FIXME run qemu without root?
                                          ;; "libvirtd"
                                          "audio" "video"))
@@ -66,11 +66,11 @@
                 %base-user-accounts))
 
   (packages (cons*
-             stumpwm
+             sbcl-stumpwm
              %base-packages))
 
   (services (cons*
-             (service docker-service-type)
+             ;; (service docker-service-type)
              ;; TODO see if just evaluating this will add /usr/bin/env
              ;; by default, there is /usr/bin/env and /bin/sh
              (extra-special-file "/usr/bin/env"
@@ -91,7 +91,7 @@
 
              ;; I'm enabling gnome because the screenshot packages and
              ;; qemu seems not working due to incorrect setup of dbus
-	     (gnome-desktop-service)
+	     ;; (gnome-desktop-service)
              ;; (mate-desktop-service)
              ;; (enlightenment-desktop-service-type)
              ;; (xfce-desktop-service)
