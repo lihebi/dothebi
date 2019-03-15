@@ -63,6 +63,7 @@
     "xrandr"
     ;; "openbox"
     "rxvt-unicode" "xrdb" "xmodmap"
+    "cool-retro-term"
     ;; an image viewer
     "ristretto"
     ;; fonts (chromium is not getting monospace fonts correctly)
@@ -81,6 +82,7 @@
   ;; '("llvm" "clang")
   ;; require channel https://gitlab.com/mbakke/guix-chromium.git
   '("chromium")
+  ;; the offical ungoogle-chromium released, but seems to crash on my side
   '("xf86-video-nouveau")
   ;; large apps
   '("kicad" "kicad-symbols" "libreoffice")

@@ -270,7 +270,8 @@ if hash guix 2>/dev/null; then
     export KISYS3DMOD="/home/hebi/.guix-profile/share/kicad/modules/packages3d${KISYS3DMOD:+:}$KISYS3DMOD"
     export KICAD_SYMBOL_DIR="/home/hebi/.guix-profile/share/kicad/library${KICAD_SYMBOL_DIR:+:}$KICAD_SYMBOL_DIR"
     export KICAD_TEMPLATE_DIR="/home/hebi/.guix-profile/share/kicad/library${KICAD_TEMPLATE_DIR:+:}$KICAD_TEMPLATE_DIR"
-    
+   export GUILE_LOAD_PATH="/home/hebi/.guix-profile/share/guile/site/2.2${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
+   export GUILE_LOAD_COMPILED_PATH="/home/hebi/.guix-profile/lib/guile/2.2/site-ccache${GUILE_LOAD_COMPILED_PATH:+:}$GUILE_LOAD_COMPILED_PATH"
 fi
 
 export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"

@@ -3,8 +3,7 @@
 =config.scm= is used to install the system, then install all software
 using =guix package -m package.scm=.
 
-
-#+BEGIN_EXAMPLE lisp
+#+BEGIN_SRC lisp
 (cons*
  (channel
   (name 'guix-channel-hebi)
@@ -15,4 +14,4 @@ using =guix package -m package.scm=.
   (url "https://gitlab.com/mbakke/guix-chromium.git")
   (branch "master"))
  %default-channels)
-#+END_EXAMPLE
+#+END_SRC
