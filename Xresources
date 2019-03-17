@@ -85,7 +85,6 @@ URxvt*loginShell: true
 ! URxvt*externalBorder: 8
 
 ! Dracula Xresources palette: https://github.com/dracula/xresources
-*.font: xft:Source Code Pro:Regular:size=12
 *.foreground: #F8F8F2
 *.background: #282A36
 *.color0:     #000000
