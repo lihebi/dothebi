@@ -66,8 +66,14 @@
     "vinagre" "feh"
     "xrandr"
     ;; "openbox"
-    "rxvt-unicode" "xrdb" "xmodmap"
-    "cool-retro-term"
+    "xrdb" "xmodmap"
+    
+    ;; terminal emulators
+    "rxvt-unicode"
+    "st"
+    ;; "cool-retro-term"                   ; not working, when it's working, huge resource consumption
+    ;; "kitty"                             ; not working due to opengl issue
+    
     ;; an image viewer
     "ristretto"
     ;; fonts (chromium is not getting monospace fonts correctly)
