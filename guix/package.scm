@@ -11,7 +11,11 @@
 (specifications->manifest
  (append
   ;; essential packages
-  '("emacs" "git" "nss-certs")
+  '("emacs" "git" "nss-certs" "glibc-locales")
+  ;; for emacs-guix on foreign distribution, otherwise emacs-guix will
+  ;; complain for undefined variables. See
+  ;; https://github.com/alezost/guix.el#important-note-for-non-guixsd-users
+  '("guile" "guix")
   ;; cmd utilities
   '("grep" "sed" "coreutils" "bc"
     "aspell" "aspell-dict-en" ; for ispell executable in flyspell-mode
@@ -56,7 +60,7 @@
     ;; theme. The solution is to use gnome icons by adding
     ;; ~/.gtkrc-2.0 with gtk-icon-theme-name="gnome"
     "thunar" "tumbler"
-    "gnome-icon-theme"
+    ;; FOREIGN "gnome-icon-theme"
     ;; "nautilus" conflicting with xdg-desktop-database
     ;; "nautilus"
     "vinagre" "feh"
@@ -75,17 +79,17 @@
   ;; service
   '("openssh" "openssl")
   ;; vm
-  '("docker" "containerd" "docker-cli" "docker-compose")
+  ;; FOREIGN '("docker" "containerd" "docker-cli" "docker-compose")
   ;; pdftools
   '("imagemagick" "cairo" "libpng" "zlib" "poppler")
   ;; large libraries
   ;; '("llvm" "clang")
   ;; require channel https://gitlab.com/mbakke/guix-chromium.git
-  '("chromium")
+  ;; FOREIGN '("chromium")
   ;; the offical ungoogle-chromium released, but seems to crash on my side
-  '("xf86-video-nouveau")
+  ;; FOREIGN '("xf86-video-nouveau")
   ;; large apps
-  '("kicad" "kicad-symbols" "libreoffice")
+  ;; FOREIGN '("kicad" "kicad-symbols" "libreoffice")
   ;; "kicad-library" is 4.x
   '("texlive")
   ;; stumpwm
