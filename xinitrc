@@ -60,11 +60,11 @@ if [ -e $HOME/.hebi/local/xinitrc ]; then
     . $HOME/.hebi/local/xinitrc
 fi
 
-# exec stumpwm
+exec stumpwm
 # exec openbox
 # exec ratpoison
 
-exec sbcl --quit --load $HOME/.hebi/startstump
+# exec sbcl --quit --load $HOME/.hebi/startstump
 
 # make sure exwm is configured
 # exec emacs

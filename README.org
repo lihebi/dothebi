@@ -8,6 +8,25 @@ git submodule init
 git submodule update
 #+END_EXAMPLE
 
+* GDM
+
+=/etc/gdm/Xsession= reads the Xresources and Xmodmap.
+
+=/etc/gdm/Xsession= actually reads the $HOME/.profile, thus in order
+to use Guix emacs mode, you need a $HOME/.profile with:
+
+#+BEGIN_EXAMPLE
+source "$HOME/.guix-profile/etc/profile"
+source "$HOME/.config/guix/current/etc/profile"
+#+END_EXAMPLE
+
+Or just load:
+
+#+BEGIN_EXAMPLE
+source $HOME/.bash_profile
+#+END_EXAMPLE
+
+
 * Quicklisp
 
 To install quicklisp reliably, use
