@@ -46,3 +46,39 @@ Use S2716DG
 #+BEGIN_EXAMPLE
 xrandr --output DP-2 --rotate left --left-of DP-0
 #+END_EXAMPLE
+
+* ArchLinux + Guix
+
+This is probably the best setup for now. GuixSD suffers from Nvidia
+driver support, which is quite critical for me, because I need cuda
+for my research. Other reasons including Kicad, pavucontrol.
+
+I'm setting up Arch with minimum packages:
+
+#+BEGIN_EXAMPLE
+xfce4
+gnome
+gdm
+nvidia
+pkg-config
+base-devel
+build-essentials
+xorg-xrandr
+updatedb
+xorg-xcursors
+xorg-xclock
+kicad
+kicad-library
+pavucontrol pulseaudio alsa-utils pulseaudio-alsa
+ttf-dejavu
+chromium
+firefox
+#+END_EXAMPLE
+
+I also installed =git= and =emacs= during setup of course, but I need
+to remove them, as the credential files are giving me troubles after
+installing Guix ones.
+
+
+The rest is to install Guix package manager as indicated on Guix
+website, and install the packages in [[file:guix/package.scm][my manifest file]].
