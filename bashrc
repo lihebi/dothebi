@@ -134,8 +134,13 @@ export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 # export INFOPATH="$HOME/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
 
 # The default profile of current profile
-GUIX_PROFILE="$HOME/.guix-profile" ; \
+GUIX_PROFILE="$HOME/.guix-profile"
 source "$HOME/.guix-profile/etc/profile"
+# The above profile set XDG_DATA_DIRS. However, in case of using arch
+# and guix together, I install gnome using pacman, and I must set this
+# back, otherwise, gnome does not start, and browser cannot open
+# upload dialog.
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_DIRS"
 source "$HOME/.config/guix/current/etc/profile"
 
 # This is the current guix binary resulted from guix pull. Keep this
