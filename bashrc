@@ -127,38 +127,40 @@ alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 
 # win10 network:
 # qemu-system-x86_64 -enable-kvm -m 4096 -vga virtio -soundhw hda -cpu host -smp 8 win10.img
 
-export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
-export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+use_guix=false
+if [ $use_guix = true ]; then
 
-# This is important: the emacs and elisp info files appear only here
-# export INFOPATH="$HOME/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
+    export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
+    export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 
-# The default profile of current profile
-GUIX_PROFILE="$HOME/.guix-profile"
-source "$HOME/.guix-profile/etc/profile"
-# The above profile set XDG_DATA_DIRS. However, in case of using arch
-# and guix together, I install gnome using pacman, and I must set this
-# back, otherwise, gnome does not start, and browser cannot open
-# upload dialog.
-export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_DIRS"
-source "$HOME/.config/guix/current/etc/profile"
+    # This is important: the emacs and elisp info files appear only here
+    # export INFOPATH="$HOME/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
 
-# This is the current guix binary resulted from guix pull. Keep this
-# at the front of the list
-export PATH="$HOME/.config/guix/current/bin:$PATH"
-export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
+    # The default profile of current profile
+    GUIX_PROFILE="$HOME/.guix-profile"
+    source "$HOME/.guix-profile/etc/profile"
+    # The above profile set XDG_DATA_DIRS. However, in case of using
+    # arch and guix together, I install gnome using pacman, and I must
+    # set this back, otherwise, gnome does not start, and browser
+    # cannot open upload dialog.
+    export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_DIRS"
+    source "$HOME/.config/guix/current/etc/profile"
 
+    # This is the current guix binary resulted from guix pull. Keep this
+    # at the front of the list
+    export PATH="$HOME/.config/guix/current/bin:$PATH"
+    export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
+    # Using this will make commands such as ls, python3 segment fault
+    # export LD_LIBRARY_PATH="/home/hebi/.guix-profile/lib"
+    #
+    # HACK I have to hack to use the gcc-...-lib/lib/libstdc++.so.6 so
+    # that python from scipy import sparse (and some others like
+    # jupyter notebook) will work
+fi
 
 # pip install --user xxx: will install under this folder
 # python3 -m site --user-base: show the local folder
 export PATH="/home/hebi/.local/bin/:$PATH"
-
-# Using this will make commands such as ls, python3 segment fault
-# export LD_LIBRARY_PATH="/home/hebi/.guix-profile/lib"
-#
-# HACK I have to hack to use the gcc-...-lib/lib/libstdc++.so.6 so
-# that python from scipy import sparse (and some others like jupyter
-# notebook) will work
 
 
 # CUDA ubuntu
@@ -170,14 +172,15 @@ export PATH="$CUDA_PATH/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_PATH/extras/CUPTI/lib64"
 # cudnn
 export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-
+export LD_LIBRARY_PATH="/opt/cuda/lib64/:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/lib/:$LD_LIBRARY_PATH"
 
 # Java classpath
 export CLASSPATH=/home/hebi/bin/stanford-corenlp-3.9.2.jar:$CLASSPATH
 # export CLASSPATH=/home/hebi/github/cs587/rmi:$CLASSPATH
 
 # Python path
-export PYTHONPATH="/home/hebi/github/reading/cleverhans/:$PYTHONPATH"
+# export PYTHONPATH="/home/hebi/github/reading/cleverhans/:$PYTHONPATH"
 
 
 # other deep learning model related paths
@@ -186,3 +189,6 @@ export PARAM_SET=base
 export DATA_DIR=$HOME/transformer/data
 export MODEL_DIR=$HOME/transformer/model_$PARAM_SET
 export VOCAB_FILE=$DATA_DIR/vocab.ende.32768
+
+
+alias mygcc="gcc -I/usr/lib/jvm/java-11-openjdk/include -I/usr/lib/jvm/java-11-openjdk/include/linux/ -Wall -fPIC"

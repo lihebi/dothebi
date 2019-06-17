@@ -11,7 +11,7 @@
 (specifications->manifest
  (append
   ;; essential packages
-  '("emacs" "git" "nss-certs" "glibc-locales")
+  '("emacs" "git" "nss-certs" "glibc-locales" "subversion")
   ;; for emacs-guix on foreign distribution, otherwise emacs-guix will
   ;; complain for undefined variables. See
   ;; https://github.com/alezost/guix.el#important-note-for-non-guixsd-users
@@ -38,18 +38,27 @@
     ;;
     ;; seems that gcc-toolchain does not contains "gcc:lib",
     ;; e.g. libgomp.so
-    "gcc:lib"
+    ;; "gcc:lib"
     ;; gcc-toolchain contains "binutils"
-    "gcc-toolchain"
+    ;; "gcc-toolchain"
     ;; "glib"
     ;; java
-    "ant" "icedtea" "icedtea:jdk" "maven"
-    "libxtst"                           ; for IntelliJ
+    ;; "ant" "icedtea" "icedtea:jdk" "maven"
+    ;; "libxtst"                           ; for IntelliJ
+    ;;
+    ;; arm
+    ;; "arm-none-eabi-toolchain"
     )
   ;; languages
-  '("python" "bash" "perl")
+  '(
+    ;; "python"
+    "bash"
+    ;; "perl"
+    "racket")
   ;; tk of python. Seems the python:tk does the trick
-  '("tk" "tklib" "python:tk")
+  '("tk" "tklib"
+    ;; "python:tk"
+    )
   ;; X11 utilities
   '("alsa-utils" "pavucontrol"
     "ncurses"
@@ -106,4 +115,6 @@
   '("cl-clx-truetype" "sbcl-zpng")
   ;; other
   '("fontconfig" "qemu" "font-wqy-microhei" "font-wqy-zenhei"
-    "linux-pam" "file" "shepherd")))
+    "linux-pam" "file" "shepherd"
+    ;; serial program
+    "picocom")))
