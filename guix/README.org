@@ -15,3 +15,8 @@ using =guix package -m package.scm=.
   (branch "master"))
  %default-channels)
 #+END_SRC
+
+
+For local development, glone the package to say
+=$HOME/github/guix-channel=, and set it to =GUIX_PACKAGE_PATH=. If no
+error, =guix package -i= should see the package.

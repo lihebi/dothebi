@@ -25,7 +25,7 @@
   ;; compiler toolchain
   '(
     ;; seems this contains "as", necessary for compilation
-    ;; "gcc-toolchain"
+    "gcc-toolchain"
     ;;
     ;; seems glibc contains ld-linux-x86-64.so.2, ldd, as, overlapping
     ;; with gcc-tooltain
@@ -101,6 +101,7 @@
   ;; '("llvm" "clang")
   ;; require channel https://gitlab.com/mbakke/guix-chromium.git
   ;; FOREIGN '("chromium")
+  '("ungoogled-chromium")
   ;; the offical ungoogle-chromium released, but seems to crash on my side
   ;; FOREIGN '("xf86-video-nouveau")
   ;; large apps
