@@ -33,7 +33,8 @@ if [ -f /etc/bashrc ]; then
     source /etc/bashrc
 fi
 
-PS1='\u@\h \w\$ '
+# \u@\h
+PS1='\e[34m\w \e[31m>\e[33m>\e[32m> \e[39m'
 
 alias ls='ls -p --color=auto'
 alias la='ls -a'
