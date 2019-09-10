@@ -127,36 +127,6 @@ alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 
 # python3 -m site --user-base: show the local folder
 export PATH="/home/hebi/.local/bin/:$PATH"
 
-
-# CUDA ubuntu
-# /usr/local/cuda-9.2/doc has many pdf documents
-CUDA_PATH=/usr/local/cuda-10.0
-# CUDA_PATH=/usr/local/cuda-9.0
-export LD_LIBRARY_PATH="$CUDA_PATH/lib64:$LD_LIBRARY_PATH"
-export PATH="$CUDA_PATH/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CUDA_PATH/extras/CUPTI/lib64"
-# cudnn
-export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH="/opt/cuda/lib64/:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH="/usr/lib/:$LD_LIBRARY_PATH"
-
-# Java classpath
-export CLASSPATH=/home/hebi/bin/stanford-corenlp-3.9.2.jar:$CLASSPATH
-# export CLASSPATH=/home/hebi/github/cs587/rmi:$CLASSPATH
-
-# Python path
-# export PYTHONPATH="/home/hebi/github/reading/cleverhans/:$PYTHONPATH"
-
-# other deep learning model related paths
-# transformer example
-export PARAM_SET=base
-export DATA_DIR=$HOME/transformer/data
-export MODEL_DIR=$HOME/transformer/model_$PARAM_SET
-export VOCAB_FILE=$DATA_DIR/vocab.ende.32768
-
-
-alias mygcc="gcc -I/usr/lib/jvm/java-11-openjdk/include -I/usr/lib/jvm/java-11-openjdk/include/linux/ -Wall -fPIC"
-
 use_guix=true
 if [ $use_guix = true ]; then
     # FIXME should use relative path
