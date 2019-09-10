@@ -28,3 +28,23 @@
                 ;; (initrd (file-append raw-initrd "/initrd.cpio.gz"))
                 )))))
 
+
+;; I'm taking my original file-systems here, because my new system
+;; used graphical installer, and obtained uuid as hard drive
+;; identitifer
+
+;; Assume the target root file system is labelled "my-root",
+;; and the EFI System Partition has UUID 1234-ABCD.
+(file-systems (cons* (file-system
+                      (device "/dev/sda2")
+                      (mount-point "/")
+                      (type "ext4"))
+                     (file-system
+                      ;; this UUID is returned by sudo blkid
+                      (device "/dev/sda1")
+                      (mount-point "/boot/efi")
+                      (type "vfat"))
+                     %base-file-systems))
+
+
+(packages (cons* stumpwm %base-packages))

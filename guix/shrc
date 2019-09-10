@@ -1,25 +1,24 @@
 #!/bin/bash
 
 export GUIX_PACKAGE_PATH="$HOME/github/guix-channel/"
-export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+# export GUIX_PACKAGE_PATH="$GUIX_PACKAGE_PATH:$HOME/github/reading/guix-bimsb-nonfree/"
+
+# export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 
 # This is important: the emacs and elisp info files appear only here
 # export INFOPATH="$HOME/.guix-profile/share/info${INFOPATH:+:}$INFOPATH"
 
-# The default profile of current profile
-GUIX_PROFILE="$HOME/.guix-profile"
-source "$HOME/.guix-profile/etc/profile"
 # The above profile set XDG_DATA_DIRS. However, in case of using
 # arch and guix together, I install gnome using pacman, and I must
 # set this back, otherwise, gnome does not start, and browser
 # cannot open upload dialog.
-export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_DIRS"
-source "$HOME/.config/guix/current/etc/profile"
+# export XDG_DATA_DIRS="/usr/local/share:/usr/share:$XDG_DATA_DIRS"
+# source "$HOME/.config/guix/current/etc/profile"
 
 # This is the current guix binary resulted from guix pull. Keep this
 # at the front of the list
-export PATH="$HOME/.config/guix/current/bin:$PATH"
-export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
+# export PATH="$HOME/.config/guix/current/bin:$PATH"
+# export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
 # Using this will make commands such as ls, python3 segment fault
 # export LD_LIBRARY_PATH="/home/hebi/.guix-profile/lib"
 #
@@ -27,15 +26,20 @@ export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"
 # that python from scipy import sparse (and some others like
 # jupyter notebook) will work
 
-# FIXME export?
-GUIX_PROFILE="/home/hebi/.guix-profile"
-. "$GUIX_PROFILE/etc/profile"
+
+GUIX_PROFILE="$HOME/.guix-profile"
+source "$GUIX_PROFILE/etc/profile"
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
 if [ -n "$GUIX_ENVIRONMENT" ]
 then
-    PS1='\u@\h \w [env]\$ '
+    # PS1='\u@\h \w [env]\$ '
+    # FIXME get [env] inside colors
+    PS1="$PS1 [env]\\$ "
 else
-    PS1='\u@\h \w\$ '
+    PS1="$PS1"
 fi
 
+# set the path to the pull
+export PATH="$HOME/.config/guix/current/bin:$PATH"
+export INFOPATH="$HOME/.config/guix/current/share/info:$INFOPATH"

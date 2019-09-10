@@ -26,6 +26,8 @@
   '(
     ;; seems this contains "as", necessary for compilation
     "gcc-toolchain"
+    ;; this is for providing libstdc++.so.6 in ~/.guix-profile/lib
+    "gcc:lib"
     ;;
     ;; seems glibc contains ld-linux-x86-64.so.2, ldd, as, overlapping
     ;; with gcc-tooltain
@@ -51,7 +53,7 @@
     )
   ;; languages
   '(
-    ;; "python"
+    "python"
     "bash"
     ;; "perl"
     "racket")
@@ -97,23 +99,11 @@
   ;; FOREIGN '("docker" "containerd" "docker-cli" "docker-compose")
   ;; pdftools
   '("imagemagick" "cairo" "libpng" "zlib" "poppler")
-  ;; large libraries
-  ;; '("llvm" "clang")
-  ;; require channel https://gitlab.com/mbakke/guix-chromium.git
-  ;; FOREIGN '("chromium")
-  '("ungoogled-chromium")
-  ;; the offical ungoogle-chromium released, but seems to crash on my side
   ;; FOREIGN '("xf86-video-nouveau")
-  ;; large apps
-  ;; FOREIGN '("kicad" "kicad-symbols" "libreoffice")
-  ;; "kicad-library" is 4.x
-  '("texlive")
   ;; stumpwm
   '("stumpwm")
   ;; stumpwm required libraries
   '("sbcl-slime-swank" "cl-trivial-features")
-  ;; from my channel https://github.com/lihebi/guix-channel.git
-  '("cl-clx-truetype" "sbcl-zpng")
   ;; other
   '("fontconfig" "qemu" "font-wqy-microhei" "font-wqy-zenhei"
     "linux-pam" "file" "shepherd"
