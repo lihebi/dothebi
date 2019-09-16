@@ -57,8 +57,7 @@ ln -sf $HOME/.hebi/fonts $HOME/.fonts
 #     ln -sf $HOME/.hebi/texmf $HOME/
 # fi
 
-ln -sf $HOME/.hebi/newsrc $HOME/.newsrc
-ln -sf $HOME/.hebi/newsrc.eld $HOME/.newsrc.eld
+ln -sf $HOME/git/history-files/newsrc.eld $HOME/.newsrc.eld
 
 ln -sf $HOME/.hebi/pylintrc $HOME/.pylintrc
 
