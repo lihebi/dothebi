@@ -48,3 +48,9 @@
 
 
 (packages (cons* stumpwm %base-packages))
+
+(modify-services %desktop-services
+                 (gdm-service-type config => (gdm-configuration
+                                              (inherit config)
+                                              (xsession (gdm-configuration-xsession config)
+                                                        (xinitrc)))))

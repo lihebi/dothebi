@@ -73,12 +73,12 @@
                %base-user-accounts))
 
  (packages
-    (append
-      (list (specification->package "openbox")
-            (specification->package "ratpoison")
-            (specification->package "stumpwm")
-            (specification->package "nss-certs"))
-      %base-packages))
+  (append
+   (list (specification->package "openbox")
+         (specification->package "ratpoison")
+         (specification->package "stumpwm")
+         (specification->package "nss-certs"))
+   %base-packages))
 
  (services (cons*
             ;; (service docker-service-type)

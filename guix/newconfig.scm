@@ -1,21 +1,25 @@
 ;; This is an operating system configuration generated
 ;; by the graphical installer.
 
-(use-modules (gnu))
+(use-modules (gnu)
+             (srfi srfi-1)
+             (guix profiles)
+             (guix packages)
+             (nvidia))
+
 (use-service-modules desktop networking ssh xorg)
 (use-package-modules base bash linux ssh perl lisp)
 
 (operating-system
   (locale "en_US.utf8")
   (timezone "America/Chicago")
-  ;; (keyboard-layout
-  ;;   (keyboard-layout "us" "altgr-intl"))
+  (kernel linux-libre)
+  (initrd-modules %base-initrd-modules)
+  
   (bootloader
    (bootloader-configuration
     (bootloader grub-efi-bootloader)
-    (target "/boot/efi")
-    ;; (keyboard-layout keyboard-layout)
-    ))
+    (target "/boot/efi")))
   (swap-devices (list "/dev/sda3"))
   (file-systems
    (cons* (file-system
@@ -53,10 +57,7 @@
     %base-packages))
   (services
    (append
-    (list (service gnome-desktop-service-type)
-          (service openssh-service-type)
-          ;; (set-xorg-configuration
-          ;;   (xorg-configuration
-          ;;    (keyboard-layout keyboard-layout)))
-          )
+    (list
+     (service gnome-desktop-service-type)
+     (service openssh-service-type))
     %desktop-services)))
