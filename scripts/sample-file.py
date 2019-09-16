@@ -24,10 +24,10 @@ directory"""
         shutil.copytree(from_file, to_file)
         
 if __name__ == '__test__':
-    sample('/home/hebi/github/reading/cnn-dailymail/data/cnn/stories', 200)
-    sample('/home/hebi/github/reading/cnn-dailymail/data/dailymail/stories', 200)
-    sample('/home/hebi/github/reading/cnn-dailymail/cnn_stories_tokenized', 200)
-    sample('/home/hebi/github/reading/cnn-dailymail/dm_stories_tokenized', 200)
-    sample('/home/hebi/github/reading/cnn-dailymail/hebi', 100)
-    sample('/home/hebi/github/reading/cnn-dailymail/hebi', 1000)
-    sample('/home/hebi/github/reading/cnn-dailymail/hebi', 10000)
+    sample('/home/hebi/git/reading/cnn-dailymail/data/cnn/stories', 200)
+    sample('/home/hebi/git/reading/cnn-dailymail/data/dailymail/stories', 200)
+    sample('/home/hebi/git/reading/cnn-dailymail/cnn_stories_tokenized', 200)
+    sample('/home/hebi/git/reading/cnn-dailymail/dm_stories_tokenized', 200)
+    sample('/home/hebi/git/reading/cnn-dailymail/hebi', 100)
+    sample('/home/hebi/git/reading/cnn-dailymail/hebi', 1000)
+    sample('/home/hebi/git/reading/cnn-dailymail/hebi', 10000)

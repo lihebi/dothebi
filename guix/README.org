@@ -18,7 +18,7 @@ using =guix package -m package.scm=.
 
 
 For local development, glone the package to say
-=$HOME/github/guix-channel=, and set it to =GUIX_PACKAGE_PATH=. If no
+=$HOME/git/guix-channel=, and set it to =GUIX_PACKAGE_PATH=. If no
 error, =guix package -i= should see the package.
 
 * Install packages

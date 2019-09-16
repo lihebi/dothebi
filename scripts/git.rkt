@@ -52,8 +52,8 @@
       [else (displayln (~a "------ " repo ": dirty"))
             (displayln out)])))
 
-;; (git-pull "~/github/wiki")
-;; (git-status "~/github/wiki")
+;; (git-pull "~/git/wiki")
+;; (git-status "~/git/wiki")
 
 (define (join-threads threads)
   (displayln (format "Syncing on ~a threads .." (length threads)))
@@ -80,18 +80,18 @@
 
 (module+ test
   ;; TODO download missing repo
-  (define all-repos '("~/github/wiki"
-                      "~/github/homepage"
-                      "~/github/bibliography"
-                      "~/github/books"
-                      "~/github/hebicc"
-                      "~/github/helium"
-                      "~/github/helium2"
-                      "~/github/note"
-                      "~/github/research"
-                      ;; "~/github/research/pdf"
-                      "~/github/papers"
-                      ;; "~/github/scratch/"
+  (define all-repos '("~/git/wiki"
+                      "~/git/homepage"
+                      "~/git/bibliography"
+                      "~/git/books"
+                      "~/git/hebicc"
+                      "~/git/helium"
+                      "~/git/helium2"
+                      "~/git/note"
+                      "~/git/research"
+                      ;; "~/git/research/pdf"
+                      "~/git/papers"
+                      ;; "~/git/scratch/"
                       "~/.hebi"
                       "~/.stumpwm.d"
                       "~/.emacs.d"
