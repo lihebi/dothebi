@@ -1,12 +1,11 @@
 #+TITLE: Dot Files
 
-use =./install.sh= to install.
-This will create soft-links for the dot files.
-
-#+BEGIN_EXAMPLE
-git submodule init
-git submodule update
-#+END_EXAMPLE
+- use =./install.sh= to install. This will create many symlinks in $HOME
+- The newsrc.eld file is moved to history-files repo to keep this repo
+  cleaner, and ~newsrc.eld~ is symlinked to
+  =~/git/history-files=. Thus, I need to clone the repo.
+- =setup-git.sh= setup the git user name and email, as well as
+  storing the credentials
 
 * GDM
 
