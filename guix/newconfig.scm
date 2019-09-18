@@ -59,6 +59,20 @@
   (append
    (list
     (service gnome-desktop-service-type)
+    (service nginx-service-type
+             (nginx-configuration
+              (server-blocks
+               (list
+                (nginx-server-configuration
+                 ;; FIXME ssl https. This is critical, otherwise nginx
+                 ;; config test fail and service cannot be started
+                 (listen '("80"))
+                 ;; FIXME localhost? This does not seem important
+                 (server-name '("localhost"))
+                 ;; Cannot use a home directory such as ~/git/www,
+                 ;; because x permission is not set for ~ for user
+                 ;; nginx
+                 (root "/src/www"))))))
     (service hello-service-type)
     (service openssh-service-type))
    %desktop-services)))
