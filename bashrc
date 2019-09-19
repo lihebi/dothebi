@@ -34,7 +34,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # \u@\h
-PS1='\e[34m\w \e[31m>\e[33m>\e[32m> \e[39m'
+# FIXME this is sometimes buggy when browsing history commands
+PS1='\e[34m\w \e[31m>\e[33m>\e[32m> \e[39m$ '
+# PS1='\u@\h \w $ '
 
 alias ls='ls -p --color=auto'
 alias la='ls -a'

@@ -26,19 +26,18 @@ export GUIX_PACKAGE_PATH="$HOME/git/guix-channel/"
 # that python from scipy import sparse (and some others like
 # jupyter notebook) will work
 
-
 GUIX_PROFILE="$HOME/.guix-profile"
 source "$GUIX_PROFILE/etc/profile"
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
-if [ -n "$GUIX_ENVIRONMENT" ]
-then
-    # PS1='\u@\h \w [env]\$ '
-    # FIXME get [env] inside colors
-    PS1="$PS1 [env]\\$ "
-else
-    PS1="$PS1"
-fi
+# if [ -n "$GUIX_ENVIRONMENT" ]
+# then
+#     # PS1='\u@\h \w [env]\$ '
+#     # FIXME get [env] inside colors
+#     PS1="$PS1 [env]\\$ "
+# else
+#     PS1="$PS1"
+# fi
 
 # set the path to the pull
 export PATH="$HOME/.config/guix/current/bin:$PATH"
