@@ -20,6 +20,7 @@
   '("grep" "sed" "coreutils" "bc"
     "aspell" "aspell-dict-en" ; for ispell executable in flyspell-mode
     "msmtp" "iptables"
+    "cloc" "patchelf" "youtube-dl"
     "the-silver-searcher" "translate-shell"
     "htop" "curl" "tmux" "parted" "gparted" "unzip")
   ;; compiler toolchain
@@ -27,7 +28,8 @@
     ;; seems this contains "as", necessary for compilation
     "gcc-toolchain"
     ;; this is for providing libstdc++.so.6 in ~/.guix-profile/lib
-    "gcc:lib"
+    ;; I don't need this, and gcc is hidden, so better not using it. Patchelf if needed.
+    ;; "gcc:lib"
     ;;
     ;; seems glibc contains ld-linux-x86-64.so.2, ldd, as, overlapping
     ;; with gcc-tooltain
@@ -55,6 +57,7 @@
   '(
     "python"
     "bash"
+    "ghc"
     ;; "perl"
     "racket")
   ;; tk of python. Seems the python:tk does the trick

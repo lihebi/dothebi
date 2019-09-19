@@ -7,7 +7,7 @@
              (guix packages)
              (nvidia))
 
-(use-service-modules desktop networking ssh xorg)
+(use-service-modules desktop networking ssh xorg web)
 (use-package-modules base bash linux ssh perl lisp)
 
 (operating-system
@@ -53,6 +53,8 @@
    (list (specification->package "openbox")
          (specification->package "ratpoison")
          (specification->package "stumpwm")
+         (specification->package "xmonad")
+         (specification->package "sway")
          (specification->package "nss-certs"))
    %base-packages))
  (services
