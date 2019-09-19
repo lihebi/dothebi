@@ -74,7 +74,7 @@
                  ;; Cannot use a home directory such as ~/git/www,
                  ;; because x permission is not set for ~ for user
                  ;; nginx
-                 (root "/src/www"))))))
+                 (root "/srv/www"))))))
     (service hello-service-type)
     (service openssh-service-type))
    %desktop-services)))
