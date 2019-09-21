@@ -41,7 +41,7 @@ fi
 
 # \u@\h
 # FIXME this is sometimes buggy when browsing history commands
-PS1="$PS1\e[34m\w \e[31m>\e[33m>\e[32m> \e[39m$ "
+PS1="$PS1\[\e[34m\]\w \[\e[31m\]>\[\e[33m\]>\[\e[32m\]> \[\e[39m\]$ "
 # PS1='\u@\h \w $ '
 
 alias ls='ls -p --color=auto'
