@@ -135,8 +135,8 @@ alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 
 # python3 -m site --user-base: show the local folder
 export PATH="/home/hebi/.local/bin/:$PATH"
 
-use_guix=true
-if [ $use_guix = true ]; then
+# FIXME GuixSD name
+if hash guix 2>/dev/null; then
     # FIXME should use relative path
     source "$HOME/.hebi/guix/shrc"
 fi

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# use_guix=true
+# if [ $use_guix = true ]; then
+
 # FIXME GuixSD name
 command -v guix > /dev/null
 if hash guix 2>/dev/null; then
@@ -91,3 +94,14 @@ export VOCAB_FILE=$DATA_DIR/vocab.ende.32768
 
 
 alias mygcc="gcc -I/usr/lib/jvm/java-11-openjdk/include -I/usr/lib/jvm/java-11-openjdk/include/linux/ -Wall -fPIC"
+
+# /usr/local/cuda-9.2/doc has many pdf documents
+# CUDA_PATH=/usr/local/cuda-10.0
+CUDA_PATH=/opt/cuda
+
+export CUDA_HOME=/opt/cuda
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
+export PATH="$CUDA_HOME/bin:$PATH"
+
+# export EDITOR="emacsclient -t"
+export EDITOR="emacs -nw -q"
