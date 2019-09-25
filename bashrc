@@ -41,7 +41,12 @@ if [ -n "$SSH_CLIENT" ]; then
     PS1="[ssh] $PS1"
 fi
 
-alias ls='ls -p --color=auto'
+if [ `uname` == 'Darwin' ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls -p --color=auto'
+fi
+
 alias la='ls -a'
 alias ll='ls -l'
 alias grep='grep --color=auto'
