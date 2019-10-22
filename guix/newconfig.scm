@@ -61,6 +61,7 @@
   (append
    (list
     (service gnome-desktop-service-type)
+    ;; when not using guix, use /etc/nginx/nginx.conf
     (service nginx-service-type
              (nginx-configuration
               (server-blocks
