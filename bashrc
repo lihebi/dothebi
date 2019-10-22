@@ -1,9 +1,5 @@
 #!/bin/bash
 
-export EMAIL="lihebi.com@gmail.com"
-export NAME="Hebi Li"
-export SMTPSERVER="smtp.gmail.com"
-
 # bashrc is loaded for non-login shell. When you have already loged in
 # a system, and open a new terminal window.
 
@@ -36,6 +32,14 @@ fi
 
 PS1="\[\e[34m\]\w \[\e[31m\]>\[\e[33m\]>\[\e[32m\]> \[\e[39m\]$ "
 # PS1='\u@\h \w $ '
+
+# Adjust the prompt depending on whether we're in 'guix environment'.
+if [ -n "$GUIX_ENVIRONMENT" ]
+then
+    # PS1='\u@\h \w [env]\$ '
+    # FIXME get [env] inside colors
+    PS1="[env] $PS1"
+fi
 
 if [ -n "$SSH_CLIENT" ]; then
     PS1="[ssh] $PS1"
@@ -93,21 +97,6 @@ export TERM=screen-256color
 export EDITOR="emacsclient -t"
 set -o ignoreeof
 
-##############################
-## PATH
-##############################
-
-# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
-
-# Helium
-export ASAN_OPTIONS=detect_leaks=0:detect_stack_use_after_scope=0
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-export PATH=$HOME/bin:$PATH
-# export INFOPATH=$HOME/.info:$INFOPATH
-
 
 ##############################
 ## Alias
@@ -132,13 +121,3 @@ alias .....="cd ../../../.."
 alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 2"
 # win10 network:
 # qemu-system-x86_64 -enable-kvm -m 4096 -vga virtio -soundhw hda -cpu host -smp 8 win10.img
-
-# pip install --user xxx: will install under this folder
-# python3 -m site --user-base: show the local folder
-export PATH="/home/hebi/.local/bin/:$PATH"
-
-# FIXME GuixSD name
-if hash guix 2>/dev/null; then
-    # FIXME should use relative path
-    source "$HOME/.hebi/guix/shrc"
-fi
