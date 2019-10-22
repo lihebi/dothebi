@@ -80,21 +80,19 @@
 
 (module+ test
   ;; TODO download missing repo
-  (define all-repos '("~/git/wiki"
-                      "~/git/homepage"
-                      "~/git/bibliography"
-                      "~/git/books"
-                      "~/git/hebicc"
-                      "~/git/helium"
-                      "~/git/helium2"
+  (define all-repos '("~/git/homepage"
                       "~/git/note"
                       "~/git/research"
-                      ;; "~/git/research/pdf"
-                      "~/git/papers"
-                      ;; "~/git/scratch/"
+                      "~/git/scratch/"
+                      ;; configs
                       "~/.hebi"
                       "~/.stumpwm.d"
                       "~/.emacs.d"
+                      ;; emacs packages
+                      "~/.emacs.d/straight/repos/smart-scholar.el"
+                      "~/.emacs.d/straight/repos/simple-drill.el"
+                      "~/.emacs.d/straight/repos/scribble-mode.el/"
+                      "~/.emacs.d/straight/repos/hn.el/"
                       ))
   (git-pull-repos all-repos)
   (git-status-repos all-repos)
