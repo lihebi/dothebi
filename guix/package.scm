@@ -57,9 +57,8 @@
   '(
     "python"
     "bash"
-    "ghc"
     ;; "perl"
-    "racket")
+    )
   ;; tk of python. Seems the python:tk does the trick
   '("tk" "tklib"
     ;; "python:tk"
@@ -77,7 +76,7 @@
     ;; FOREIGN "gnome-icon-theme"
     ;; "nautilus" conflicting with xdg-desktop-database
     ;; "nautilus"
-    "vinagre" "feh"
+    "feh"
     "xrandr"
     ;; "openbox"
     "xrdb" "xmodmap"
@@ -94,7 +93,7 @@
     "xlsfonts" "xset"
     "font-anonymous-pro" "font-fira-mono" "font-dejavu"
     ;; screenshot. Also: maim
-    "flameshot" "gnome-screenshot" "arandr")
+    "gnome-screenshot" "arandr")
   '("sbcl")
   ;; service
   '("openssh" "openssl")

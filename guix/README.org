@@ -27,8 +27,8 @@ guix package -m package.scm
 #+end_example
 
 
-This command will make sure the system contains these and only these
-packages. Thus to add a new package afterwards, just use 
+This command will make sure the system contains these *and only* these
+packages. Thus to add a new package afterwards, just use
 
 #+begin_example
 guix package -i
@@ -53,12 +53,19 @@ demand:
 - '("llvm" "clang")
 - icecat
 
+I probably want to avoid upgrade these packages so often.
 
 Some packages needs specific channels. my channel
 https://github.com/lihebi/guix-channel.git:
 - cl-clx-truetype
 - sbcl-zpng
 
+** Some packages are broken from now to then
+
+- racket
+- ghc
+- vinagre
+- flameshot
 
 * Back
 
