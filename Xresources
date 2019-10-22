@@ -18,10 +18,17 @@
 ! The 96x96 dpi got from xdpyinfo is just too small
 ! the double dpi seems good, but seems too large
 ! I do not know if I can set it at random value
-! Xft.dpi: 144
-! Xft.dpi: 192
-Xft.dpi: 128
+
+! I should really move this to a "local" file to avoid changing from
+! machine to machine. But it does not seem to be easy.
+
 ! Xft.dpi: 96
+! Xft.dpi: 128
+! Xft.dpi: 144
+Xft.dpi: 168
+! Xft.dpi: 192
+
+
 ! Xft.autohint: 0
 ! Xft.lcdfilter:  lcddefault
 ! Xft.hintstyle:  hintfull
