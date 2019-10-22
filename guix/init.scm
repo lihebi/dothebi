@@ -25,6 +25,10 @@
                          (device "/dev/sda1")
                          (mount-point "/boot/efi")
                          (type "vfat"))
+		       (file-system
+                         (device "/dev/sda4")
+                         (mount-point "/home")
+                         (type "ext4"))
                        %base-file-systems))
   (host-name "antelope")
   (users (cons* (user-account
