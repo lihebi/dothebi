@@ -7,15 +7,15 @@ ln -sf $HOME/.hebi/Xresources $HOME/.Xresources
 ln -sf $HOME/.hebi/Xmodmap $HOME/.Xmodmap
 ln -sf $HOME/.hebi/ratpoisonrc $HOME/.ratpoisonrc
 
-if [ -d $HOME/.vnc ]; then
-    rm -rf $HOME/.vnc
-fi
-ln -sf $HOME/.hebi/vnc $HOME/.vnc
+# if [ -d $HOME/.vnc ]; then
+#     rm -rf $HOME/.vnc
+# fi
+# ln -sf $HOME/.hebi/vnc $HOME/.vnc
 
-if [ -d $HOME/.xmonad ]; then
-    rm -rf $HOME/.xmonad
-fi
-ln -sf $HOME/.hebi/xmonad $HOME/.xmonad
+# if [ -d $HOME/.xmonad ]; then
+#     rm -rf $HOME/.xmonad
+# fi
+# ln -sf $HOME/.hebi/xmonad $HOME/.xmonad
 
 # for xdm
 # ln -sf $HOME/.hebi/xsession $HOME/.xsession
