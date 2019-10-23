@@ -34,11 +34,11 @@ PS1="\[\e[34m\]\w \[\e[31m\]>\[\e[33m\]>\[\e[32m\]> \[\e[39m\]$ "
 # PS1='\u@\h \w $ '
 
 # Adjust the prompt depending on whether we're in 'guix environment'.
-if [ -n "$GUIX_ENVIRONMENT" ]
-then
-    # PS1='\u@\h \w [env]\$ '
-    # FIXME get [env] inside colors
+if [ -n "$GUIX_ENVIRONMENT" ]; then
     PS1="[env] $PS1"
+fi
+if [ -n "$DOCKER_ENVIRONMENT" ]; then
+    PS1="[docker] $PS1"
 fi
 
 if [ -n "$SSH_CLIENT" ]; then
