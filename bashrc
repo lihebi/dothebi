@@ -121,3 +121,11 @@ alias .....="cd ../../../.."
 alias myqemu="qemu-system-x86_64 -vga virtio -enable-kvm -m 8196 -cpu host -smp 2"
 # win10 network:
 # qemu-system-x86_64 -enable-kvm -m 4096 -vga virtio -soundhw hda -cpu host -smp 8 win10.img
+
+function docker-stop-all {
+    sudo docker stop $(sudo docker ps -a -q)
+}
+
+function docker-remove-all {
+    sudo docker rm $(sudo docker ps -a -q)
+}
