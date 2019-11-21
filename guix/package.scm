@@ -44,6 +44,8 @@
   '("sbcl-slime-swank" "cl-trivial-features")
   ;; need my channel
   '("cl-clx-truetype")
+  ;; FIXME ungoogled-chromium is failing to build. I cannot remove it either,
+  ;; because then I'll have no browser.
   '("ungoogled-chromium")
   '("racket")
   ;; other

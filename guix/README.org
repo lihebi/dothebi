@@ -1,7 +1,20 @@
 #+TITLE: Setting up Guix System Distribution
 
-=config.scm= is used to install the system, then install all software
-using =guix package -m package.scm=.
+Install the system
+
+#+begin_example
+sudo -E guix system reconfigure config.scm
+#+end_example
+
+Install packages
+
+#+begin_example
+guix package -m package.scm
+#+end_example
+
+This command will make sure the system contains these *and only* these packages.
+
+My custom channels for some extra packages:
 
 #+BEGIN_SRC lisp
 (cons*
@@ -9,72 +22,10 @@ using =guix package -m package.scm=.
   (name 'guix-channel-hebi)
   (url "https://github.com/lihebi/guix-channel.git")
   (branch "master"))
- (channel
-  (name 'guix-chromium)
-  (url "https://gitlab.com/mbakke/guix-chromium.git")
-  (branch "master"))
  %default-channels)
 #+END_SRC
 
 
-For local development, glone the package to say
-=$HOME/git/guix-channel=, and set it to =GUIX_PACKAGE_PATH=. If no
-error, =guix package -i= should see the package.
-
-* Install packages
-#+begin_example
-guix package -m package.scm
-#+end_example
-
-This command will make sure the system contains these *and only* these
-packages. Thus to add a new package afterwards, just use
-
-#+begin_example
-guix package -i
-#+end_example
-
-And remember to add it to this file.
-
-More importantly, there are some packages that are too large or too
-specific to install here, e.g. texlive, tensorflow, or non-free
-softwares such as cuda. And it is not possible to maintain two files,
-because =guix package -m= replace the system. So, I'm going to install
-from package.scm once at setup, and install the following list on
-demand:
-
-- tensorflow
-- cuda
-- texlive
-- ungoogled-chromium
-- "kicad" "kicad-symbols" 
-- "kicad-library" is 4.x
-- "libreoffice"
-- '("llvm" "clang")
-- icecat
-- "qemu"
-
-Other packages:
-- "ristretto": an image viewer
-- "cool-retro-term"                   ; not working, when it's working, huge resource consumption
-- "kitty"                             ; not working due to opengl issue
-
-
-I probably want to avoid upgrade these packages so often.
-
-Some packages needs specific channels. my channel
-https://github.com/lihebi/guix-channel.git:
-- cl-clx-truetype
-- sbcl-zpng
-
-** Some packages are broken from now to then
-
-- racket
-- ghc
-- vinagre
-- flameshot
-
-* Back
-
-require channel https://gitlab.com/mbakke/guix-chromium.git
-
-'("chromium")
+For local development, glone the package to say =$HOME/git/guix-channel=, and
+set it to =GUIX_PACKAGE_PATH=. If no error, =guix package -i= should see the
+package.
