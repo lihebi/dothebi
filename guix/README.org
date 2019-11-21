@@ -26,7 +26,6 @@ error, =guix package -i= should see the package.
 guix package -m package.scm
 #+end_example
 
-
 This command will make sure the system contains these *and only* these
 packages. Thus to add a new package afterwards, just use
 
@@ -52,6 +51,13 @@ demand:
 - "libreoffice"
 - '("llvm" "clang")
 - icecat
+- "qemu"
+
+Other packages:
+- "ristretto": an image viewer
+- "cool-retro-term"                   ; not working, when it's working, huge resource consumption
+- "kitty"                             ; not working due to opengl issue
+
 
 I probably want to avoid upgrade these packages so often.
 
