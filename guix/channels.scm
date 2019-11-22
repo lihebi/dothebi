@@ -12,6 +12,9 @@
  ;;  (name 'bimsb-nonfree)
  ;;  (url "https://github.com/BIMSBbioinfo/guix-bimsb-nonfree"))
  (channel
+  (name 'nonguix)
+  (url "https://gitlab.com/nonguix/nonguix"))
+ (channel
   (name 'guix-chromium)
   (url "https://gitlab.com/mbakke/guix-chromium.git")
   (branch "master"))
