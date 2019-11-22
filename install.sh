@@ -74,6 +74,7 @@ if [ -d $HOME/.config/openbox ]; then
     rm -rf $HOME/.config/openbox
 fi
 ln -sf $HOME/.hebi/openbox $HOME/.config/
+ln -sf $HOME/.hebi/guix/channels.scm $HOME/.config/guix/
 
 # mpd
 # if [ ! -d $HOME/.config/mpd ]; then
