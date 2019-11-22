@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export EMAIL="lihebi.com@gmail.com"
 export NAME="Hebi Li"
 export SMTPSERVER="smtp.gmail.com"
@@ -28,5 +30,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 # FIXME GuixSD name
 if hash guix 2>/dev/null; then
     # FIXME should use relative path
-    source "$HOME/.hebi/guix/profile"
+    if [ -f "$HOME/git/guix-channel/machine/profile" ]; then
+        source "$HOME/git/guix-channel/machine/profile"
+    fi
 fi
