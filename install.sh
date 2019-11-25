@@ -20,6 +20,13 @@ ln -sf $HOME/.hebi/ratpoisonrc $HOME/.ratpoisonrc
 # for xdm
 # ln -sf $HOME/.hebi/xsession $HOME/.xsession
 
+# I still want the fonts, because it is quite annoying to get the correct fonts
+# on different environments. It does not hurt to have my fonts.
+if [ -L $HOME/.fonts ]; then
+    rm -f $HOME/.fonts
+fi
+ln -sf $HOME/.hebi/fonts $HOME/.fonts
+
 # app
 
 ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
