@@ -1,0 +1,4 @@
+#+TITLE: Docker config
+
+To enable this, you need to get the config.json into
+=/root/.docker/config.json=, because you typically run docker via sudo.
