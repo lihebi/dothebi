@@ -78,8 +78,15 @@ ln -sf $HOME/.hebi/openbox $HOME/.config/
 mkdir -p $HOME/.config/guix
 ln -sf $HOME/.hebi/guix/channels.scm $HOME/.config/guix/
 
-# mkdir -p $HOME/.config/nixpkgs
-# ln -sf $HOME/.hebi/nixpkgs/config.nix $HOME/.config/nixpkgs/
+# a) For `nixos-rebuild` you can set
+#   { nixpkgs.config.allowUnfree = true; }
+# in configuration.nix to override this.
+
+# b) For `nix-env`, `nix-build`, `nix-shell` or any other Nix command you can add
+#   { allowUnfree = true; }
+# to ~/.config/nixpkgs/config.nix.
+mkdir -p $HOME/.config/nixpkgs
+ln -sf $HOME/.hebi/nixpkgs/config.nix $HOME/.config/nixpkgs/
 
 # mpd
 # if [ ! -d $HOME/.config/mpd ]; then
