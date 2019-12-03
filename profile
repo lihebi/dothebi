@@ -23,6 +23,9 @@ export PATH=$HOME/bin:$PATH
 # python3 -m site --user-base: show the local folder
 export PATH="$HOME/.local/bin/:$PATH"
 
+# enable pip user installation for nixos
+export PYTHONPATH="$HOME/.local/lib/python3.7/site-packages:$PYTHONPATH"
+
 # export LANG=en_US.UTF-8
 # export LC_CTYPE=en_US.UTF-8
 # export LC_ALL=en_US.UTF-8
