@@ -33,6 +33,8 @@ ln -sf $HOME/.hebi/tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/.hebi/xpdfrc $HOME/.xpdfrc
 # ln -sf $HOME/.hebi/sbclrc $HOME/.sbclrc
 
+ln -sf $HOME/.hebi/gitconfig $HOME/.gitconfig
+
 # bash
 ln -sf $HOME/.hebi/bashrc $HOME/.bashrc
 ln -sf $HOME/.hebi/bash_profile $HOME/.bash_profile

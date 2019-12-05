@@ -4,8 +4,6 @@
 - The newsrc.eld file is moved to history-files repo to keep this repo
   cleaner, and ~newsrc.eld~ is symlinked to
   =~/git/history-files=. Thus, I need to clone the repo.
-- =setup-git.sh= setup the git user name and email, as well as
-  storing the credentials
 
 * GDM
 

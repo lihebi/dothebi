@@ -1,0 +1,7 @@
+[user]
+	name = Hebi Li
+	email = lihebi.com@gmail.com
+[credential]
+	helper = store
+[push]
+	default = simple
