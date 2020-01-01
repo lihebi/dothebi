@@ -60,6 +60,7 @@ ln -sf $HOME/.hebi/profile $HOME/.profile
 # fi
 
 ln -sf $HOME/git/history-files/newsrc.eld $HOME/.newsrc.eld
+ln -sf $HOME/.hebi/msmtprc $HOME/.msmtprc
 
 ln -sf $HOME/.hebi/pylintrc $HOME/.pylintrc
 
