@@ -23,6 +23,14 @@ export PATH=$HOME/bin:$PATH
 # python3 -m site --user-base: show the local folder
 export PATH="$HOME/.local/bin/:$PATH"
 
+# cutensor
+export CUTENSOR_ROOT=$HOME/usr/lib/libcutensor
+# it looks like ubuntu banned user from setting LD_LIBRARY_PATH in
+# profile. https://askubuntu.com/questions/807872/cannot-set-ld-library-path-in-etc-profile-d
+# Thus, I should add a conf in /etc/ld.so.conf.d for it, then sudo ldconfig
+export LD_LIBRARY_PATH=${CUTENSOR_ROOT}/lib/10.2/:${LD_LIBRARY_PATH}
+export JULIA_NUM_THREADS=8
+
 # export LANG=en_US.UTF-8
 # export LC_CTYPE=en_US.UTF-8
 # export LC_ALL=en_US.UTF-8
