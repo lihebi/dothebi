@@ -16,8 +16,11 @@ export ASAN_OPTIONS=detect_leaks=0:detect_stack_use_after_scope=0
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/usr/bin:$PATH:$HOME/git/reading/JITX/darpa-idea/scripts/stanza:$HOME/git/reading/JITX/darpa-idea/bin
+export JITPCB_ROOT=$HOME/git/reading/JITX/darpa-idea/bin
 # export INFOPATH=$HOME/.info:$INFOPATH
+
+export BHDL_KICAD_FOOTPRINT_PATH="$HOME/git/reading/kicad-footprints/:$HOME/git/reading/arduino-kicad-library/:$HOME/git/reading/SparkFun-KiCad-Libraries/Footprints/"
 
 # pip install --user xxx: will install under this folder
 # python3 -m site --user-base: show the local folder
