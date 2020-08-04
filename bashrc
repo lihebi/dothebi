@@ -94,7 +94,7 @@ shopt -s checkwinsize
 # but I cannot set the color to rxvt-unitcode-256color inside docker
 export TERM=screen-256color
 # export TERM=xterm-256color
-export EDITOR="emacsclient -t"
+export EDITOR="emacs -nw -q"
 set -o ignoreeof
 
 
