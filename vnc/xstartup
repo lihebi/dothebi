@@ -31,4 +31,14 @@ vncconfig -nowin &
 # xmonad &
 # dbus-launch gnome-session &
 # gnome-session&
-startxfce4&
+# startxfce4&
+# stumpwm&
+
+# FIXME exec? &?
+
+# FIXME gnome-session cannot start
+# exec gnome-session
+
+# But xfce4 works, so I'm using this instead
+exec startxfce4
+# exec openbox-session
