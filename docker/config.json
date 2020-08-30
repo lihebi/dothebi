@@ -1,3 +1,11 @@
 {
-	"detachKeys": "ctrl-],ctrl-["
+    "detachKeys": "ctrl-],ctrl-[",
+    "proxies":
+    {
+        "default":
+        {
+            "httpProxy": "http://192.168.100.42:8888",
+            "httpsProxy": "http://192.168.100.42:8888"
+        }
+    }
 }
