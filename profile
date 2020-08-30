@@ -20,7 +20,7 @@ export PATH=$HOME/usr/bin:$PATH:$HOME/git/reading/JITX/darpa-idea/scripts/stanza
 export JITPCB_ROOT=$HOME/git/reading/JITX/darpa-idea/bin
 # export INFOPATH=$HOME/.info:$INFOPATH
 
-export BHDL_KICAD_FOOTPRINT_PATH="$HOME/git/reading/kicad-footprints/:$HOME/git/reading/arduino-kicad-library/:$HOME/git/reading/SparkFun-KiCad-Libraries/Footprints/"
+export BHDL_LIBRARY_PATH=$HOME/git/bhdl/bhdl-footprints
 
 # pip install --user xxx: will install under this folder
 # python3 -m site --user-base: show the local folder
