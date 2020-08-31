@@ -1,3 +1,4 @@
 fonts/font-cache.sexp
 *.aux
 *.log
+*-checkpoint*
